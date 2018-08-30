@@ -1,6 +1,7 @@
 import tensorflow as tf
-import urllib3
+import urllib3 as url
 from bs4 import BeautifulSoup
+import requests
 
 class TimelineEngine:
 
@@ -14,7 +15,7 @@ class TimelineEngine:
         return searchQuery
 
     def getURLs(self, searchQuery):
-        page = urllib3.urlopen("https://www.google.com/search?q={}".format(searchQuery))
+        page = requests.get("https://www.google.com/search?q={}".format(searchQuery))
         soup = BeautifulSoup(page.read())
         links = soup.findAll("a")
         
@@ -25,9 +26,9 @@ class TimelineEngine:
 
         return URLs
 
-    def TimelineGenerationCheck(locationInfo):
+    def TimelineGenerationCheck(self, locationInfo):
 
-        URLs = self.getURLs(createGoogleSearch(locationInfo))
+        URLs = self.getURLs(self.createGoogleSearch(locationInfo))
 
         return True
 
