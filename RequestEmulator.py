@@ -12,17 +12,15 @@ class RequestEmulator:
     def __init__(self):
         self.locationInfo["name"] = self.locations[np.random.randint(0,high=2)]
         self.locationInfo["address"] = self.address[np.random.randint(0,high=2)]
-        self.locationInfo = json.dumps(self.locationInfo)
         self.callTimelineEngine()
 
     def callTimelineEngine(self):
-        os.system("python TimelineEngine.py {}".format(self.locationInfo))
-
-
+        TE.TimelineGenerationCheck(self.locationInfo)
 
 def main():
 
-    while True:
+    RequestEmulator()
+    while False:
         RequestEmulator()
         time.sleep(np.random.randint(10,high=20))
 
