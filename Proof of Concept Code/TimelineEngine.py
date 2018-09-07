@@ -5,16 +5,31 @@ import re
 
 class TimelineEngine():
 
-    def __init__(self):
-        self.temp = 1
-
     def getWikiPage(self, locationInfo):
-        pages = wikipedia.search("{}".format(locationInfo["address"]))
-        print(pages)
+        result = wikipedia.search("{}".format(locationInfo["name"]))[0]
+        page = wikipedia.page(result)
+        return page
+
+
+    def getPageSummary(self, locationInfo):
+        page = self.getWikiPage(locationInfo) # Not being used right now, will expand when including NLP
+
+        page_content = page.content
+
+        return page_content
+    
+    def generateTimeline(self, locationInfo):
+        summary_text = self.getPageSummary(locationInfo)
+        summary_text = re.sub('[^A-Za-z0-9.]+', ' ', summary_text).lstrip()
+        print(summary_text)
+
 
 
     def TimelineGenerationCheck(self, locationInfo):
+        if(not (self.getPageSummary(locationInfo) == None)):
+            return True
+        else:
+            return False
 
-        return True
 
 
