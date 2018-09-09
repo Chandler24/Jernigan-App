@@ -1,0 +1,7 @@
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\Shared\bin\Release\CaerusSoft.Jernigan.Shared.dll
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\Shared\bin\Release\CaerusSoft.Jernigan.Shared.pdb
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\Shared\bin\Release\CaerusSoft.Jernigan.Proxies.dll
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\Shared\bin\Release\CaerusSoft.Jernigan.Proxies.pdb
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\Shared\obj\Release\Shared.csprojResolveAssemblyReference.cache
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\Shared\obj\Release\CaerusSoft.Jernigan.Shared.dll
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\Shared\obj\Release\CaerusSoft.Jernigan.Shared.pdb

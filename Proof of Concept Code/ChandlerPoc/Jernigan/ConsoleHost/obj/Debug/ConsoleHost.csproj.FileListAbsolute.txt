@@ -1,0 +1,14 @@
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\obj\Debug\ConsoleHost.csprojResolveAssemblyReference.cache
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\bin\Debug\CaerusSoft.Jernigan.ConsoleHost.exe.config
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\bin\Debug\CaerusSoft.Jernigan.ConsoleHost.exe
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\bin\Debug\CaerusSoft.Jernigan.ConsoleHost.pdb
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\bin\Debug\Contracts.dll
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\bin\Debug\Contracts.pdb
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\obj\Debug\CaerusSoft.Jernigan.ConsoleHost.exe
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\obj\Debug\CaerusSoft.Jernigan.ConsoleHost.pdb
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\bin\Debug\CaerusSoft.Jernigan.JerniganManager.dll
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\bin\Debug\CaerusSoft.Jernigan.Shared.dll
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\bin\Debug\CaerusSoft.Jernigan.Proxies.dll
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\bin\Debug\CaerusSoft.Jernigan.JerniganManager.pdb
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\bin\Debug\CaerusSoft.Jernigan.Shared.pdb
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\ConsoleHost\bin\Debug\CaerusSoft.Jernigan.Proxies.pdb
