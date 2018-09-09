@@ -1,5 +1,4 @@
 import tensorflow as tf
-import urllib3 as url
 import wikipedia
 import re
 
@@ -21,8 +20,8 @@ class TimelineEngine():
     def generateTimeline(self, locationInfo):
         summary_text = self.getPageSummary(locationInfo)
         summary_text = re.sub('[^A-Za-z0-9.]+', ' ', summary_text).lstrip()
+        summary_text = re.sub('[.]+', '\n', summary_text)
         print(summary_text)
-
 
 
     def TimelineGenerationCheck(self, locationInfo):
