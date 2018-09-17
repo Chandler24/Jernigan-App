@@ -47,6 +47,8 @@
     <Compile Include="DisposableClientBase.cs" />
     <Compile Include="JerniganManager_EmulatorProxy.cs" />
     <Compile Include="JerniganManager_RealImplProxy.cs" />
+    <Compile Include="JerniganResourceAccess_EmulatorProxy.cs" />
+    <Compile Include="JerniganResourceAccess_RealImplProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

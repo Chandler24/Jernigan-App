@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CaerusSoft.Jernigan.Shared;
 using CaerusSoft.Jernigan.JerniganManager;
+using CaerusSoft.Jernigan.JerniganResourceAccess;
 using System.ServiceModel;
 
 namespace ConsoleHost
@@ -21,7 +22,10 @@ namespace ConsoleHost
                 {
                     typeof(JerniganManager),
                     typeof(JerniganManager_Emulator),
-                    typeof(JerniganManager_RealImpl)
+                    typeof(JerniganManager_RealImpl),
+                    typeof(JerniganResourceAccess),
+                    typeof(JerniganResourceAccess_Emulator),
+                    typeof(JerniganResourceAccess_RealImpl)
                 };
 
                 foreach(Type hostType in hostTypes)

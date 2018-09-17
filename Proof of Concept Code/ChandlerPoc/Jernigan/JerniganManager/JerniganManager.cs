@@ -19,7 +19,7 @@ namespace CaerusSoft.Jernigan.JerniganManager
             switch (runtimeMode)
             {
                 case RuntimeMode.EMULATOR:
-                    m_JerniganManager = JerniganObjectFactory.GetJerniganEmulatorProxy();
+                    m_JerniganManager = JerniganObjectFactory.GetJerniganManagerEmulatorProxy();
                     break;
                 case RuntimeMode.REALIMPL:
                     m_JerniganManager = JerniganObjectFactory.GetJerniganManagerRealImplProxy();
@@ -39,6 +39,21 @@ namespace CaerusSoft.Jernigan.JerniganManager
         public TimelineCheckResponse[] TimelineCheck(GenerateTimelineRequest[] request)
         {
             return m_JerniganManager.TimelineCheck(request);
+        }
+
+        public void AddFavoriteLocation(ManageLocationRequest request)
+        {
+            m_JerniganManager.AddFavoriteLocation(request);
+        }
+
+        public void DeleteFavoriteLocation(ManageLocationRequest request)
+        {
+            m_JerniganManager.DeleteFavoriteLocation(request);
+        }
+
+        public void LeaveFeedback(ManageLocationRequest request)
+        {
+            m_JerniganManager.LeaveFeedback(request);
         }
     }
 }

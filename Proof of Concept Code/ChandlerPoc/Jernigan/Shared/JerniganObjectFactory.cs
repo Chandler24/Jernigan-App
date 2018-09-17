@@ -10,7 +10,7 @@ namespace CaerusSoft.Jernigan.Shared
 {
     public static class JerniganObjectFactory
     {
-        public static IJerniganManager_Emulator GetJerniganEmulatorProxy()
+        public static IJerniganManager_Emulator GetJerniganManagerEmulatorProxy()
         {
             return new JerniganManager_EmulatorProxy();
         }
@@ -18,6 +18,16 @@ namespace CaerusSoft.Jernigan.Shared
         public static IJerniganManager_RealImpl GetJerniganManagerRealImplProxy()
         {
             return new JerniganManager_RealImplProxy();
+        }
+
+        public static IJerniganResourceAccess_Emulator GetJerniganResourceAccessEmulatorProxy()
+        {
+            return new JerniganResourceAccess_EmulatorProxy();
+        }
+
+        public static IJerniganResourceAccess_RealImpl GetJerniganResourceAccessRealImplProxy()
+        {
+            return new JerniganResourceAccess_RealImplProxy();
         }
     }
 }

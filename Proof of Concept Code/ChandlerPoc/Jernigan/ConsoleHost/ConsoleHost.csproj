@@ -51,7 +51,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Contracts\Contracts.csproj">
@@ -61,6 +63,10 @@
     <ProjectReference Include="..\JerniganManager\JerniganManager.csproj">
       <Project>{10922b84-4fdf-446a-97a7-c27492c80c9c}</Project>
       <Name>JerniganManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JerniganResourceAccess\JerniganResourceAccess.csproj">
+      <Project>{036198cd-ed37-4e27-971b-790567121a8d}</Project>
+      <Name>JerniganResourceAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{9177181a-2f4e-482e-bf8c-10820de84848}</Project>

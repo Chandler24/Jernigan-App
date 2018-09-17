@@ -47,11 +47,16 @@
     </Compile>
     <Compile Include="DataContracts\GenerateTimelineRequest.cs" />
     <Compile Include="DataContracts\GenerateTimelineResponse.cs" />
+    <Compile Include="DataContracts\ManageLocationRequest.cs" />
     <Compile Include="DataContracts\TimelineCheckResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingEnum.cs" />
     <Compile Include="ServiceContracts\IJerniganManager.cs" />
     <Compile Include="ServiceContracts\IJerniganManager_Emulator.cs" />
     <Compile Include="ServiceContracts\IJerniganManager_RealImpl.cs" />
+    <Compile Include="ServiceContracts\IJerniganResourceAccess.cs" />
+    <Compile Include="ServiceContracts\IJerniganResourceAccess_Emulator.cs" />
+    <Compile Include="ServiceContracts\IJerniganResourceAccess_RealImpl.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

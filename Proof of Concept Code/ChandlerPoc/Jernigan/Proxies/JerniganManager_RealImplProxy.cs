@@ -9,9 +9,24 @@ namespace CaerusSoft.Jernigan.Proxies
 {
     public class JerniganManager_RealImplProxy : DisposableClientBase<IJerniganManager_RealImpl>, IJerniganManager_RealImpl
     {
+        public void AddFavoriteLocation(ManageLocationRequest request)
+        {
+            base.Channel.AddFavoriteLocation(request);
+        }
+
+        public void DeleteFavoriteLocation(ManageLocationRequest request)
+        {
+            base.Channel.DeleteFavoriteLocation(request);
+        }
+
         public GenerateTimelineResponse GenerateTimeline(GenerateTimelineRequest request)
         {
             return base.Channel.GenerateTimeline(request);
+        }
+
+        public void LeaveFeedback(ManageLocationRequest request)
+        {
+            base.Channel.LeaveFeedback(request);
         }
 
         public TimelineCheckResponse [] TimelineCheck(GenerateTimelineRequest[] request)

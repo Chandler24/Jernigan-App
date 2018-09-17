@@ -9,6 +9,7 @@ namespace CaerusSoft.Jernigan.JerniganManager
 {
     public class JerniganManager_Emulator : IJerniganManager_Emulator
     {
+        /*   Timeline Methods   */
         public GenerateTimelineResponse GenerateTimeline(GenerateTimelineRequest request)
         {
             return new GenerateTimelineResponse
@@ -34,6 +35,22 @@ namespace CaerusSoft.Jernigan.JerniganManager
                     TimelineAvailable = false
                 }
             };
+        }
+
+        /*   Location Management Methods   */
+        public void AddFavoriteLocation(ManageLocationRequest request)
+        {
+            // Assume it worked
+        }
+
+        public void DeleteFavoriteLocation(ManageLocationRequest request)
+        {
+            // Assume it worked
+        }
+
+        public void LeaveFeedback(ManageLocationRequest request)
+        {
+            // Assume it worked
         }
     }
 }

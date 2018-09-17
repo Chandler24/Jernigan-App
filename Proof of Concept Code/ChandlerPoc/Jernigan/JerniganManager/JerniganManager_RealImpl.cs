@@ -9,7 +9,22 @@ namespace CaerusSoft.Jernigan.JerniganManager
 {
     public class JerniganManager_RealImpl : IJerniganManager_RealImpl
     {
+        public void AddFavoriteLocation(ManageLocationRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteFavoriteLocation(ManageLocationRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
         public GenerateTimelineResponse GenerateTimeline(GenerateTimelineRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LeaveFeedback(ManageLocationRequest request)
         {
             throw new NotImplementedException();
         }

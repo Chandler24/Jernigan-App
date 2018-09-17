@@ -15,5 +15,14 @@ namespace CaerusSoft.Jernigan.Contracts
 
         [OperationContract]
         GenerateTimelineResponse GenerateTimeline(GenerateTimelineRequest request);
+
+        [OperationContract]
+        void LeaveFeedback(ManageLocationRequest request);
+
+        [OperationContract]
+        void AddFavoriteLocation(ManageLocationRequest request);
+
+        [OperationContract]
+        void DeleteFavoriteLocation(ManageLocationRequest request);
     }
 }
