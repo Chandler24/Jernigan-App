@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
+import { Foundation, Entypo, MaterialIcons } from '@expo/vector-icons';
 
 import MapScreen from './map'
 import ProfileScreen from './profile'
 import FavoritesScreen from './favorites'
-import { Icon } from 'native-base';
+//import { Icon } from 'native-base';
 
 export default class Home extends Component {
     render() {
@@ -21,7 +22,7 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions: {
         tabBarLabel: 'Map',
         tabBarIcon: ({ tintColor }) => (
-            <Icon name="md-map" color={tintColor} size={24} />
+            <Foundation name="map" size={32} color={tintColor} />
         )}
     },
     Profile: {
@@ -29,7 +30,7 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions: {
         tabBarLabel: 'Profile',
         tabBarIcon: ({ tintColor }) => (
-            <Icon name="md-person" color={tintColor} size={24} />
+            <Entypo name="user" size={32} color={tintColor} />
         )}
     },
     Favorites: {
@@ -37,7 +38,7 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions: {
         tabBarLabel: 'Favorites',
         tabBarIcon: ({ tintColor }) => (
-            <Icon name="md-star" color={tintColor} size={24} />
+            <MaterialIcons name="favorite" size={32} color={tintColor} />
         )}
     },
 },{
@@ -51,12 +52,11 @@ const TabNavigator = createBottomTabNavigator({
             fontSize: 15
         },
         tabStyle: {
-            height: 55
+            height: 65
           },
         style: {
             backgroundColor: '#005ccb',
-            borderTopWidth: 2,
-            height: 60
+            height: 65
         }
     }
 });
