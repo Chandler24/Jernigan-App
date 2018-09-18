@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image } from 'react-native';
 
-export default class Login extends Component {
+export default class Map extends Component {
     render() {
         return(
             <View style={styles.container}>

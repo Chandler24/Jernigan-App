@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default class Login extends Component {
+export default class Profile extends Component {
     render() {
         return(
             <View style={styles.container}>

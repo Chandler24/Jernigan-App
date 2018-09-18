@@ -6,7 +6,6 @@ import { Foundation, Entypo, MaterialIcons } from '@expo/vector-icons';
 import MapScreen from './map'
 import ProfileScreen from './profile'
 import FavoritesScreen from './favorites'
-//import { Icon } from 'native-base';
 
 export default class Home extends Component {
     render() {
