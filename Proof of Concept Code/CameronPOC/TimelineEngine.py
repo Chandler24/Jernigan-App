@@ -36,12 +36,12 @@ class TimelineEngine():
                 timeline_sentences.append(sentence)
 
         
-        # Eventually some code to find image/s of the location
-        images = []
+        
+        images = 
 
         TEObject = TimelineObject()
         TEObject.timeline_sentences = timeline_sentences[0:4]
-        TEObject.images = images
+        TEObject.image = image
 
         for sentence in TEObject.timeline_sentences:
             print(sentence)
