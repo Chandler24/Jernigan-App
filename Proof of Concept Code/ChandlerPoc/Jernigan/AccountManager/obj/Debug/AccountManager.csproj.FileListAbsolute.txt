@@ -1,0 +1,11 @@
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountManager\obj\Debug\AccountManager.csprojResolveAssemblyReference.cache
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountManager\bin\Debug\CaerusSoft.Jernigan.AccountManager.dll
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountManager\bin\Debug\CaerusSoft.Jernigan.AccountManager.pdb
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountManager\bin\Debug\CaerusSoft.Jernigan.Shared.dll
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountManager\bin\Debug\Contracts.dll
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountManager\bin\Debug\CaerusSoft.Jernigan.Proxies.dll
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountManager\bin\Debug\Contracts.pdb
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountManager\bin\Debug\CaerusSoft.Jernigan.Shared.pdb
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountManager\bin\Debug\CaerusSoft.Jernigan.Proxies.pdb
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountManager\obj\Debug\CaerusSoft.Jernigan.AccountManager.dll
+C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountManager\obj\Debug\CaerusSoft.Jernigan.AccountManager.pdb

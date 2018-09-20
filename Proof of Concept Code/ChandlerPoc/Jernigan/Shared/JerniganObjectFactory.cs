@@ -29,5 +29,25 @@ namespace CaerusSoft.Jernigan.Shared
         {
             return new JerniganResourceAccess_RealImplProxy();
         }
+
+        public static IAccountManager_Emulator GetAccountManagerEmulatorProxy()
+        {
+            return new AccountManager_EmulatorProxy();
+        }
+
+        public static IAccountManager_RealImpl GetAccountManagerRealImplProxy()
+        {
+            return new AccountManager_RealImplProxy();
+        }
+
+        public static IAccountResourceAccess_Emulator GetAccountResourceAccessEmulatorProxy()
+        {
+            return new AccountResourceAccess_EmulatorProxy();
+        }
+
+        public static IAccountResourceAccess_RealImpl GetAccountResourceAccessRealImplProxy()
+        {
+            return new AccountResourceAccess_RealImplProxy();
+        }
     }
 }
