@@ -19,13 +19,18 @@ class TimelineEngine():
         page_history = page.section("History")
         page_content = page.content
         if len(page_history) < 10:
-            return page_content, .2
+            return page_content, .2, page.images
 
-        return page_history, .9
+        return page_history, .9, page.images
+    
+    def findBestImage(self, images, label):
+        for image in images:
+            if re.search(image, label):
+                return image
     
     def generateTimeline(self, locationInfo):
         print(locationInfo['name'])
-        summary_text, ratio = self.getPageContent(locationInfo)
+        summary_text, ratio, images = self.getPageContent(locationInfo)
         #summary_text = re.sub('[^A-Za-z0-9.]+', ' ', summary_text).lstrip()
         summary_text = summarize(summary_text, ratio=ratio, split=True)
 
@@ -37,15 +42,11 @@ class TimelineEngine():
 
         
         
-        images = 
+        image = self.findBestImage(images, locationInfo['name'])
 
         TEObject = TimelineObject()
         TEObject.timeline_sentences = timeline_sentences[0:4]
         TEObject.image = image
-
-        for sentence in TEObject.timeline_sentences:
-            print(sentence)
-            print("\n")
 
         return TEObject
             

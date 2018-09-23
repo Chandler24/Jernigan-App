@@ -16,7 +16,7 @@ class Emulator:
         self.generateFakeLocation()
         if(self.TimelineEngine.TimelineGenerationCheck(self.locationInfo)):
             print("TimelineExists")
-            self.TimelineEngine.generateTimeline(self.locationInfo)
+            self.TEObject = self.TimelineEngine.generateTimeline(self.locationInfo)
         else:
             print("Timeline Does Not Exist - Graceful Exit")
 
@@ -26,7 +26,10 @@ class Emulator:
     
     
 def main(): 
-    Emulator().callTimelineEngine()  
+    E = Emulator()
+    E.callTimelineEngine()
+    print(E.TEObject.image)
+    print(E.TEObject.timeline_sentences)
 
 
 class UnitTests:
