@@ -1,6 +1,7 @@
 import wikipedia
 import re
 from gensim.summarization.summarizer import summarize
+import sys
 
 class TimelineObject():
     pass
@@ -27,6 +28,8 @@ class TimelineEngine():
         for image in images:
             if re.search(image, label):
                 return image
+        
+        return images[0]
     
     def generateTimeline(self, locationInfo):
         print(locationInfo['name'])
@@ -58,4 +61,25 @@ class TimelineEngine():
             return True
 
 
+def main():
+    if len(sys.argv) < 2:
+        f = open("output.txt", "w")
+        f.write("\n\n0")
+        return
 
+    locationInfo={}
+    locationInfo['name'] = sys.argv[1]
+    locationInfo['address'] = sys.argv[2]
+    TE = TimelineEngine()
+    TEObject = TE.generateTimeline(locationInfo)
+
+    f = open("output.txt", "w")
+    for line in TEObject.timeline_sentences:
+        f.write(line)
+
+    f.write("\n\n")
+    f.write(TEObject.image)
+
+
+if __name__ == "__main__":
+    main()
