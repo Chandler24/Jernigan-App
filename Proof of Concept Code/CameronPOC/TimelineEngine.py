@@ -63,22 +63,31 @@ class TimelineEngine():
 
 def main():
     if len(sys.argv) < 2:
+        locationInfo={}
+        locationInfo['name'] = "Harvard University"
+        locationInfo['address'] = "123 Fake Address Lane"
+        TE = TimelineEngine()
+        TEObject = TE.generateTimeline(locationInfo)
+
         f = open("output.txt", "w")
-        f.write("\n\n0")
-        return
+        for line in TEObject.timeline_sentences:
+            f.write(line)
 
-    locationInfo={}
-    locationInfo['name'] = sys.argv[1]
-    locationInfo['address'] = sys.argv[2]
-    TE = TimelineEngine()
-    TEObject = TE.generateTimeline(locationInfo)
+        f.write("\n\n")
+        f.write(TEObject.image)
+    else:
+        locationInfo={}
+        locationInfo['name'] = sys.argv[1]
+        locationInfo['address'] = sys.argv[2]
+        TE = TimelineEngine()
+        TEObject = TE.generateTimeline(locationInfo)
 
-    f = open("output.txt", "w")
-    for line in TEObject.timeline_sentences:
-        f.write(line)
+        f = open("output.txt", "w")
+        for line in TEObject.timeline_sentences:
+            f.write(line)
 
-    f.write("\n\n")
-    f.write(TEObject.image)
+        f.write("\n\n")
+        f.write(TEObject.image)
 
 
 if __name__ == "__main__":
