@@ -20,7 +20,7 @@ namespace TestClient
                 new GenerateTimelineRequest
                 {
                     LocationAddress = "123 Candy Cane Way",
-                    LocationName = "Willy Wonka's Chocolate Factory"
+                    LocationName = "Harvard University"
                 },
                 new GenerateTimelineRequest
                 {

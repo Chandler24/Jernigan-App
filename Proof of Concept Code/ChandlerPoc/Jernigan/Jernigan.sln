@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManager", "AccountMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountResourceAccess", "AccountResourceAccess\AccountResourceAccess.csproj", "{BCB9EE45-3AEF-405E-8972-A2102EDB9E06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JerniganService", "JerniganService\JerniganService.csproj", "{FA804BFD-7056-42DC-9C0F-864015741CFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{BCB9EE45-3AEF-405E-8972-A2102EDB9E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCB9EE45-3AEF-405E-8972-A2102EDB9E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCB9EE45-3AEF-405E-8972-A2102EDB9E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA804BFD-7056-42DC-9C0F-864015741CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA804BFD-7056-42DC-9C0F-864015741CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA804BFD-7056-42DC-9C0F-864015741CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA804BFD-7056-42DC-9C0F-864015741CFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
