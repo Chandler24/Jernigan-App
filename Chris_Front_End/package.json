@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "expo": "^27.0.1",
+    "jshint": "^2.9.6",
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-native-maps": "^0.21.0",

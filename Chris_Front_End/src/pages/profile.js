@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 export default class Profile extends Component {
     render() {
-        return(
+        return (
             <View style={styles.container}>
                 <FontAwesome name="user-circle-o" size={200} color='#ffffff' />
                 <Text style={styles.userText}>Username</Text>
@@ -24,10 +24,10 @@ export default class Profile extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      flexGrow: 1,
-      backgroundColor: '#2e88ff',
-      alignItems: 'center',
-      justifyContent: 'center',
+        flexGrow: 1,
+        backgroundColor: '#2e88ff',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
     buttonText: {
@@ -45,11 +45,11 @@ const styles = StyleSheet.create({
     },
 
     button: {
-        width:300,
+        width: 300,
         height: 50,
         marginTop: 20,
         backgroundColor: '#005ccb',
-        borderRadius: 25,   
-        paddingVertical: 9     
+        borderRadius: 25,
+        paddingVertical: 9
     },
 });

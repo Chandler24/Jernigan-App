@@ -1,19 +1,19 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default class FavElement extends Component {
     render() {
-        return(
+        return (
             <View style={styles.favoriteElement}>
-                <Image source={this.props.imageUri} style={styles.image}/>
+                <Image source={this.props.imageUri} style={styles.image} />
                 <Text style={styles.title}>{this.props.name}</Text>
-            </View>  
+            </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    favoriteElement:{
+    favoriteElement: {
         borderRadius: 25,
         height: 130,
         borderWidth: 2,
@@ -22,15 +22,15 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
 
-    image:{
+    image: {
         borderRadius: 20,
-        flex:1, 
-        width:null, 
-        height:null, 
+        flex: 1,
+        width: null,
+        height: null,
         resizeMode: 'cover'
     },
 
-    title:{
+    title: {
         color: '#ffffff',
         fontSize: 20,
         fontWeight: '500',

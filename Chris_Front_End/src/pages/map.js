@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import { StyleSheet, View} from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
 import MapView from 'react-native-maps';
 
 export default class Map extends Component {
     render() {
-        return(
+        return (
             <View style={styles.container}>
                 <MapView
                     style={styles.map}
@@ -12,14 +12,15 @@ export default class Map extends Component {
                         latitude: 28.6014,
                         longitude: -81.1987,
                         latitudeDelta: 0.0030,
-                        longitudeDelta: 0.0030,}}>
+                        longitudeDelta: 0.0030,
+                    }}>
                     <MapView.Marker
                         coordinate={{
                             latitude: 28.6014,
                             longitude: -81.1987,
                         }}>
                         <View style={styles.radius}>
-                            <View style={styles.marker}/>
+                            <View style={styles.marker} />
                         </View>
                     </MapView.Marker>
                 </MapView>
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
         position: 'absolute'
     },
 
-    radius:{
+    radius: {
         height: 50,
         width: 50,
         borderRadius: 25,
