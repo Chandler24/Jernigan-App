@@ -5,6 +5,14 @@ import { FontAwesome } from '@expo/vector-icons';
 
 export default class TimelineView extends Component {
 
+    addToFavorites = () => {
+        alert('Added to Favorites!')
+    }
+
+    onSignUpSubmit = () => {
+        alert('Comments Not Implemented')
+    }
+
     // Aligns the header text with back button
     static navigationOptions = {
         headerRight: (

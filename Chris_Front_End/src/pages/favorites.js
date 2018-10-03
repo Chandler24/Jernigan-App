@@ -23,50 +23,6 @@ class Favorites extends Component {
                             name="Orlando City Hall"
                             onPress={this.generateTimeline}
                         />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
                     </ScrollView>
                 </View>
             </View>

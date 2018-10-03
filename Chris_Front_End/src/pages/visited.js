@@ -19,50 +19,6 @@ export default class Visited extends Component {
                             imageUri={require('../images/cityhall.jpg')}
                             name="Orlando City Hall"
                         />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
                     </ScrollView>
                 </View>
             </View>

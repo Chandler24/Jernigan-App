@@ -2,26 +2,51 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 
 export default class Signup extends Component {
+
+    state = {
+        username: '',
+        password: '',
+        passwordConfirm: ''
+    };
+
+    onSignUpSubmit = () => {
+        var username = this.state.username;
+        var password = this.state.password;
+        var passwordConfirm = this.state.passwordConfirm;
+
+        if (password != passwordConfirm) {
+            alert('Passwords do not match')
+            return;
+        }
+        else {
+            alert('Account Created!')
+            this.props.navigation.navigate('Login')
+        }
+    }
+    
     render() {
         return (
             <View style={styles.container}>
                 <Image style={styles.logo} source={require('../images/logo.png')} />
                 <View>
                     <TextInput style={styles.inputBox}
+                        onChangeText={(value) => this.setState({username: value})}
                         underlineColorAndroid='rgba(0,0,0,0)'
                         placeholder="Username"
                         placeholderTextColor='rgba(255,255,255,0.75)' />
                     <TextInput style={styles.inputBox}
+                        onChangeText={(value) => this.setState({password: value})}
                         underlineColorAndroid='rgba(0,0,0,0)'
                         placeholder="Password"
                         secureTextEntry={true}
                         placeholderTextColor='rgba(255,255,255,0.75)' />
                     <TextInput style={styles.inputBox}
+                        onChangeText={(value) => this.setState({passwordConfirm: value})}
                         underlineColorAndroid='rgba(0,0,0,0)'
                         placeholder=" Confirm Password"
                         secureTextEntry={true}
                         placeholderTextColor='rgba(255,255,255,0.75)' />
-                    <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Home')}>
+                    <TouchableOpacity style={styles.button} onPress={this.onSignUpSubmit}>
                         <Text style={styles.buttonText}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>

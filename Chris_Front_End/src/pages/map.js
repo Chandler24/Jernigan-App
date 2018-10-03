@@ -40,12 +40,17 @@ class Map extends Component {
                     }}>
                     <MapView.Marker
                         coordinate={{
+                            latitude: 28.6005,
+                            longitude: -81.1987,
+                        }}>
+                        <View style={styles.radius}/>
+                    </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{
                             latitude: 28.6014,
                             longitude: -81.1987,
                         }}>
-                        <View style={styles.radius}>
-                            <View style={styles.marker} />
-                        </View>
+                        <View style={styles.marker} />
                     </MapView.Marker>
                     <MapView.Marker
                         coordinate={{
@@ -58,7 +63,7 @@ class Map extends Component {
                     </MapView.Marker>    
                     <MapView.Marker
                         coordinate={{
-                            latitude: 28.6007,
+                            latitude: 28.6009,
                             longitude: -81.1980}}
                         title={"UCF Student Union"}
                         description={"Click here for timeline!"}
@@ -117,9 +122,9 @@ const styles = StyleSheet.create({
     },
 
     radius: {
-        height: 50,
-        width: 50,
-        borderRadius: 25,
+        height: 300,
+        width: 300,
+        borderRadius: 300,
         overflow: 'hidden',
         backgroundColor: 'rgba(0, 122, 255, 0.1)',
         borderWidth: 1,
