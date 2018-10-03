@@ -9,19 +9,24 @@ export default class Login extends Component {
     };
 
     onLoginSubmit = () => {
- /*       var username = this.state.username;
+        var username = this.state.username;
         var password = this.state.password;
+/*
+        var serviceurl = 'api/Account/SignIn';
 
-        fetch('http://localhost:64388/api/Account/SignIn', {
-          method: 'POST',
-          headers:{
-              Accept: 'application/json',
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-              username: username,
-              password: password
-          })  
+        console.warn(serviceurl);
+
+        fetch(serviceurl, {
+        //fetch('https://www.facebook.com', {
+            method: 'POST',
+            headers:{
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })  
         })
 
         if(username != 'demo' && password != 'demo')
