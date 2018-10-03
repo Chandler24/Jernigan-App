@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
-import FavElement from './../components/favElement'
+import { createStackNavigator } from 'react-navigation';
 
-export default class Favorites extends Component {
+import TimelineScreen from './timeline'
+import FavElement from './../components/favElement'
+import LogoTitle from './../components/logotitle'
+
+class Favorites extends Component {
+
+    generateTimeline = () => {
+        this.props.navigation.navigate('./../pages/timeline')
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <View>
-                    <Text style={styles.headerText} > Favorites</Text>
-                </View>
-                <View>
-                    <ScrollView horizontal={false} showsVerticalScrollIndicator={false}>
+                    <ScrollView showsVerticalScrollIndicator={false}>
+                        <View style={{margin : 6}}/>
                         <FavElement
                             imageUri={require('../images/cityhall.jpg')}
                             name="Orlando City Hall"
+                            onPress={this.generateTimeline}
                         />
                         <FavElement
                             imageUri={require('../images/cityhall.jpg')}
@@ -66,6 +74,26 @@ export default class Favorites extends Component {
     }
 }
 
+export default createStackNavigator({
+    Favorites: {
+        screen: Favorites
+    },
+    Timeline: {
+      screen: TimelineScreen
+    },   
+    },
+    {
+        initialRouteName: 'Favorites',
+        navigationOptions: {
+            headerTitle: LogoTitle,
+            headerStyle: {
+                backgroundColor: '#005ccb',
+            },
+            headerTintColor: '#ffffff',
+          }
+    }
+ );
+
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
@@ -75,7 +103,7 @@ const styles = StyleSheet.create({
     headerText: {
         color: '#ffffff',
         fontSize: 40,
-        marginTop: 5,
+        paddingBottom: 5,
         fontWeight: '500',
         textAlign: 'center',
     },

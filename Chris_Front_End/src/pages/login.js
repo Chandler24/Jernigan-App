@@ -8,13 +8,25 @@ export default class Login extends Component {
         password: ''
     };
 
-    onSubmit = () => {
-        var username = this.state.username;
+    onLoginSubmit = () => {
+ /*       var username = this.state.username;
         var password = this.state.password;
 
-        if(username != 'demo' && password != 'demo')
-            return;
+        fetch('http://localhost:64388/api/Account/SignIn', {
+          method: 'POST',
+          headers:{
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              username: username,
+              password: password
+          })  
+        })
 
+        if(username != 'demo' && password != 'demo')
+           return;
+*/
         this.props.navigation.navigate('Home')
     }
 
@@ -38,7 +50,7 @@ export default class Login extends Component {
                         secureTextEntry={true}
                         placeholderTextColor='rgba(255,255,255,0.75)'
                         selectionColor='rgba(255,255,255,0.75)' />
-                    <TouchableOpacity style={styles.button} onPress={this.onSubmit}>
+                    <TouchableOpacity style={styles.button} onPress={this.onLoginSubmit}>
                         <Text style={styles.buttonText} >Log In</Text>
                     </TouchableOpacity>
                 </View>

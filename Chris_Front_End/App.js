@@ -17,7 +17,7 @@ export default class App extends Component {
 const AppRouteNavigator = createSwitchNavigator({
   Login: LoginScreen,
   Signup: SignupScreen,
-  Home: HomeScreen
+  Home: HomeScreen,
 });
 
 const styles = StyleSheet.create({
