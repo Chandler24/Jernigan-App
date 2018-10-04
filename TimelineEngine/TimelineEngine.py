@@ -28,9 +28,13 @@ class TimelineEngine():
             if re.search(image, label):
                 return image
         
-        return images[0]
+        if len(images) > 0:
+            return images[0]
+        else:
+            return "No Images Found"
     
     def generateTimeline(self, locationInfo):
+        print(locationInfo)
         summary_text, ratio, images = self.getPageContent(locationInfo)
         #summary_text = re.sub('[^A-Za-z0-9.]+', ' ', summary_text).lstrip()
         summary_text = summarize(summary_text, ratio=ratio, split=True)
@@ -42,7 +46,6 @@ class TimelineEngine():
                 timeline_sentences.append(sentence)
 
         TimelineObject = {}
-        images = 
         
         image = self.findBestImage(images, locationInfo)
 
