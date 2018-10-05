@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#2e88ff",
+      "flexGrow": 1,
+    }
+  }
+>
+  <View>
+    <RCTScrollView
+      horizontal={false}
+      showsVerticalScrollIndicator={false}
+    >
+      <View>
+        <View
+          style={
+            Object {
+              "margin": 6,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "backgroundColor": "#005ccb",
+              "borderColor": "#005ccb",
+              "borderRadius": 25,
+              "borderWidth": 2,
+              "height": 130,
+              "marginBottom": 10,
+            }
+          }
+        >
+          <Image
+            source={1}
+            style={
+              Object {
+                "borderRadius": 20,
+                "flex": 1,
+                "height": null,
+                "resizeMode": "cover",
+                "width": null,
+              }
+            }
+          />
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 20,
+                "fontWeight": "500",
+                "textAlign": "center",
+              }
+            }
+          >
+            Orlando City Hall
+             
+          </Text>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;

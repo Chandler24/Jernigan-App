@@ -11,16 +11,15 @@ class Profile extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <FontAwesome name="user-circle-o" size={200} color='#ffffff' />
-                <Text style={styles.userText}>Username</Text>
+                <FontAwesome name="user-circle-o" size={150} color='#ffffff' />
+                <Text style={styles.usernameText}>Jay Edwards</Text>
+                <Text style={styles.residenceText}>New York</Text>
+                <Text style={styles.aboutText}>My name is Jay Edwards, and I love to travel. My biggest passion is traveling the world and experiencing new adventures and cultures. I live for it. I live in New York, but most years I manage to get three months off from my job to travel the world and write about what I see, hear, feel and do. Then I go back to work with my heart full and start saving and planning for my next adventure to a new destination.</Text>
                 <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Visited')} >
                     <Text style={styles.buttonText} >Visited Locations</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={() => alert('Edit Profile Not Implemented')}>
                     <Text style={styles.buttonText} >Edit Profile</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => alert('RFN Not Implemented')} >
-                    <Text style={styles.buttonText} >Random Fact Nearby</Text>
                 </TouchableOpacity>
             </View>
         )
@@ -62,11 +61,26 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 
-    userText: {
+    usernameText: {
         color: '#ffffff',
         fontSize: 45,
         fontWeight: '500',
         textAlign: 'center',
+    },
+
+    residenceText: {
+        color: '#ffffff',
+        fontSize: 20,
+        fontWeight: '500',
+        textAlign: 'center',
+    },
+
+    aboutText: {
+        color: '#ffffff',
+        fontSize: 14,
+        textAlign: 'center',
+        marginLeft: 10,
+        marginRight: 10
     },
 
     button: {
