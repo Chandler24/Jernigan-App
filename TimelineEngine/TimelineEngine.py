@@ -34,9 +34,10 @@ class TimelineEngine():
             return "No Images Found"
     
     def generateTimeline(self, locationInfo):
-        print(locationInfo)
+        if(not (self.TimelineGenerationCheck(locationInfo))):
+            return "{'sentences' : 'No Data Found'}"
+
         summary_text, ratio, images = self.getPageContent(locationInfo)
-        #summary_text = re.sub('[^A-Za-z0-9.]+', ' ', summary_text).lstrip()
         summary_text = summarize(summary_text, ratio=ratio, split=True)
 
         timeline_sentences = []
@@ -62,7 +63,7 @@ class TimelineEngine():
             
 
     def TimelineGenerationCheck(self, locationInfo):
-        if bool(re.search(locationInfo, self.getPageContent(locationInfo)[0])):         
+        if bool(re.search(locationInfo, self.getPageContent(locationInfo)[0]) != None):         
             return True
         else:
-            return True
+            return False

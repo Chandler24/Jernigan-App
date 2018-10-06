@@ -30,14 +30,3 @@ def main():
     E.callTimelineEngine()
     print(E.TEObject.image)
     print(E.TEObject.timeline_sentences)
-
-
-class UnitTests:
-
-    def __init__(self):
-        self.TimelineEngine = TE.TimelineEngine()
-    
-    def someTest(self):
-        print()
-
-main()
