@@ -4,7 +4,7 @@
 
 ## Sprint #2 Functionality
 
-![Image](Jernigan-App/Chris_Front_End/Design/post2.gif)
+![Image](./Design/post2.gif)
 
 
 ## Table of Contents
