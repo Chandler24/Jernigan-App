@@ -1,0 +1,1707 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#2e88ff",
+      "flexGrow": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "padding": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          undefined,
+        ]
+      }
+    >
+      <RCTScrollView
+        automaticallyAdjustContentInsets={false}
+        dataSource={
+          ListViewDataSource {
+            "items": 8,
+          }
+        }
+        renderRow={[Function]}
+        renderScrollComponent={[Function]}
+        style={
+          Object {
+            "paddingTop": 5,
+          }
+        }
+      >
+        <View>
+          <View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "flex-end",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "minWidth": 45,
+                      },
+                      Object {
+                        "flex": 2,
+                        "justifyContent": "center",
+                        "minWidth": 65,
+                        "paddingTop": 16,
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "black",
+                          "textAlign": "right",
+                        },
+                        Object {
+                          "backgroundColor": "#76b7ff",
+                          "borderRadius": 13,
+                          "color": "white",
+                          "fontSize": 20,
+                          "fontWeight": "bold",
+                          "padding": 5,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    2018
+                  </Text>
+                </View>
+              </View>
+              <View
+                onLayout={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "borderLeftWidth": 2,
+                      "flex": 1,
+                      "flexDirection": "column",
+                    },
+                    Object {
+                      "borderColor": "#005ccb",
+                      "borderLeftWidth": 2,
+                      "borderRightWidth": 0,
+                      "marginLeft": 20,
+                      "paddingLeft": 20,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  collapsable={undefined}
+                  hasTVPreferredFocus={undefined}
+                  hitSlop={undefined}
+                  isTVSelectable={true}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID={undefined}
+                  tvParallaxProperties={undefined}
+                >
+                  <View
+                    style={
+                      Object {
+                        "paddingBottom": 10,
+                        "paddingTop": 10,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    >
+                      <View>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "fontSize": 16,
+                                "fontWeight": "bold",
+                              },
+                              Object {
+                                "color": "white",
+                                "fontSize": 20,
+                                "fontWeight": "bold",
+                              },
+                            ]
+                          }
+                        >
+                          Old Orlando
+                        </Text>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "marginTop": 10,
+                              },
+                              Object {
+                                "color": "white",
+                              },
+                            ]
+                          }
+                        >
+                          Today, the historic core of "Old Orlando" resides in Downtown Orlando along Church Street, between Orange Avenue and Garland Avenue. The Urban development and the Central Business District of downtown have rapidly shaped the downtown skyline during recent history.
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 10,
+                      "height": 16,
+                      "justifyContent": "center",
+                      "left": -8,
+                      "position": "absolute",
+                      "width": 16,
+                    },
+                    Object {
+                      "backgroundColor": "#005ccb",
+                      "borderRadius": 10,
+                      "height": 0,
+                      "left": -9.5,
+                      "width": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 4,
+                        "height": 8,
+                        "width": 8,
+                      },
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 5,
+                        "height": 10,
+                        "width": 10,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+          <View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "flex-end",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "minWidth": 45,
+                      },
+                      Object {
+                        "flex": 2,
+                        "justifyContent": "center",
+                        "minWidth": 65,
+                        "paddingTop": 16,
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "black",
+                          "textAlign": "right",
+                        },
+                        Object {
+                          "backgroundColor": "#76b7ff",
+                          "borderRadius": 13,
+                          "color": "white",
+                          "fontSize": 20,
+                          "fontWeight": "bold",
+                          "padding": 5,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    2016
+                  </Text>
+                </View>
+              </View>
+              <View
+                onLayout={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "borderLeftWidth": 2,
+                      "flex": 1,
+                      "flexDirection": "column",
+                    },
+                    Object {
+                      "borderColor": "#005ccb",
+                      "borderLeftWidth": 2,
+                      "borderRightWidth": 0,
+                      "marginLeft": 20,
+                      "paddingLeft": 20,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  collapsable={undefined}
+                  hasTVPreferredFocus={undefined}
+                  hitSlop={undefined}
+                  isTVSelectable={true}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID={undefined}
+                  tvParallaxProperties={undefined}
+                >
+                  <View
+                    style={
+                      Object {
+                        "paddingBottom": 10,
+                        "paddingTop": 10,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    >
+                      <View>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "fontSize": 16,
+                                "fontWeight": "bold",
+                              },
+                              Object {
+                                "color": "white",
+                                "fontSize": 20,
+                                "fontWeight": "bold",
+                              },
+                            ]
+                          }
+                        >
+                          Pulse Shooting
+                        </Text>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "marginTop": 10,
+                              },
+                              Object {
+                                "color": "white",
+                              },
+                            ]
+                          }
+                        >
+                          On June 12, 2016, more than 100 people were shot at Pulse, a gay nightclub in Orlando. Fifty (including the gunman) were killed and 60 were wounded. The gunman, whom the police SWAT team shot to death, was identified as 29-year-old Omar Mir Seddique Mateen, an American security guard of Afghan descent. 
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 10,
+                      "height": 16,
+                      "justifyContent": "center",
+                      "left": -8,
+                      "position": "absolute",
+                      "width": 16,
+                    },
+                    Object {
+                      "backgroundColor": "#005ccb",
+                      "borderRadius": 10,
+                      "height": 0,
+                      "left": -9.5,
+                      "width": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 4,
+                        "height": 8,
+                        "width": 8,
+                      },
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 5,
+                        "height": 10,
+                        "width": 10,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+          <View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "flex-end",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "minWidth": 45,
+                      },
+                      Object {
+                        "flex": 2,
+                        "justifyContent": "center",
+                        "minWidth": 65,
+                        "paddingTop": 16,
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "black",
+                          "textAlign": "right",
+                        },
+                        Object {
+                          "backgroundColor": "#76b7ff",
+                          "borderRadius": 13,
+                          "color": "white",
+                          "fontSize": 20,
+                          "fontWeight": "bold",
+                          "padding": 5,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    2014
+                  </Text>
+                </View>
+              </View>
+              <View
+                onLayout={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "borderLeftWidth": 2,
+                      "flex": 1,
+                      "flexDirection": "column",
+                    },
+                    Object {
+                      "borderColor": "#005ccb",
+                      "borderLeftWidth": 2,
+                      "borderRightWidth": 0,
+                      "marginLeft": 20,
+                      "paddingLeft": 20,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  collapsable={undefined}
+                  hasTVPreferredFocus={undefined}
+                  hitSlop={undefined}
+                  isTVSelectable={true}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID={undefined}
+                  tvParallaxProperties={undefined}
+                >
+                  <View
+                    style={
+                      Object {
+                        "paddingBottom": 10,
+                        "paddingTop": 10,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    >
+                      <View>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "fontSize": 16,
+                                "fontWeight": "bold",
+                              },
+                              Object {
+                                "color": "white",
+                                "fontSize": 20,
+                                "fontWeight": "bold",
+                              },
+                            ]
+                          }
+                        >
+                          Lake Eola Festival
+                        </Text>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "marginTop": 10,
+                              },
+                              Object {
+                                "color": "white",
+                              },
+                            ]
+                          }
+                        >
+                          Lake Eola in 1911 The geography of Orlando is mostly wetlands, consisting of many lakes and swamps.
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 10,
+                      "height": 16,
+                      "justifyContent": "center",
+                      "left": -8,
+                      "position": "absolute",
+                      "width": 16,
+                    },
+                    Object {
+                      "backgroundColor": "#005ccb",
+                      "borderRadius": 10,
+                      "height": 0,
+                      "left": -9.5,
+                      "width": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 4,
+                        "height": 8,
+                        "width": 8,
+                      },
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 5,
+                        "height": 10,
+                        "width": 10,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+          <View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "flex-end",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "minWidth": 45,
+                      },
+                      Object {
+                        "flex": 2,
+                        "justifyContent": "center",
+                        "minWidth": 65,
+                        "paddingTop": 16,
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "black",
+                          "textAlign": "right",
+                        },
+                        Object {
+                          "backgroundColor": "#76b7ff",
+                          "borderRadius": 13,
+                          "color": "white",
+                          "fontSize": 20,
+                          "fontWeight": "bold",
+                          "padding": 5,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    2010
+                  </Text>
+                </View>
+              </View>
+              <View
+                onLayout={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "borderLeftWidth": 2,
+                      "flex": 1,
+                      "flexDirection": "column",
+                    },
+                    Object {
+                      "borderColor": "#005ccb",
+                      "borderLeftWidth": 2,
+                      "borderRightWidth": 0,
+                      "marginLeft": 20,
+                      "paddingLeft": 20,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  collapsable={undefined}
+                  hasTVPreferredFocus={undefined}
+                  hitSlop={undefined}
+                  isTVSelectable={true}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID={undefined}
+                  tvParallaxProperties={undefined}
+                >
+                  <View
+                    style={
+                      Object {
+                        "paddingBottom": 10,
+                        "paddingTop": 10,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    >
+                      <View>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "fontSize": 16,
+                                "fontWeight": "bold",
+                              },
+                              Object {
+                                "color": "white",
+                                "fontSize": 20,
+                                "fontWeight": "bold",
+                              },
+                            ]
+                          }
+                        >
+                          Unincorporation
+                        </Text>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "marginTop": 10,
+                              },
+                              Object {
+                                "color": "white",
+                              },
+                            ]
+                          }
+                        >
+                          There are 115 neighborhoods within the city limits and many unincorporated communities. Orlandos city limits resemble a checkerboard, with pockets of unincorporated Orange County surrounded by city limits.
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 10,
+                      "height": 16,
+                      "justifyContent": "center",
+                      "left": -8,
+                      "position": "absolute",
+                      "width": 16,
+                    },
+                    Object {
+                      "backgroundColor": "#005ccb",
+                      "borderRadius": 10,
+                      "height": 0,
+                      "left": -9.5,
+                      "width": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 4,
+                        "height": 8,
+                        "width": 8,
+                      },
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 5,
+                        "height": 10,
+                        "width": 10,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+          <View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "flex-end",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "minWidth": 45,
+                      },
+                      Object {
+                        "flex": 2,
+                        "justifyContent": "center",
+                        "minWidth": 65,
+                        "paddingTop": 16,
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "black",
+                          "textAlign": "right",
+                        },
+                        Object {
+                          "backgroundColor": "#76b7ff",
+                          "borderRadius": 13,
+                          "color": "white",
+                          "fontSize": 20,
+                          "fontWeight": "bold",
+                          "padding": 5,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    2008
+                  </Text>
+                </View>
+              </View>
+              <View
+                onLayout={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "borderLeftWidth": 2,
+                      "flex": 1,
+                      "flexDirection": "column",
+                    },
+                    Object {
+                      "borderColor": "#005ccb",
+                      "borderLeftWidth": 2,
+                      "borderRightWidth": 0,
+                      "marginLeft": 20,
+                      "paddingLeft": 20,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  collapsable={undefined}
+                  hasTVPreferredFocus={undefined}
+                  hitSlop={undefined}
+                  isTVSelectable={true}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID={undefined}
+                  tvParallaxProperties={undefined}
+                >
+                  <View
+                    style={
+                      Object {
+                        "paddingBottom": 10,
+                        "paddingTop": 10,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    >
+                      <View>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "fontSize": 16,
+                                "fontWeight": "bold",
+                              },
+                              Object {
+                                "color": "white",
+                                "fontSize": 20,
+                                "fontWeight": "bold",
+                              },
+                            ]
+                          }
+                        >
+                          Old Orlando
+                        </Text>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "marginTop": 10,
+                              },
+                              Object {
+                                "color": "white",
+                              },
+                            ]
+                          }
+                        >
+                          Today, the historic core of "Old Orlando" resides in Downtown Orlando along Church Street, between Orange Avenue and Garland Avenue. The Urban development and the Central Business District of downtown have rapidly shaped the downtown skyline during recent history.
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 10,
+                      "height": 16,
+                      "justifyContent": "center",
+                      "left": -8,
+                      "position": "absolute",
+                      "width": 16,
+                    },
+                    Object {
+                      "backgroundColor": "#005ccb",
+                      "borderRadius": 10,
+                      "height": 0,
+                      "left": -9.5,
+                      "width": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 4,
+                        "height": 8,
+                        "width": 8,
+                      },
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 5,
+                        "height": 10,
+                        "width": 10,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+          <View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "flex-end",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "minWidth": 45,
+                      },
+                      Object {
+                        "flex": 2,
+                        "justifyContent": "center",
+                        "minWidth": 65,
+                        "paddingTop": 16,
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "black",
+                          "textAlign": "right",
+                        },
+                        Object {
+                          "backgroundColor": "#76b7ff",
+                          "borderRadius": 13,
+                          "color": "white",
+                          "fontSize": 20,
+                          "fontWeight": "bold",
+                          "padding": 5,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    2005
+                  </Text>
+                </View>
+              </View>
+              <View
+                onLayout={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "borderLeftWidth": 2,
+                      "flex": 1,
+                      "flexDirection": "column",
+                    },
+                    Object {
+                      "borderColor": "#005ccb",
+                      "borderLeftWidth": 2,
+                      "borderRightWidth": 0,
+                      "marginLeft": 20,
+                      "paddingLeft": 20,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  collapsable={undefined}
+                  hasTVPreferredFocus={undefined}
+                  hitSlop={undefined}
+                  isTVSelectable={true}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID={undefined}
+                  tvParallaxProperties={undefined}
+                >
+                  <View
+                    style={
+                      Object {
+                        "paddingBottom": 10,
+                        "paddingTop": 10,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    >
+                      <View>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "fontSize": 16,
+                                "fontWeight": "bold",
+                              },
+                              Object {
+                                "color": "white",
+                                "fontSize": 20,
+                                "fontWeight": "bold",
+                              },
+                            ]
+                          }
+                        >
+                          Pulse Shooting
+                        </Text>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "marginTop": 10,
+                              },
+                              Object {
+                                "color": "white",
+                              },
+                            ]
+                          }
+                        >
+                          On June 12, 2016, more than 100 people were shot at Pulse, a gay nightclub in Orlando. Fifty (including the gunman) were killed and 60 were wounded. The gunman, whom the police SWAT team shot to death, was identified as 29-year-old Omar Mir Seddique Mateen, an American security guard of Afghan descent. 
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 10,
+                      "height": 16,
+                      "justifyContent": "center",
+                      "left": -8,
+                      "position": "absolute",
+                      "width": 16,
+                    },
+                    Object {
+                      "backgroundColor": "#005ccb",
+                      "borderRadius": 10,
+                      "height": 0,
+                      "left": -9.5,
+                      "width": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 4,
+                        "height": 8,
+                        "width": 8,
+                      },
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 5,
+                        "height": 10,
+                        "width": 10,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+          <View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "flex-end",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "minWidth": 45,
+                      },
+                      Object {
+                        "flex": 2,
+                        "justifyContent": "center",
+                        "minWidth": 65,
+                        "paddingTop": 16,
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "black",
+                          "textAlign": "right",
+                        },
+                        Object {
+                          "backgroundColor": "#76b7ff",
+                          "borderRadius": 13,
+                          "color": "white",
+                          "fontSize": 20,
+                          "fontWeight": "bold",
+                          "padding": 5,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    2002
+                  </Text>
+                </View>
+              </View>
+              <View
+                onLayout={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "borderLeftWidth": 2,
+                      "flex": 1,
+                      "flexDirection": "column",
+                    },
+                    Object {
+                      "borderColor": "#005ccb",
+                      "borderLeftWidth": 2,
+                      "borderRightWidth": 0,
+                      "marginLeft": 20,
+                      "paddingLeft": 20,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  collapsable={undefined}
+                  hasTVPreferredFocus={undefined}
+                  hitSlop={undefined}
+                  isTVSelectable={true}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID={undefined}
+                  tvParallaxProperties={undefined}
+                >
+                  <View
+                    style={
+                      Object {
+                        "paddingBottom": 10,
+                        "paddingTop": 10,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    >
+                      <View>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "fontSize": 16,
+                                "fontWeight": "bold",
+                              },
+                              Object {
+                                "color": "white",
+                                "fontSize": 20,
+                                "fontWeight": "bold",
+                              },
+                            ]
+                          }
+                        >
+                          Lake Eola Festival
+                        </Text>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "marginTop": 10,
+                              },
+                              Object {
+                                "color": "white",
+                              },
+                            ]
+                          }
+                        >
+                          Lake Eola in 1911 The geography of Orlando is mostly wetlands, consisting of many lakes and swamps.
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 10,
+                      "height": 16,
+                      "justifyContent": "center",
+                      "left": -8,
+                      "position": "absolute",
+                      "width": 16,
+                    },
+                    Object {
+                      "backgroundColor": "#005ccb",
+                      "borderRadius": 10,
+                      "height": 0,
+                      "left": -9.5,
+                      "width": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 4,
+                        "height": 8,
+                        "width": 8,
+                      },
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 5,
+                        "height": 10,
+                        "width": 10,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+          <View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "flex-end",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "minWidth": 45,
+                      },
+                      Object {
+                        "flex": 2,
+                        "justifyContent": "center",
+                        "minWidth": 65,
+                        "paddingTop": 16,
+                      },
+                    ]
+                  }
+                >
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "black",
+                          "textAlign": "right",
+                        },
+                        Object {
+                          "backgroundColor": "#76b7ff",
+                          "borderRadius": 13,
+                          "color": "white",
+                          "fontSize": 20,
+                          "fontWeight": "bold",
+                          "padding": 5,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    2000
+                  </Text>
+                </View>
+              </View>
+              <View
+                onLayout={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "borderLeftWidth": 2,
+                      "flex": 1,
+                      "flexDirection": "column",
+                    },
+                    Object {
+                      "borderColor": "rgba(0,0,0,0)",
+                      "borderLeftWidth": 2,
+                      "borderRightWidth": 0,
+                      "marginLeft": 20,
+                      "paddingLeft": 20,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessibilityComponentType={undefined}
+                  accessibilityLabel={undefined}
+                  accessibilityTraits={undefined}
+                  accessible={true}
+                  collapsable={undefined}
+                  hasTVPreferredFocus={undefined}
+                  hitSlop={undefined}
+                  isTVSelectable={true}
+                  nativeID={undefined}
+                  onLayout={undefined}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID={undefined}
+                  tvParallaxProperties={undefined}
+                >
+                  <View
+                    style={
+                      Object {
+                        "paddingBottom": 10,
+                        "paddingTop": 10,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "flex": 1,
+                        }
+                      }
+                    >
+                      <View>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "fontSize": 16,
+                                "fontWeight": "bold",
+                              },
+                              Object {
+                                "color": "white",
+                                "fontSize": 20,
+                                "fontWeight": "bold",
+                              },
+                            ]
+                          }
+                        >
+                          Unincorporation
+                        </Text>
+                        <Text
+                          accessible={true}
+                          allowFontScaling={true}
+                          ellipsizeMode="tail"
+                          style={
+                            Array [
+                              Object {
+                                "marginTop": 10,
+                              },
+                              Object {
+                                "color": "white",
+                              },
+                            ]
+                          }
+                        >
+                          There are 115 neighborhoods within the city limits and many unincorporated communities. Orlandos city limits resemble a checkerboard, with pockets of unincorporated Orange County surrounded by city limits.
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 10,
+                      "height": 16,
+                      "justifyContent": "center",
+                      "left": -8,
+                      "position": "absolute",
+                      "width": 16,
+                    },
+                    Object {
+                      "backgroundColor": "#005ccb",
+                      "borderRadius": 10,
+                      "height": 0,
+                      "left": -9.5,
+                      "width": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 4,
+                        "height": 8,
+                        "width": 8,
+                      },
+                      Object {
+                        "backgroundColor": "white",
+                        "borderRadius": 5,
+                        "height": 10,
+                        "width": 10,
+                      },
+                    ]
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</View>
+`;

@@ -5,33 +5,9 @@ import { FontAwesome } from '@expo/vector-icons';
 
 export default class TimelineView extends Component {
 
-    addToFavorites = () => {
-        alert('Added to Favorites!')
-    }
-
-    onSignUpSubmit = () => {
-        alert('Comments Not Implemented')
-    }
-
     // Aligns the header text with back button
     static navigationOptions = {
-        headerRight: (
-            <View style={{flex:1, flexDirection: 'row', padding: 15}}>
-                <FontAwesome
-                    name="star"
-                    onPress={() => alert('Added to Favorites!')}
-                    color="#fff"
-                    size={30}
-                />
-                <View style={{padding: 10}}/>
-                <FontAwesome
-                    name="comments-o"
-                    onPress={() => alert('Comments Not Implemented')}
-                    color="#fff"
-                    size={30}
-                />
-            </View>
-        ),
+        headerRight: <View/>
     }
 
     constructor(){

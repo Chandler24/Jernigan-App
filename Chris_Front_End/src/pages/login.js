@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image, ActivityIndicator } from 'react-native';
 
 export default class Login extends Component {
 
@@ -12,7 +12,7 @@ export default class Login extends Component {
         var username = this.state.username;
         var password = this.state.password;
 /*
-        var serviceurl = 'api/Account/SignIn';
+        var serviceurl = 'http://localhost:64388/api/Account/SignIn';
 
         console.warn(serviceurl);
 
@@ -36,6 +36,15 @@ export default class Login extends Component {
     }
 
     render() {
+
+        if (this.state.isLoading){
+            return(
+              <View style={{flex: 1, padding: 20}}>
+                <ActivityIndicator/>
+              </View>
+            )
+        }
+
         return (
             <View style={styles.container}>
                 <Image style={styles.logo} source={require('../images/logo.png')} />

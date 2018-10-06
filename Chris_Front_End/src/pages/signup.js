@@ -43,7 +43,13 @@ export default class Signup extends Component {
                     <TextInput style={styles.inputBox}
                         onChangeText={(value) => this.setState({passwordConfirm: value})}
                         underlineColorAndroid='rgba(0,0,0,0)'
-                        placeholder=" Confirm Password"
+                        placeholder="Confirm Password"
+                        secureTextEntry={true}
+                        placeholderTextColor='rgba(255,255,255,0.75)' />
+                    <TextInput style={styles.inputBox}
+                        onChangeText={(value) => this.setState({passwordConfirm: value})}
+                        underlineColorAndroid='rgba(0,0,0,0)'
+                        placeholder="City of Residence"
                         secureTextEntry={true}
                         placeholderTextColor='rgba(255,255,255,0.75)' />
                     <TouchableOpacity style={styles.button} onPress={this.onSignUpSubmit}>

@@ -4,6 +4,8 @@ import MapView from 'react-native-maps';
 import { createStackNavigator } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
 
+import CommentScreen from './comment'
+import LocationScreen from './location'
 import TimelineScreen from './timeline'
 import LogoTitle from './../components/logotitle'
 
@@ -23,8 +25,8 @@ class Map extends Component {
         ),
     }
 
-    generateTimeline = () => {
-        this.props.navigation.navigate('Timeline')
+    getlocation = () => {
+        this.props.navigation.navigate('Location')
     }
 
     render() {
@@ -53,7 +55,7 @@ class Map extends Component {
                             longitude: -81.1995}}
                         title={"Kennedy Space Center"}
                         description={"Click here for timeline!"}
-                        onCalloutPress={this.generateTimeline}
+                        onCalloutPress={this.getlocation}
                         pinColor= '#007AFF'>
                     </MapView.Marker>    
                     <MapView.Marker
@@ -62,7 +64,7 @@ class Map extends Component {
                             longitude: -81.1980}}
                         title={"UCF Student Union"}
                         description={"Click here for timeline!"}
-                        onCalloutPress={this.generateTimeline}
+                        onCalloutPress={this.getlocation}
                         pinColor= '#007AFF'>
                     </MapView.Marker>
                     <MapView.Marker
@@ -71,7 +73,7 @@ class Map extends Component {
                             longitude: -81.1982}}
                         title={"Dave & Busters"}
                         description={"Click here for timeline!"}
-                        onCalloutPress={this.generateTimeline}
+                        onCalloutPress={this.getlocation}
                         pinColor= '#007AFF'>
                     </MapView.Marker>
                 </MapView>
@@ -84,9 +86,15 @@ export default createStackNavigator({
     Map: {
         screen: Map
     },
+    Location: {
+        screen: LocationScreen
+    },
     Timeline: {
-      screen: TimelineScreen
-    },   
+        screen: TimelineScreen
+    }, 
+    Comment: {
+        screen: CommentScreen
+    }   
     },
     {
         initialRouteName: 'Map',
