@@ -1,0 +1,14 @@
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\bin\Debug\AccountResourceAccessTests.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\bin\Debug\AccountResourceAccessTests.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\bin\Debug\CaerusSoft.Jernigan.AccountResourceAccess.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\bin\Debug\Contracts.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\bin\Debug\CaerusSoft.Jernigan.Shared.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\bin\Debug\CaerusSoft.Jernigan.Proxies.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\bin\Debug\CaerusSoft.Jernigan.AccountResourceAccess.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\bin\Debug\Contracts.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\bin\Debug\CaerusSoft.Jernigan.Shared.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\bin\Debug\CaerusSoft.Jernigan.Proxies.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\obj\Debug\AccountResourceAccessTests.csprojResolveAssemblyReference.cache
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\obj\Debug\AccountResourceAccessTests.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccessTests\obj\Debug\AccountResourceAccessTests.pdb

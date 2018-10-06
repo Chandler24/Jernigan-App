@@ -1,0 +1,14 @@
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\AccountManagerTests.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\AccountManagerTests.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\CaerusSoft.Jernigan.AccountManager.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\Contracts.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\CaerusSoft.Jernigan.Shared.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\CaerusSoft.Jernigan.Proxies.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\CaerusSoft.Jernigan.AccountManager.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\Contracts.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\CaerusSoft.Jernigan.Shared.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\CaerusSoft.Jernigan.Proxies.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\obj\Debug\AccountManagerTests.csprojResolveAssemblyReference.cache
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\obj\Debug\AccountManagerTests.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\obj\Debug\AccountManagerTests.pdb

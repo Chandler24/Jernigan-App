@@ -20,3 +20,6 @@ C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\TestClie
 C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\TestClient\bin\Debug\IronPython.xml
 C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\TestClient\bin\Debug\Microsoft.Dynamic.xml
 C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\TestClient\bin\Debug\Microsoft.Scripting.Metadata.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\TestClient\bin\Debug\TestClient.exe.config
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\TestClient\obj\Debug\TestClient.exe
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\TestClient\obj\Debug\TestClient.pdb

@@ -23,6 +23,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountResourceAccess", "Ac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JerniganService", "JerniganService\JerniganService.csproj", "{FA804BFD-7056-42DC-9C0F-864015741CFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JerniganManagerTests", "JerniganManagerTests\JerniganManagerTests.csproj", "{963C3974-6B39-4615-8DB2-AB46BC5BAE1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagerTests", "AccountManagerTests\AccountManagerTests.csproj", "{86CD14B4-9ADC-4D0F-918A-3CC94DE78B45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountResourceAccessTests", "AccountResourceAccessTests\AccountResourceAccessTests.csproj", "{72B553AF-763A-4A86-A831-F3C191CA5557}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JerniganResourceAccessTests", "JerniganResourceAccessTests\JerniganResourceAccessTests.csproj", "{EE97C131-C756-4A4C-AB61-3C47E2351B05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JerniganServiceTests", "JerniganServiceTests\JerniganServiceTests.csproj", "{92521B08-5B6E-4437-ACD8-A02D568FD73A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +79,26 @@ Global
 		{FA804BFD-7056-42DC-9C0F-864015741CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA804BFD-7056-42DC-9C0F-864015741CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA804BFD-7056-42DC-9C0F-864015741CFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{963C3974-6B39-4615-8DB2-AB46BC5BAE1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963C3974-6B39-4615-8DB2-AB46BC5BAE1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963C3974-6B39-4615-8DB2-AB46BC5BAE1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963C3974-6B39-4615-8DB2-AB46BC5BAE1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86CD14B4-9ADC-4D0F-918A-3CC94DE78B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86CD14B4-9ADC-4D0F-918A-3CC94DE78B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86CD14B4-9ADC-4D0F-918A-3CC94DE78B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86CD14B4-9ADC-4D0F-918A-3CC94DE78B45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B553AF-763A-4A86-A831-F3C191CA5557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B553AF-763A-4A86-A831-F3C191CA5557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B553AF-763A-4A86-A831-F3C191CA5557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B553AF-763A-4A86-A831-F3C191CA5557}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE97C131-C756-4A4C-AB61-3C47E2351B05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE97C131-C756-4A4C-AB61-3C47E2351B05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE97C131-C756-4A4C-AB61-3C47E2351B05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE97C131-C756-4A4C-AB61-3C47E2351B05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92521B08-5B6E-4437-ACD8-A02D568FD73A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92521B08-5B6E-4437-ACD8-A02D568FD73A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92521B08-5B6E-4437-ACD8-A02D568FD73A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92521B08-5B6E-4437-ACD8-A02D568FD73A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
