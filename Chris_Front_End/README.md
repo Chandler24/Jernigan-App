@@ -1,6 +1,11 @@
-## Current Functionality
+## Sprint #1 Functionality
 
 ![Image](https://i.imgur.com/huHoyo0.gif)
+
+## Sprint #2 Functionality
+
+![Video](https://i.imgur.com/d4pJ7ws.mp4)
+
 
 ## Table of Contents
 
