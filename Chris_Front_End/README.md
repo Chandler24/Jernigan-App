@@ -4,7 +4,7 @@
 
 ## Sprint #2 Functionality
 
-![Video](https://i.imgur.com/d4pJ7ws.mp4)
+![Image](Jernigan-App/Chris_Front_End/Design/post2.gif)
 
 
 ## Table of Contents
