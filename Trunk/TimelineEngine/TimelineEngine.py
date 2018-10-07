@@ -7,13 +7,18 @@ import json
 class TimelineEngine():
 
     def getWikiPage(self, locationInfo):
+        if locationInfo == None or locationInfo == "":
+            return None
+            
         result = wikipedia.search("{}".format(locationInfo))[0]
         page = wikipedia.page(result)
         return page
 
 
     def getPageContent(self, locationInfo):
-        print(locationInfo)
+        if locationInfo == None or locationInfo == "":
+            return None
+
         page = self.getWikiPage(locationInfo)
 
         page_history = page.section("History")
@@ -24,18 +29,18 @@ class TimelineEngine():
         return page_history, .9, page.images
     
     def findBestImage(self, images, label):
+        if images == None or images == [] or label == None or label == "":
+            return None
+
         for image in images:
             if re.search(image, label):
                 return image
         
-        if len(images) > 0:
-            return images[0]
-        else:
-            return "No Images Found"
-    
+        return images[0]
+
     def generateTimeline(self, locationInfo):
         if(not (self.TimelineGenerationCheck(locationInfo))):
-            return "{'sentences' : 'No Data Found'}"
+            return "No Timeline Avaliable"
 
         summary_text, ratio, images = self.getPageContent(locationInfo)
         summary_text = summarize(summary_text, ratio=ratio, split=True)
@@ -63,6 +68,9 @@ class TimelineEngine():
             
 
     def TimelineGenerationCheck(self, locationInfo):
+        if locationInfo == None or locationInfo == "" or type(locationInfo) != str:
+            return False
+
         if bool(re.search(locationInfo, self.getPageContent(locationInfo)[0]) != None):         
             return True
         else:

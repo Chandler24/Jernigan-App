@@ -1,4 +1,0 @@
-C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\JerniganManager\bin\Release\CaerusSoft.Jernigan.JerniganManager.dll
-C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\JerniganManager\bin\Release\CaerusSoft.Jernigan.JerniganManager.pdb
-C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\JerniganManager\obj\Release\CaerusSoft.Jernigan.JerniganManager.dll
-C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\JerniganManager\obj\Release\CaerusSoft.Jernigan.JerniganManager.pdb

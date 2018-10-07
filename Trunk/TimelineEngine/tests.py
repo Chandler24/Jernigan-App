@@ -1,108 +1,44 @@
 import server
 import TimelineEngine
 import os
+import unittest
+import wikipedia
 
-class UnitTests():
+class UnitTests(unittest.TestCase):
 
     def __init__(self):
         self.TE = TimelineEngine.TimelineEngine()
+        self.page = wikipedia.page("Stanford University")
+        self.images = self.page.images
+        self.page_content = (self.page, .1, self.images)
         os.system("python server.py")
 
-    def test_server(self):
-        try:
-            os.system("curl -XGET 'localhost:9999' -d 'Stanford University'")
-        except:
-            return 0
-
-        return 1
-        
-
     def test_getWikiPage(self):
-        try:
-            self.TE.getWikiPage("Stanford University")
-        except:
-            return 0
-        
-        try:
-            self.TE.getWikiPage("")
-        except:
-            return 0
-        
-        try
-            self.TE.getWikiPage(None)
-        except:
-            return 0
-
-        return 1
+        self.assertIs(self.TE.getWikiPage("Stanford University"), str)
+        self.assertIs(self.TE.getWikiPage(""), None)
+        self.assertIs(self.TE.getWikiPage(None), None)
 
     def test_getPageContent(self):
-        try:
-            self.TE.getPageContent("Stanford University")
-        except:
-            return 0
+        self.assertIs(self.TE.getWikiPage("Stanford University"), type(self.page_content))
+        self.assertIs(self.TE.getWikiPage(""), None)
+        self.assertIs(self.TE.getWikiPage(None), None)
         
-        try:
-            self.TE.getPageContent("")
-        except:
-            return 0
-        
-        try
-            self.TE.getPageContent(None)
-        except:
-            return 0
-
-        return 1
-
     def test_findBestImage(self):
-        try:
-            self.TE.findBestImage("Stanford University")
-        except:
-            return 0
+        self.assertEqual(self.TE.findBestImage(self.images, "Stanford University"), typeof(self.images[0]))
+        self.assertEqual(self.TE.findBestImage([], "Stanford University"), None)
+        self.assertEqual(self.TE.findBestImage(None, ""), None)
         
-        try:
-            self.TE.findBestImage("")
-        except:
-            return 0
-        
-        try
-            self.TE.findBestImage(None)
-        except:
-            return 0
-
-        return 1
-
     def test_generateTimeline(self):
-        try:
-            self.TE.generateTimeline("Stanford University")
-        except:
-            return 0
-        
-        try:
-            self.TE.generateTimeline("")
-        except:
-            return 0
-        
-        try
-            self.TE.generateTimeline(None)
-        except:
-            return 0
-
-        return 1 
+        self.assertIs(self.TE.getWikiPage("Stanford University"), str)
+        self.assertEqual(self.TE.getWikiPage(""), "No Timeline Avaliable")
+        self.assertEqual(self.TE.getWikiPage(None), "No Timeline Avaliable")
 
     def test_timelineGenerationCheck(self):
-        try:
-            self.TE.TimelineGenerationCheck("Stanford University")
-        except:
-            return 0
-        
-        try:
-            self.TE.TimelineGenerationCheck("")
-        except:
-            return 0
-        
-        try
-            self.TE.TimelineGenerationCheck(None)
-        except:
-            return 0
+        self.assertTrue(self.TE.("Stanford University"), str)
+        self.assertFalse(self.TE.getWikiPage(""), str)
+        self.assertFalse(self.TE.getWikiPage(None), str)
 
-        return 1 
+
+
+if __name__ == '__main__':
+    unittest.main()
