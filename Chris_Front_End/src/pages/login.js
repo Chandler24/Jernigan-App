@@ -11,27 +11,9 @@ export default class Login extends Component {
     onLoginSubmit = () => {
         var username = this.state.username;
         var password = this.state.password;
-/*
-        var serviceurl = 'http://localhost:64388/api/Account/SignIn';
-
-        console.warn(serviceurl);
-
-        fetch(serviceurl, {
-        //fetch('https://www.facebook.com', {
-            method: 'POST',
-            headers:{
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password
-            })  
-        })
-
-        if(username != 'demo' && password != 'demo')
-           return;
-*/
+        var hostip = "http://2c3b1175.ngrok.io"
+        var command = hostip + "/api/Account/SignIn?username=" + username + "&password=" + password;
+        fetch(command, { method: 'POST' })
         this.props.navigation.navigate('Home')
     }
 

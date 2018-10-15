@@ -12,8 +12,6 @@ sampleCommentsRaw.forEach(c => {
 
 const sampleComments = Object.freeze(sampleCommentsRaw);
 
-import moment from "moment";
-
 export function getComments() {
   const c = [...sampleComments];
   return c.splice(c.length - 5);
