@@ -3,3 +3,8 @@ C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\Contract
 C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\Contracts\obj\Debug\Contracts.dll
 C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\Contracts\obj\Debug\Contracts.pdb
 C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\Contracts\obj\Debug\Contracts.csprojResolveAssemblyReference.cache
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\Contracts\bin\Debug\Contracts.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\Contracts\bin\Debug\Contracts.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\Contracts\obj\Debug\Contracts.csprojResolveAssemblyReference.cache
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\Contracts\obj\Debug\Contracts.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\Contracts\obj\Debug\Contracts.pdb

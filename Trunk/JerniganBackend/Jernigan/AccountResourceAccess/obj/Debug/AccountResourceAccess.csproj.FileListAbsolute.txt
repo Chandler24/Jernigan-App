@@ -9,3 +9,14 @@ C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountR
 C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountResourceAccess\obj\Debug\AccountResourceAccess.csprojResolveAssemblyReference.cache
 C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountResourceAccess\obj\Debug\CaerusSoft.Jernigan.AccountResourceAccess.dll
 C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\AccountResourceAccess\obj\Debug\CaerusSoft.Jernigan.AccountResourceAccess.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccess\bin\Debug\CaerusSoft.Jernigan.AccountResourceAccess.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccess\bin\Debug\CaerusSoft.Jernigan.AccountResourceAccess.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccess\bin\Debug\CaerusSoft.Jernigan.Shared.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccess\bin\Debug\Contracts.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccess\bin\Debug\CaerusSoft.Jernigan.Proxies.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccess\bin\Debug\Contracts.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccess\bin\Debug\CaerusSoft.Jernigan.Shared.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccess\bin\Debug\CaerusSoft.Jernigan.Proxies.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccess\obj\Debug\AccountResourceAccess.csprojResolveAssemblyReference.cache
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccess\obj\Debug\CaerusSoft.Jernigan.AccountResourceAccess.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountResourceAccess\obj\Debug\CaerusSoft.Jernigan.AccountResourceAccess.pdb

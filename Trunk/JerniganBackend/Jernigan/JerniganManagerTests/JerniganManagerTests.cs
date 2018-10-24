@@ -17,17 +17,17 @@ namespace CaerusSoft.Jernigan.JerniganManager.Tests
         [TestMethod()]
         public void GenerateTimelineTest()
         {
-            // Arrange
+            // Setup
             GenerateTimelineRequest request = new GenerateTimelineRequest()
             {
                 LocationAddress = "Test Location Address",
                 LocationName = "Test Location Name"
             };
 
-            // Act
+            // Invoke
             GenerateTimelineResponse response = m_JerniganManager.GenerateTimeline(request);
 
-            // Assert
+            // Verify
             Assert.AreNotEqual(string.Empty, response.Timeline);
         }
 
@@ -49,10 +49,10 @@ namespace CaerusSoft.Jernigan.JerniganManager.Tests
                 }
             };
 
-            // Act
+            // Invoke
             TimelineCheckResponse [] response = m_JerniganManager.TimelineCheck(request);
 
-            // Assert
+            // Verify
             int numberOfTimelines = response.Length;
             Assert.AreNotEqual(0, numberOfTimelines);
         }
@@ -69,10 +69,10 @@ namespace CaerusSoft.Jernigan.JerniganManager.Tests
                 UserId = Guid.NewGuid()
             };
 
-            // Act
+            // Invoke
             m_JerniganManager.AddFavoriteLocation(request);
 
-            // Assert is handled by exceptions
+            // Verify is handled by exceptions
         }
 
         [TestMethod()]
@@ -87,10 +87,10 @@ namespace CaerusSoft.Jernigan.JerniganManager.Tests
                 UserId = Guid.NewGuid()
             };
 
-            // Act
+            // Invoke
             m_JerniganManager.DeleteFavoriteLocation(request);
 
-            // Assert is handled by exceptions
+            // Verify is handled by exceptions
         }
 
         [TestMethod()]
@@ -105,10 +105,10 @@ namespace CaerusSoft.Jernigan.JerniganManager.Tests
                 UserId = Guid.NewGuid()
             };
 
-            // Act
+            // Invoke
             m_JerniganManager.LeaveFeedback(request);
 
-            // Assert is handled by exceptions
+            // Verify is handled by exceptions
         }
     }
 }

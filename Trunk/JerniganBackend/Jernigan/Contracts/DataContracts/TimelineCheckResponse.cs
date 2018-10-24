@@ -11,6 +11,9 @@ namespace CaerusSoft.Jernigan.Contracts
     public class TimelineCheckResponse
     {
         [DataMember]
+        public Guid LocationId { get; set; }
+
+        [DataMember]
         public string LocationName { get; set; }
 
         [DataMember]
@@ -18,5 +21,11 @@ namespace CaerusSoft.Jernigan.Contracts
 
         [DataMember]
         public bool TimelineAvailable { get; set; }
+
+        [DataMember]
+        public string Longitude { get; set; }
+
+        [DataMember] 
+        public string Latitude { get; set; }
     }
 }
