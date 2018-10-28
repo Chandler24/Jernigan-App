@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CaerusSoft.Jernigan.Contracts;
 using IronPython.Modules;
+using System.Net.Http; 
 
 namespace CaerusSoft.Jernigan.JerniganManager
 {
@@ -22,18 +23,20 @@ namespace CaerusSoft.Jernigan.JerniganManager
 
         public GenerateTimelineResponse GenerateTimeline(GenerateTimelineRequest request)
         {
-            Microsoft.Scripting.Hosting.ScriptEngine timelineEngine =
-                IronPython.Hosting.Python.CreateEngine();
+            var content = new FormUrlEncodedContent(new[]
+            {
+                new KeyValuePair<string, string>("data", request.LocationName)
+            });
 
 
-            List<string> searchPaths = new List<string>();
-            searchPaths.Add(@"C:\Users\chand\AppData\Local\Programs\Python\Python37");
-            searchPaths.Add(@"C:\Users\chand\AppData\Local\Programs\Python\Python37\Lib");
-            searchPaths.Add(@"C:\Users\chand\AppData\Local\Programs\Python\Python37\Lib\site-packages");
-            timelineEngine.SetSearchPaths(searchPaths);
-            timelineEngine.ExecuteFile(@"C:\Dev\Projects\Jernigan App\Proof of Concept Code\CameronPOC\TimelineEngine.py");
+            HttpClient client = new HttpClient();
+            var d = client.PostAsync("http://localhost:9999/", content);
 
-            throw new NotImplementedException();
+            GenerateTimelineResponse response = new GenerateTimelineResponse() {
+               Timeline = d.Result.ToString()
+            };
+
+            return response;
         }
 
         public void LeaveFeedback(ManageLocationRequest request)

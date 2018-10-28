@@ -25,3 +25,30 @@ C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\Jernigan
 C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\JerniganManager\bin\Debug\Microsoft.Dynamic.xml
 C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\JerniganManager\bin\Debug\Microsoft.Scripting.xml
 C:\Dev\Projects\Jernigan App\Proof of Concept Code\ChandlerPoc\Jernigan\JerniganManager\bin\Debug\Microsoft.Scripting.Metadata.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\CaerusSoft.Jernigan.JerniganManager.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\CaerusSoft.Jernigan.JerniganManager.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\CaerusSoft.Jernigan.Shared.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\Contracts.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\Dynamitey.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\IronPython.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\IronPython.Modules.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\IronPython.SQLite.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\IronPython.Wpf.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\Microsoft.Dynamic.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\Microsoft.Scripting.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\Microsoft.Scripting.Metadata.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\CaerusSoft.Jernigan.Proxies.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\Contracts.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\CaerusSoft.Jernigan.Shared.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\IronPython.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\IronPython.Modules.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\IronPython.SQLite.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\IronPython.Wpf.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\Microsoft.Dynamic.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\Microsoft.Scripting.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\Microsoft.Scripting.Metadata.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\CaerusSoft.Jernigan.Proxies.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\obj\Debug\JerniganManager.csprojResolveAssemblyReference.cache
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\obj\Debug\CaerusSoft.Jernigan.JerniganManager.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\obj\Debug\CaerusSoft.Jernigan.JerniganManager.pdb
