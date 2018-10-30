@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import './global'
 
 import TimelineScreen from './timeline'
 import FavElement from './../components/favElement'
@@ -10,6 +11,33 @@ class Favorites extends Component {
 
     generateTimeline = () => {
         this.props.navigation.navigate('./../pages/timeline')
+    }
+
+    state = {favorites : []};
+    componentWillMount(){
+        var userId = JSON.stringify({guid: 'bbbd861b-62ae-4eb5-9677-3aa2e354c583'});
+        var command = global.url + "/api/Location/GetFavoriteLocations?userId=" + userId;
+
+        fetch(command, { 
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+        },
+
+        // Parces json data from server response
+        }).then((response) => response.json())
+        // plays with the parsed json data and performs some function.
+        .then((responseJson) => {
+            for (i = 0; i < responseJson.LocationInfo; i++)
+            this.setState({favorites : responseJson.LocationInfo[i]});
+        })
+        //catches any error.
+        .catch((error) => {
+            console.error(error);
+        });
+    
+        
     }
 
     render() {
@@ -43,7 +71,7 @@ export default createStackNavigator({
         navigationOptions: {
             headerTitle: LogoTitle,
             headerStyle: {
-                backgroundColor: '#005ccb',
+                backgroundColor: '#191919',
             },
             headerTintColor: '#ffffff',
           }
@@ -53,7 +81,7 @@ export default createStackNavigator({
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
-        backgroundColor: '#2e88ff'
+        backgroundColor: '#3f3f3f'
     },
 
     headerText: {

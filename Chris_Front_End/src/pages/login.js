@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image, ActivityIndicator } from 'react-native';
+import LottieView from 'lottie-react-native';
+import './global'
 
 export default class Login extends Component {
 
@@ -11,12 +13,29 @@ export default class Login extends Component {
     onLoginSubmit = () => {
         var username = this.state.username;
         var password = this.state.password;
-        var hostip = "http://2c3b1175.ngrok.io"
-        var command = hostip + "/api/Account/SignIn?username=" + username + "&password=" + password;
-        fetch(command, { method: 'POST' })
-        this.props.navigation.navigate('Home')
+        var command = global.url + "/api/Account/SignIn?username=" + username + "&password=" + password;
+        
+        fetch(command, { 
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+        },
+        // Parces json data from server response
+        }).then((response) => response.json())
+        // plays with the parsed json data and performs some function.
+        .then((responseJson) => {
+            if (responseJson.SignInSuccessful == true)
+                this.props.navigation.navigate('Home')
+            else{
+                alert("Invalid Username or Password");
+        }           
+        })
+        //catches any error.
+        .catch((error) => {
+            console.error(error);
+        });
     }
-
     render() {
 
         if (this.state.isLoading){
@@ -29,8 +48,10 @@ export default class Login extends Component {
 
         return (
             <View style={styles.container}>
+                
+                <LottieView source={require('../images/gradient_animated_background')} style={{resizeMode:'cover'}}  autoPlay/>
                 <Image style={styles.logo} source={require('../images/logo.png')} />
-                <View>
+                <View style={{flex:2}}>
                     <TextInput style={styles.inputBox}
                         onChangeText={(value) => this.setState({username: value})}
                         value={this.state.username}
@@ -49,15 +70,12 @@ export default class Login extends Component {
                     <TouchableOpacity style={styles.button} onPress={this.onLoginSubmit}>
                         <Text style={styles.buttonText} >Log In</Text>
                     </TouchableOpacity>
-                </View>
-                <View>
                     <Text
                         style={styles.signupText}
                         onPress={() => this.props.navigation.navigate('Signup')}>
                         Don't have an Account? Sign up
                     </Text>
                 </View>
-
             </View>
         )
     }
@@ -73,19 +91,19 @@ const styles = StyleSheet.create({
 
     signupText: {
         marginTop: 20,
-        justifyContent: 'center',
+        textAlign: 'center',
         color: '#ffffff',
-        alignItems: 'flex-end'
     },
 
     inputBox: {
         marginBottom: 20,
         width: 300,
         height: 40,
-        backgroundColor: 'rgba(255,255,255,0.5)',
-        borderRadius: 25,
+        backgroundColor: 'rgba(255,255,255,0.3)',
+        borderRadius: 5,
         paddingHorizontal: 20,
-        color: '#ffffff'
+        color: '#ffffff',
+        
     },
 
     buttonText: {
@@ -98,12 +116,19 @@ const styles = StyleSheet.create({
     button: {
         width: 300,
         height: 50,
-        backgroundColor: '#005ccb',
-        borderRadius: 25,
-        paddingVertical: 9
+        backgroundColor: '#ff586e',
+        borderRadius: 5,
+        paddingVertical: 11,
+        elevation: 5
     },
 
     logo: {
+        flex:1,
+        alignSelf: 'stretch',
+        width: undefined,
+        height: undefined,
+        resizeMode: 'contain',
         margin: 50
+        
     }
 }); 

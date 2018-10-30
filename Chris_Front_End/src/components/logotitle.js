@@ -7,7 +7,7 @@ export default class LogoTitle extends Component {
     return (
       <View style={{flex:1, flexDirection:'row', justifyContent:'center'}}>
           <Image
-              source={require('../images/logo.png')}
+              source={require('../images/smalllogo.png')}
               style={styles.headerImage}
           />
       </View>

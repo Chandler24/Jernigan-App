@@ -8,3 +8,9 @@ C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\Contracts\bin\Debug\
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\Contracts\obj\Debug\Contracts.csprojResolveAssemblyReference.cache
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\Contracts\obj\Debug\Contracts.dll
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\Contracts\obj\Debug\Contracts.pdb
+C:\Users\deist\Documents\GitHub\Jernigan-App\Trunk\JerniganBackend\Jernigan\Contracts\bin\Debug\Contracts.dll
+C:\Users\deist\Documents\GitHub\Jernigan-App\Trunk\JerniganBackend\Jernigan\Contracts\bin\Debug\Contracts.pdb
+C:\Users\deist\Documents\GitHub\Jernigan-App\Trunk\JerniganBackend\Jernigan\Contracts\obj\Debug\Contracts.csprojAssemblyReference.cache
+C:\Users\deist\Documents\GitHub\Jernigan-App\Trunk\JerniganBackend\Jernigan\Contracts\obj\Debug\Contracts.csproj.CoreCompileInputs.cache
+C:\Users\deist\Documents\GitHub\Jernigan-App\Trunk\JerniganBackend\Jernigan\Contracts\obj\Debug\Contracts.dll
+C:\Users\deist\Documents\GitHub\Jernigan-App\Trunk\JerniganBackend\Jernigan\Contracts\obj\Debug\Contracts.pdb

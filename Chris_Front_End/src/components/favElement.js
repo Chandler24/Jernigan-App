@@ -15,17 +15,16 @@ export default class FavElement extends Component {
 
 const styles = StyleSheet.create({
     favoriteElement: {
-        borderRadius: 25,
         height: 130,
-        borderWidth: 2,
-        backgroundColor: '#005ccb',
-        borderColor: '#005ccb',
-        marginBottom: 10
+        marginBottom: 10,
     },
 
     image: {
         borderRadius: 20,
+        borderWidth: 2,
+        borderColor: '#c61b43',
         flex: 1,
+        marginHorizontal: 10,
         width: null,
         height: null,
         resizeMode: 'cover'

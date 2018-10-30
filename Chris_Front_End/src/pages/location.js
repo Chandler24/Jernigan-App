@@ -32,7 +32,7 @@ export default class Location extends Component {
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
-        backgroundColor: '#2e88ff',
+        backgroundColor: '#3f3f3f',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -50,23 +50,24 @@ const styles = StyleSheet.create({
         fontSize: 45,
         fontWeight: '500',
         textAlign: 'center',
-        marginBottom: -25
+        marginBottom: -25,
     },
 
     button: {
         width: 300,
         height: 50,
         marginTop: 20,
-        backgroundColor: '#005ccb',
-        borderRadius: 25,
-        paddingVertical: 9
+        backgroundColor: '#c61b43',
+        borderRadius: 5,
+        paddingVertical: 11,
+        elevation: 5
     },
 
     image: {
       borderRadius: 50,
       flex: .8,
-      width: '95%',
-      //height: null,
-      //resizeMode: 'cover'
+      width: '90%',
+      borderWidth: 2,
+      borderColor: '#c61b43'
   },
 });

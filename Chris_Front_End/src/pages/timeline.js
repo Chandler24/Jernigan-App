@@ -33,12 +33,12 @@ export default class TimelineView extends Component {
                         style={styles.timeLine}
                         data={this.data}
                         circleSize={20}
-                        circleColor='#005ccb'
-                        lineColor='#005ccb'
+                        circleColor='#ff586e'
+                        lineColor='#ff586e'
                         timeContainerStyle={{minWidth:65, flex: 2, justifyContent:'center', paddingTop: 16}}
                         timeStyle={{
                             textAlign: 'center', 
-                            backgroundColor:'#76b7ff', 
+                            backgroundColor:'#c61b43', 
                             color:'white', padding:5, 
                             borderRadius:13, 
                             fontSize: 20, 
@@ -63,7 +63,7 @@ export default class TimelineView extends Component {
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
-        backgroundColor: '#2e88ff'
+        backgroundColor: '#3f3f3f'
     },
 
     headerText: {

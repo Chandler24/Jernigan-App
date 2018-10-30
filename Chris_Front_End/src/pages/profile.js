@@ -39,7 +39,7 @@ export default createStackNavigator({
         navigationOptions: {
             headerTitle: LogoTitle,
             headerStyle: {
-                backgroundColor: '#005ccb',
+                backgroundColor: '#191919',
             },
             headerTintColor: '#ffffff'
           }
@@ -49,7 +49,7 @@ export default createStackNavigator({
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
-        backgroundColor: '#2e88ff',
+        backgroundColor: '#3f3f3f',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -87,9 +87,10 @@ const styles = StyleSheet.create({
         width: 300,
         height: 50,
         marginTop: 20,
-        backgroundColor: '#005ccb',
-        borderRadius: 25,
-        paddingVertical: 9
+        backgroundColor: '#c61b43',
+        borderRadius: 5,
+        paddingVertical: 11,
+        elevation: 5
     },
 
     headerImage: {

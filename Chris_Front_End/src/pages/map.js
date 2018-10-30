@@ -28,8 +28,8 @@ class Map extends Component {
     getlocation = () => {
         this.props.navigation.navigate('Location')
     }
-
-    render() {
+    
+      render() {
         return (
             <View style={styles.container}>
                 <MapView
@@ -56,7 +56,7 @@ class Map extends Component {
                         title={"Kennedy Space Center"}
                         description={"Click here for timeline!"}
                         onCalloutPress={this.getlocation}
-                        pinColor= '#007AFF'>
+                        pinColor= '#ff586e'>
                     </MapView.Marker>    
                     <MapView.Marker
                         coordinate={{
@@ -65,7 +65,7 @@ class Map extends Component {
                         title={"UCF Student Union"}
                         description={"Click here for timeline!"}
                         onCalloutPress={this.getlocation}
-                        pinColor= '#007AFF'>
+                        pinColor= '#ff586e'>
                     </MapView.Marker>
                     <MapView.Marker
                         coordinate={{
@@ -74,7 +74,7 @@ class Map extends Component {
                         title={"Dave & Busters"}
                         description={"Click here for timeline!"}
                         onCalloutPress={this.getlocation}
-                        pinColor= '#007AFF'>
+                        pinColor= '#ff586e'>
                     </MapView.Marker>
                 </MapView>
             </View>
@@ -101,7 +101,7 @@ export default createStackNavigator({
         navigationOptions: {
             headerTitle: LogoTitle,
             headerStyle: {
-                backgroundColor: '#005ccb',
+                backgroundColor: '#191919',
             },
             headerTintColor: '#ffffff',
           }
@@ -111,7 +111,7 @@ export default createStackNavigator({
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
-        backgroundColor: '#2e88ff',
+        backgroundColor: '#3f3f3f',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -129,9 +129,9 @@ const styles = StyleSheet.create({
         width: 50,
         borderRadius: 25,
         overflow: 'hidden',
-        backgroundColor: 'rgba(0, 122, 255, 0.1)',
+        backgroundColor: 'rgba(216,169,81,0.1)',
         borderWidth: 1,
-        borderColor: 'rgba(0, 122, 255, 0.3)',
+        borderColor: 'rgba(216,169,81,0.3)',
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -143,6 +143,6 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         borderRadius: 10,
         overflow: 'hidden',
-        backgroundColor: '#007AFF'
+        backgroundColor: '#d8a951'
     },
 });

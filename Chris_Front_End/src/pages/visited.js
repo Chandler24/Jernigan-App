@@ -29,7 +29,7 @@ export default class Visited extends Component {
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
-        backgroundColor: '#2e88ff'
+        backgroundColor: '#3f3f3f'
     },
 
     headerText: {
