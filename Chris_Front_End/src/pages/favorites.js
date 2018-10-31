@@ -41,16 +41,26 @@ class Favorites extends Component {
     }
 
     render() {
+
+        var locations = require('../testdata/account/favoritesRequest.json');
+        favArray = []
+
+        for (var i = 0; i < Object.keys(locations.favoriteLocations).length; i++)
+        {
+            favArray.push(<FavElement
+                key = {i} 
+                imageUri={locations.favoriteLocations[i].image} 
+                name={locations.favoriteLocations[i].title}/>)
+        }
+
         return (
             <View style={styles.container}>
                 <View>
+                    <Text style={styles.header}> (Press the name of a location to view it)</Text>
                     <ScrollView showsVerticalScrollIndicator={false}>
                         <View style={{margin : 6}}/>
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                            onPress={this.generateTimeline}
-                        />
+                        {favArray}
+                        <View style={{marginBottom: 30}}></View>
                     </ScrollView>
                 </View>
             </View>
@@ -84,11 +94,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#3f3f3f'
     },
 
-    headerText: {
+    header: {
         color: '#ffffff',
-        fontSize: 40,
-        paddingBottom: 5,
-        fontWeight: '500',
+        fontSize: 14,
         textAlign: 'center',
+        marginLeft: 10,
+        marginRight: 10,
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 10
     },
 });

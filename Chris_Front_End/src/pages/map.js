@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import MapView from 'react-native-maps';
 import { createStackNavigator } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
@@ -25,11 +25,27 @@ class Map extends Component {
         ),
     }
 
-    getlocation = () => {
+    loadLocation = () => {
         this.props.navigation.navigate('Location')
     }
     
-      render() {
+    render() {
+
+        var markers = require('../testdata/location/nearbyLocationsRequest.json');
+        
+        markersArray = []
+
+        for (var i = 0; i < markers.locations.length; i++)
+        {
+            markersArray.push(<MapView.Marker
+                key = {i} 
+                coordinate={{ latitude: markers.locations[i].latitude, longitude: markers.locations[i].longitude}}
+                title={markers.locations[i].title}
+                description={"Click here for timeline!"}
+                onCalloutPress={this.loadLocation}
+                pinColor= '#ff586e'/>)
+        }
+        
         return (
             <View style={styles.container}>
                 <MapView
@@ -38,8 +54,7 @@ class Map extends Component {
                         latitude: 28.6014,
                         longitude: -81.1987,
                         latitudeDelta: 0.0020,
-                        longitudeDelta: 0.0020,
-                    }}>
+                        longitudeDelta: 0.0020,}}>
                     <MapView.Marker
                         coordinate={{
                             latitude: 28.6014,
@@ -49,33 +64,7 @@ class Map extends Component {
                             <View style={styles.marker} />
                         </View>
                     </MapView.Marker>
-                    <MapView.Marker
-                        coordinate={{
-                            latitude: 28.6014,
-                            longitude: -81.1995}}
-                        title={"Kennedy Space Center"}
-                        description={"Click here for timeline!"}
-                        onCalloutPress={this.getlocation}
-                        pinColor= '#ff586e'>
-                    </MapView.Marker>    
-                    <MapView.Marker
-                        coordinate={{
-                            latitude: 28.6007,
-                            longitude: -81.1980}}
-                        title={"UCF Student Union"}
-                        description={"Click here for timeline!"}
-                        onCalloutPress={this.getlocation}
-                        pinColor= '#ff586e'>
-                    </MapView.Marker>
-                    <MapView.Marker
-                        coordinate={{
-                            latitude: 28.6020,
-                            longitude: -81.1982}}
-                        title={"Dave & Busters"}
-                        description={"Click here for timeline!"}
-                        onCalloutPress={this.getlocation}
-                        pinColor= '#ff586e'>
-                    </MapView.Marker>
+                    {markersArray}
                 </MapView>
             </View>
         )

@@ -1,0 +1,22 @@
+{
+  "locations" : [
+    {
+      "locationId" : "0001",
+      "title" : "Trolly Grove Square",
+      "latitude": 28.6014,
+      "longitude": -81.1995
+    },
+    {
+      "locationId" : "0002",
+      "title" : "Miller's Ale House Orlando",
+      "latitude": 28.6007,
+      "longitude": -81.1980
+    },
+    {
+      "locationId" : "0002",
+      "title" : "Austin's Coffee",
+      "latitude": 28.6020,
+      "longitude": -81.1982
+    }
+  ]
+}

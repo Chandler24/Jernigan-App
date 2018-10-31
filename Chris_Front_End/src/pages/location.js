@@ -9,16 +9,23 @@ export default class Location extends Component {
       headerRight: <View/>
     }
 
+    addToFavorites = () => {
+        alert('Added to Favorites!')
+    }
+
     render() {
+
+        var locationData = require('../testdata/location/locationRequest.json');
+
         return (
             <View style={styles.container}>
-                <Image source={require('../images/cityhall.jpg')} style={styles.image} />
-                <Text style={styles.userText}>Orlando City Hall</Text>
-                <AirbnbRating reviews={[]} />
+                <Image source={{uri : locationData.image}} style={styles.image} />
+                <Text style={styles.userText}>{locationData.title}</Text>
+                <AirbnbRating reviews={[]} defaultRating={locationData.rating} />
                 <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Timeline')} >
                     <Text style={styles.buttonText} > View Timeline</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => alert('Added to Favorites!')}>
+                <TouchableOpacity style={styles.button} onPress={this.addToFavorites}>
                     <Text style={styles.buttonText} >Favorite</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Comment')} >

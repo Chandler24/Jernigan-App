@@ -27,7 +27,7 @@ export default class Comment extends Component {
         prevState => {
           let { comments } = prevState;
           return {
-            comments: comments.concat(<CommentElement key={0} comment= {this.state.workingComment}/>),
+            comments: comments.concat(<CommentElement key={0} username={"User"} comment= {this.state.workingComment}/>),
             workingComment: ""
           };
         }
@@ -41,6 +41,14 @@ export default class Comment extends Component {
   }
 
   render() {
+
+    var previousComments = require('../testdata/location/commentsRequest.json');
+
+    for (var i = 0; i < previousComments.comments.length; i++)
+    {
+      this.state.comments.push(<CommentElement key={i} username={previousComments.comments[i].user} comment= {previousComments.comments[i].body}/>)
+    }
+
     return (
       <View style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false}>

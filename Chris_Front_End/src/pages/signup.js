@@ -35,6 +35,10 @@ export default class Signup extends Component {
         // plays with the parsed json data and performs some function.
         .then((responseJson) => {
             if (responseJson.SignUpSuccessful == true){
+
+                var customData = require('../testdata/account/signInRequest.json');
+                global.userID = customData.userId;
+
                 alert("Account successfully created")
                 this.props.navigation.navigate('Home')
             } else {
@@ -48,6 +52,7 @@ export default class Signup extends Component {
     }
     
     render() {
+
         return (
             <View style={styles.container}>
                 <LottieView source={require('../images/gradient_animated_background')} style={{resizeMode:'cover'}}  autoPlay/>

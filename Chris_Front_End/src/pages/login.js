@@ -25,9 +25,13 @@ export default class Login extends Component {
         }).then((response) => response.json())
         // plays with the parsed json data and performs some function.
         .then((responseJson) => {
-            if (responseJson.SignInSuccessful == true)
+            if (responseJson.SignInSuccessful == true) {
+
+                var customData = require('../testdata/account/signInRequest.json');
+                global.userID = customData.userId;
+                
                 this.props.navigation.navigate('Home')
-            else{
+            } else { 
                 alert("Invalid Username or Password");
         }           
         })

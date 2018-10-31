@@ -6,7 +6,7 @@ export default class FavElement extends Component {
     render() {
         return (
             <View style={styles.favoriteElement}>
-                <Image source={this.props.imageUri} style={styles.image} />
+                <Image source={{ uri: this.props.imageUri}} style={styles.image} />
                 <Text style={styles.title} >{this.props.name} </Text>
             </View>
         )
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         width: null,
         height: null,
-        resizeMode: 'cover'
+        resizeMode: 'cover',
     },
 
     title: {
@@ -35,5 +35,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '500',
         textAlign: 'center',
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: {width: -2, height: 4},
+        textShadowRadius: 10,
+        paddingBottom: 20
     }
 });

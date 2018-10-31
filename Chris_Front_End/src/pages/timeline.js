@@ -9,29 +9,23 @@ export default class TimelineView extends Component {
     static navigationOptions = {
         headerRight: <View/>
     }
-
-    constructor(){
-        super()
-        this.data = [
-          {time: '2018', title: 'Old Orlando', description: 'Today, the historic core of "Old Orlando" resides in Downtown Orlando along Church Street, between Orange Avenue and Garland Avenue. The Urban development and the Central Business District of downtown have rapidly shaped the downtown skyline during recent history.'}, 
-          {time: '2016', title: 'Pulse Shooting', description: 'On June 12, 2016, more than 100 people were shot at Pulse, a gay nightclub in Orlando. Fifty (including the gunman) were killed and 60 were wounded. The gunman, whom the police SWAT team shot to death, was identified as 29-year-old Omar Mir Seddique Mateen, an American security guard of Afghan descent. '},
-          {time: '2014', title: 'Lake Eola Festival', description: 'Lake Eola in 1911 The geography of Orlando is mostly wetlands, consisting of many lakes and swamps.'},
-          {time: '2010', title: 'Unincorporation', description: 'There are 115 neighborhoods within the city limits and many unincorporated communities. Orlandos city limits resemble a checkerboard, with pockets of unincorporated Orange County surrounded by city limits.'},
-          {time: '2008', title: 'Old Orlando', description: 'Today, the historic core of "Old Orlando" resides in Downtown Orlando along Church Street, between Orange Avenue and Garland Avenue. The Urban development and the Central Business District of downtown have rapidly shaped the downtown skyline during recent history.'}, 
-          {time: '2005', title: 'Pulse Shooting', description: 'On June 12, 2016, more than 100 people were shot at Pulse, a gay nightclub in Orlando. Fifty (including the gunman) were killed and 60 were wounded. The gunman, whom the police SWAT team shot to death, was identified as 29-year-old Omar Mir Seddique Mateen, an American security guard of Afghan descent. '},
-          {time: '2002', title: 'Lake Eola Festival', description: 'Lake Eola in 1911 The geography of Orlando is mostly wetlands, consisting of many lakes and swamps.'},
-          {time: '2000', title: 'Unincorporation', description: 'There are 115 neighborhoods within the city limits and many unincorporated communities. Orlandos city limits resemble a checkerboard, with pockets of unincorporated Orange County surrounded by city limits.'},
-
-        ]
-    }
     
     render() {
+
+        timelinePoints = require('../testdata/location/timelineRequest.json');
+        data = []
+
+        for (var i = 0; i < timelinePoints.timelinePoints.length; i++)
+        {
+            data.push({time: timelinePoints.timelinePoints[i].date, description: timelinePoints.timelinePoints[i].desc})
+        }
+
         return (
             <View style={styles.container}>
                 <View style={{flex: 1, padding: 10}}>
                     <Timeline 
                         style={styles.timeLine}
-                        data={this.data}
+                        data={data}
                         circleSize={20}
                         circleColor='#ff586e'
                         lineColor='#ff586e'

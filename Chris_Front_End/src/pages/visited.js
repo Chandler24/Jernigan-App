@@ -10,15 +10,26 @@ export default class Visited extends Component {
     }
 
     render() {
+
+        var locations = require('../testdata/account/visitedRequest.json');
+        visitedArray = []
+
+        for (var i = 0; i < Object.keys(locations.visitedLocations).length; i++)
+        {
+            visitedArray.push(<FavElement
+                key = {i} 
+                imageUri={locations.visitedLocations[i].image} 
+                name={locations.visitedLocations[i].title}/>)
+        }
+
         return (
             <View style={styles.container}>
                 <View>
+                <Text style={styles.header}> (Press the name of a location to view it)</Text>
                     <ScrollView horizontal={false} showsVerticalScrollIndicator={false}>
                         <View style={{margin : 6}}/>
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                        />
+                        {visitedArray}
+                        <View style={{marginBottom: 30}}></View>
                     </ScrollView>
                 </View>
             </View>
@@ -38,5 +49,16 @@ const styles = StyleSheet.create({
         marginTop: 5,
         fontWeight: '500',
         textAlign: 'center',
+    },
+
+    header: {
+        color: '#ffffff',
+        fontSize: 14,
+        textAlign: 'center',
+        marginLeft: 10,
+        marginRight: 10,
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 10
     },
 });
