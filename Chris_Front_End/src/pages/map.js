@@ -43,7 +43,7 @@ class Map extends Component {
                 title={markers.locations[i].title}
                 description={"Click here for timeline!"}
                 onCalloutPress={this.loadLocation}
-                pinColor= '#ff586e'/>)
+                pinColor= 'rgb(248, 147, 48)'/>)
         }
         
         return (
@@ -118,9 +118,9 @@ const styles = StyleSheet.create({
         width: 50,
         borderRadius: 25,
         overflow: 'hidden',
-        backgroundColor: 'rgba(216,169,81,0.1)',
+        backgroundColor: 'rgba(21,50,133,0.1)',
         borderWidth: 1,
-        borderColor: 'rgba(216,169,81,0.3)',
+        borderColor: 'rgba(21,50,133,0.3)',
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -132,6 +132,6 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         borderRadius: 10,
         overflow: 'hidden',
-        backgroundColor: '#d8a951'
+        backgroundColor: 'rgb(21,50,133)'
     },
 });

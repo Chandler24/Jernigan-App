@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createBottomTabNavigator } from 'react-navigation';
-import { Foundation, Entypo, MaterialIcons } from '@expo/vector-icons';
+import { Foundation, Entypo, MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
 import MapScreen from './map'
 import ProfileScreen from './profile'
@@ -20,7 +20,7 @@ const TabNavigator = createBottomTabNavigator({
         navigationOptions: {
             tabBarLabel: 'Map',
             tabBarIcon: ({ tintColor }) => (
-                <Foundation name="map" size={32} color={tintColor} />
+                <FontAwesome name="map-o" size={32} color={tintColor} />
             )
         }
     },
@@ -46,7 +46,7 @@ const TabNavigator = createBottomTabNavigator({
         initialRouteName: 'Map',
         order: ['Profile', 'Map', 'Favorites'],
         tabBarOptions: {
-            activeTintColor: '#c61b43',
+            activeTintColor: 'rgb(248, 147, 48)',
             inactiveTintColor: 'white',
             showIcon: true,
             labelStyle: {

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { TextInput , StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { createStackNavigator } from 'react-navigation';
-import Dialog from "react-native-dialog";
-
 
 import VisitedScreen from './visited'
 import EditScreen from './editProfile'
@@ -37,26 +35,23 @@ class Profile extends Component {
 
         return (
             <View style={styles.container}>
-                <Dialog.Container visible={this.state.dialogVisible}>
-                <Dialog.Input 
-                    multiline={true} 
-                    placeholder="Press here!" 
-                    selectionColor='rgba(0,0,0,0.75)'
-                    onChangeText={(runningBioText) => this.setState({runningBioText})}/> 
-                <Dialog.Button label="Cancel" onPress={this.handleCancel} style={{color:'#c61b43'}}/>
-                <Dialog.Button label="Submit" onPress={this.handleSubmit} style={{color:'#c61b43'}}/>
-                </Dialog.Container>
-
-                <FontAwesome name="user-circle-o" size={150} color='#ffffff' />
-                <Text style={styles.usernameText}>{profileData.username}</Text>
-                <Text style={styles.residenceText}>{profileData.por}</Text>
-                <Text style={styles.aboutText}>{profileData.bio}</Text>
-                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Visited')} >
-                    <Text style={styles.buttonText} >Visited Locations</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Edit')}>
-                    <Text style={styles.buttonText} >Edit Profile</Text>
-                </TouchableOpacity>
+                <View style={{flex:1, maxHeight:170, width: "100%"}}>
+                    <Image style={styles.avatars} source={require('../avatars/5.png')}/>
+                </View>
+                <View style={{flex: .5}}>
+                    <Text style={styles.usernameText}>{profileData.username}</Text>
+                    <Text style={styles.residenceText}>{profileData.por}</Text>
+                    <Text style={styles.aboutText}>{profileData.bio}</Text>
+                </View>
+                <View style={{flex: .5}}>
+                    <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Visited')} >
+                        <Text style={styles.buttonText} >Visited Locations</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Edit')}>
+                        <Text style={styles.buttonText} >Edit Profile</Text>
+                    </TouchableOpacity>
+                </View>
+                
             </View>
         )
     }
@@ -118,18 +113,17 @@ const styles = StyleSheet.create({
         color: '#ffffff',
         fontSize: 14,
         textAlign: 'center',
-        marginLeft: 10,
-        marginRight: 10
+        margin: 10
     },
 
     button: {
         width: 300,
         height: 50,
         marginTop: 20,
-        backgroundColor: '#c61b43',
+        backgroundColor: 'rgb(248, 147, 48)',
         borderRadius: 5,
         paddingVertical: 11,
-        elevation: 5
+        elevation: 5,
     },
 
     headerImage: {
@@ -139,5 +133,13 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         alignSelf: 'center',
   
-    }
+    },
+
+    avatars: {
+        flex: 1,
+        width: null,
+        height: null,
+        resizeMode: 'contain',
+        margin: 10,
+      },
 });

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput , StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
+import { TextInput , StyleSheet,  Image, Text, View, TouchableOpacity, ScrollView, TouchableHighlight } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import './global'
 
@@ -24,17 +24,35 @@ export default class Edit extends Component {
 
         return (
             <View style={styles.container}>
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                    <FontAwesome  style={{margin: 15}} name="user-circle-o" size={120} color='#ffffff' />
-                    <FontAwesome  style={{margin: 15}} name="user-circle-o" size={120} color='#ffffff' />
-                    <FontAwesome  style={{margin: 15}} name="user-circle-o" size={120} color='#ffffff' />
-                    <FontAwesome  style={{margin: 15}} name="user-circle-o" size={120} color='#ffffff' />
-                    <FontAwesome  style={{margin: 15}} name="user-circle-o" size={120} color='#ffffff' />
-                    <FontAwesome  style={{margin: 15}} name="user-circle-o" size={120} color='#ffffff' />
-                    <FontAwesome  style={{margin: 15}} name="user-circle-o" size={120} color='#ffffff' />
-                    <FontAwesome  style={{margin: 15}} name="user-circle-o" size={120} color='#ffffff' />
-                    <FontAwesome  style={{margin: 15}} name="user-circle-o" size={120} color='#ffffff' />
-                    <FontAwesome  style={{margin: 15}} name="user-circle-o" size={120} color='#ffffff' />
+                <FontAwesome  name="hand-o-down" size={40} color='#ffffff' />
+                <ScrollView style={{maxHeight:150}} horizontal={true} showsHorizontalScrollIndicator={false}>
+                    <TouchableHighlight syle={{maxWidth: 150}}>
+                        <Image style={styles.avatars} source={require('../avatars/1.png')}/>
+                    </TouchableHighlight>
+                    <TouchableHighlight syle={{maxWidth: 150}}>
+                        <Image style={styles.avatars} source={require('../avatars/2.png')}/>
+                    </TouchableHighlight>
+                    <TouchableHighlight syle={{maxWidth: 150}}>
+                        <Image style={styles.avatars} source={require('../avatars/3.png')}/>
+                    </TouchableHighlight>
+                    <TouchableHighlight syle={{maxWidth: 150}}>
+                        <Image style={styles.avatars} source={require('../avatars/4.png')}/>
+                    </TouchableHighlight>
+                    <TouchableHighlight syle={{maxWidth: 150}}>
+                        <Image style={styles.avatars} source={require('../avatars/5.png')}/>
+                    </TouchableHighlight>
+                    <TouchableHighlight syle={{maxWidth: 150}}>
+                        <Image style={styles.avatars} source={require('../avatars/6.png')}/>
+                    </TouchableHighlight>
+                    <TouchableHighlight syle={{maxWidth: 150}}>
+                        <Image style={styles.avatars} source={require('../avatars/7.png')}/>
+                    </TouchableHighlight>
+                    <TouchableHighlight syle={{maxWidth: 150}}>
+                        <Image style={styles.avatars} source={require('../avatars/8.png')}/>
+                    </TouchableHighlight>
+                    <TouchableHighlight syle={{maxWidth: 150}}>
+                        <Image style={styles.avatars} source={require('../avatars/9.png')}/>
+                    </TouchableHighlight>
                 </ScrollView>
                 <Text style={styles.buttonText} >Place of Residence</Text>
                 <TextInput style={styles.inputBoxsm}
@@ -42,7 +60,7 @@ export default class Edit extends Component {
                     value={this.state.workingComment}
                     multiline={true}
                     underlineColorAndroid='rgba(0,0,0,0)'
-                    selectionColor='rgba(255,255,255,0.75)' />
+                    selectionColor='rgba(255,255,255,0.75)'/>
                 <Text style={styles.buttonText} >Bio</Text>
                 <TextInput style={styles.inputBox}
                     onChangeText={this.changeTextHandler}
@@ -53,7 +71,7 @@ export default class Edit extends Component {
                 <TouchableOpacity style={styles.button} onPress={this.showDialog}>
                     <Text style={styles.buttonText} >Submit</Text>
                 </TouchableOpacity>
-                <View style={{marginVertical: 10}}/>
+                <View style={{marginBottom: 10}}/>
             </View>
         )
     }
@@ -82,11 +100,16 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
 
+    avatars: {
+      flex: 1,
+      resizeMode:'contain'
+    },
+
     button: {
         width: 300,
         height: 50,
         marginTop: 20,
-        backgroundColor: '#c61b43',
+        backgroundColor: 'rgb(248, 147, 48)',
         borderRadius: 5,
         paddingVertical: 11,
         elevation: 5
@@ -108,7 +131,7 @@ const styles = StyleSheet.create({
       borderRadius: 5,
       paddingHorizontal: 20,
       color: '#ffffff',
-      borderColor:'#c61b43',
+      borderColor:'rgb(248, 147, 48)',
       borderWidth: 2
     },
 
@@ -119,7 +142,7 @@ const styles = StyleSheet.create({
       borderRadius: 5,
       paddingHorizontal: 20,
       color: '#ffffff',
-      borderColor:'#c61b43',
+      borderColor:'rgb(248, 147, 48)',
       borderWidth: 2,
       marginBottom: 15
     }

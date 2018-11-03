@@ -27,12 +27,12 @@ export default class TimelineView extends Component {
                         style={styles.timeLine}
                         data={data}
                         circleSize={20}
-                        circleColor='#ff586e'
-                        lineColor='#ff586e'
+                        circleColor='rgb(21,50,133)'
+                        lineColor='rgb(21,50,133)'
                         timeContainerStyle={{minWidth:65, flex: 2, justifyContent:'center', paddingTop: 16}}
                         timeStyle={{
                             textAlign: 'center', 
-                            backgroundColor:'#c61b43', 
+                            backgroundColor:'rgb(248, 147, 48)', 
                             color:'white', padding:5, 
                             borderRadius:13, 
                             fontSize: 20, 

@@ -67,7 +67,7 @@ export default class Comment extends Component {
             <FontAwesome onPress={this.addComment} 
               name="telegram" 
               size={50} 
-              color='#c61b43' 
+              color='rgb(248, 147, 48)' 
               margin='5'
               borderWidth= '2'
               borderColor= '#191919' />
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
       paddingHorizontal: 20,
       color: '#ffffff',
       marginRight: 7,
-      borderColor:'#c61b43',
+      borderColor:'rgb(248, 147, 48)',
       borderWidth: 2
 
   },

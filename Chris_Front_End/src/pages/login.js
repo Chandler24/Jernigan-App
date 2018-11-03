@@ -22,7 +22,13 @@ export default class Login extends Component {
                 'Content-Type': 'application/json',
         },
         // Parces json data from server response
-        }).then((response) => response.json())
+        }).then((response) => {
+            if (!response.ok) {
+                alert("Server Down");
+                throw Error(response.statusText);
+            }        
+            return response.json();
+        })
         // plays with the parsed json data and performs some function.
         .then((responseJson) => {
             if (responseJson.SignInSuccessful == true) {
@@ -34,10 +40,8 @@ export default class Login extends Component {
             } else { 
                 alert("Invalid Username or Password");
         }           
-        })
-        //catches any error.
-        .catch((error) => {
-            console.error(error);
+        }).catch((error) => {
+            console.warn(error);
         });
     }
     render() {
@@ -52,17 +56,23 @@ export default class Login extends Component {
 
         return (
             <View style={styles.container}>
-                
-                <LottieView source={require('../images/gradient_animated_background')} style={{resizeMode:'cover'}}  autoPlay/>
-                <Image style={styles.logo} source={require('../images/logo.png')} />
-                <View style={{flex:2}}>
+                <View style={{flex:1, width: "100%", bottom: 15}}>
+                    <LottieView source={require('../images/world_locations')} autoPlay/>
+                </View>
+                <View style={{flex:.5, width: "100%", bottom: 75}}>
+                    <Image style={styles.logo} source={require('../images/logo.png')} />
+                </View>
+                <View style={{flex:1, bottom: 75}}>
                     <TextInput style={styles.inputBox}
                         onChangeText={(value) => this.setState({username: value})}
                         value={this.state.username}
                         underlineColorAndroid='rgba(0,0,0,0)'
                         placeholder="Username"
                         placeholderTextColor='rgba(255,255,255,0.75)'
-                        selectionColor='rgba(255,255,255,0.75)' />
+                        selectionColor='rgba(255,255,255,0.75)'
+                        returnKeyType = { "next" } 
+                        onSubmitEditing={() => { this.secondTextInput.focus(); }}
+                        blurOnSubmit={false} />
                     <TextInput style={styles.inputBox}
                         onChangeText={(value) => this.setState({password: value})}
                         value={this.state.password}
@@ -70,7 +80,9 @@ export default class Login extends Component {
                         placeholder="Password"
                         secureTextEntry={true}
                         placeholderTextColor='rgba(255,255,255,0.75)'
-                        selectionColor='rgba(255,255,255,0.75)' />
+                        selectionColor='rgba(255,255,255,0.75)'
+                        returnKeyType = { "done" } 
+                        ref={(input) => { this.secondTextInput = input; }}/>
                     <TouchableOpacity style={styles.button} onPress={this.onLoginSubmit}>
                         <Text style={styles.buttonText} >Log In</Text>
                     </TouchableOpacity>
@@ -88,7 +100,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
-        backgroundColor: '#2e88ff',
+        backgroundColor: 'rgb(21,50,133)',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -120,7 +132,7 @@ const styles = StyleSheet.create({
     button: {
         width: 300,
         height: 50,
-        backgroundColor: '#ff586e',
+        backgroundColor: 'rgb(248, 147, 48)',
         borderRadius: 5,
         paddingVertical: 11,
         elevation: 5
@@ -132,7 +144,6 @@ const styles = StyleSheet.create({
         width: undefined,
         height: undefined,
         resizeMode: 'contain',
-        margin: 50
-        
+        marginHorizontal: 10
     }
 }); 

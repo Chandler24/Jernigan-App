@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         width: 300,
         height: 50,
         marginTop: 20,
-        backgroundColor: '#c61b43',
+        backgroundColor: 'rgb(248, 147, 48)',
         borderRadius: 5,
         paddingVertical: 11,
         elevation: 5
@@ -75,6 +75,6 @@ const styles = StyleSheet.create({
       flex: .8,
       width: '90%',
       borderWidth: 2,
-      borderColor: '#c61b43'
+      borderColor: 'rgb(248, 147, 48)'
   },
 });

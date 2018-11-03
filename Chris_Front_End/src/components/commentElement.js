@@ -6,10 +6,9 @@ import { FontAwesome } from '@expo/vector-icons';
 
 export default class CommentElement extends Component {
    render() {
-    var date = new Date().toLocaleString()
+    var date = new Date().toLocaleString() 
         return (
             <View style={styles.favoriteElement}>
-              <FontAwesome style={{ marginTop: 5, marginBottom: 5, marginLeft: 5}} name="user-circle-o" size={40} color='#ffffff' />
               <View>
                 <Text style={styles.username}>{this.props.username}</Text>
                 <View style={styles.commentbackground}>
@@ -26,7 +25,7 @@ const styles = StyleSheet.create({
     favoriteElement: {
       flexDirection: 'row', 
       flex: 1,
-      backgroundColor: '#ff586e',
+      backgroundColor: 'rgb(21,50,133)',
       borderRadius: 5,
       margin: 10,
       elevation: 5
@@ -46,16 +45,15 @@ const styles = StyleSheet.create({
       color: '#000000',
       fontSize: 14,
       marginLeft: 10,
-      marginRight:50
+      marginRight:10
     },
 
     commentbackground: {
       backgroundColor: 'white',
        borderRadius: 5, 
-       marginLeft: 10, 
+       marginHorizontal: 10, 
        marginVertical:2,   
-       maxWidth: '90%',
-       minWidth: '90%'
+
     },
 
     timestamp: {
@@ -65,5 +63,13 @@ const styles = StyleSheet.create({
       marginRight: 50,
       fontStyle: 'italic',
       marginBottom: 5
-  },
+    },
+
+    avatars: {
+      flex:1,
+      width: 50,
+      height: 50,
+      resizeMode: 'contain',
+
+    },
 });
