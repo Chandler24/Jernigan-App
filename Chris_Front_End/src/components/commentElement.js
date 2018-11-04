@@ -23,39 +23,37 @@ const styles = StyleSheet.create({
   favoriteElement: {
     flexDirection: 'row', 
     flex: 1,
-    backgroundColor: 'rgb(21,50,133)',
-    borderRadius: 5,
-    margin: 10,
-    elevation: 5
+    backgroundColor: '#D1CCB8',
+    borderRadius: 10,
+    marginHorizontal: 10,
+    marginBottom: 10,
+    elevation: 5,
   },
-
+  
   username: {
-    color: '#ffffff',
+    color: '#938C72',
     fontWeight: 'bold',
     fontSize: 16,
     marginLeft: 10,
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: {width: -1, height: 1},
-    textShadowRadius: 10
   },
 
   blockText: {
-    color: '#000000',
+    color: '#EFE8D5',
     fontSize: 14,
     marginLeft: 10,
     marginRight:10
   },
 
   commentbackground: {
-    backgroundColor: 'white',
+    backgroundColor: '#938c72',
       borderRadius: 5, 
       marginHorizontal: 10, 
       marginVertical:2,   
-
+      minWidth: "94%"
   },
 
   timestamp: {
-    color: '#ffffff',
+    color: '#938C72',
     fontSize: 8,
     marginLeft: 10,
     marginRight: 50,

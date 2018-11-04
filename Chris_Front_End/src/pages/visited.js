@@ -47,7 +47,8 @@ export default class Visited extends Component {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#3f3f3f'
+    backgroundColor: '#938C72'
+    //backgroundColor: '#EFE8D5'
   },
 
   headerText: {
@@ -62,8 +63,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontSize: 14,
     textAlign: 'center',
-    marginLeft: 10,
-    marginRight: 10,
+    marginHorizontal: 10,
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 10

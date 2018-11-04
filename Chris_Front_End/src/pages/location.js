@@ -19,7 +19,7 @@ export default class Location extends Component {
     return (
       <View style={styles.container}>
         <Image source={{uri : locationData.image}} style={styles.image} />
-        <Text style={styles.userText}>{locationData.title}</Text>
+        <Text style={styles.titleText}>{locationData.title}</Text>
         <AirbnbRating reviews={[]} defaultRating={locationData.rating} />
         <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Timeline')} >
           <Text style={styles.buttonText} > View Timeline</Text>
@@ -30,6 +30,7 @@ export default class Location extends Component {
         <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Comment')} >
           <Text style={styles.buttonText} >Comment</Text>
         </TouchableOpacity>
+        <View style={{marginBottom: 20}}/>
       </View>
     )
   }
@@ -38,42 +39,42 @@ export default class Location extends Component {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#3f3f3f',
+    backgroundColor: '#938C72',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   buttonText: {
-    color: '#ffffff',
+    color: '#938C72',
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
   },
 
-  userText: {
-    marginTop: 10,
-    color: '#ffffff',
+  titleText: {
+    marginTop: 5,
+    color: '#EFE8D5',
     fontSize: 45,
     fontWeight: '500',
     textAlign: 'center',
     marginBottom: -25,
+    textShadowColor: 'rgba(0,0,0,0.6)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10
   },
 
   button: {
     width: 300,
     height: 50,
     marginTop: 20,
-    backgroundColor: 'rgb(248, 147, 48)',
+    backgroundColor: '#DED7C4',
     borderRadius: 5,
     paddingVertical: 11,
     elevation: 5
   },
 
   image: {
-    borderRadius: 50,
-    flex: .8,
-    width: '90%',
-    borderWidth: 2,
-    borderColor: 'rgb(248, 147, 48)'
+    flex: 1,
+    width: '100%',
   },
 });

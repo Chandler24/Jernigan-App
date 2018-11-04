@@ -48,7 +48,7 @@ const TabNavigator = createBottomTabNavigator({
   initialRouteName: 'Map',
   order: ['Profile', 'Map', 'Favorites'],
   tabBarOptions: {
-    activeTintColor: 'rgb(248, 147, 48)',
+    activeTintColor: 'white',
     inactiveTintColor: 'white',
     showIcon: true,
     labelStyle: {
@@ -58,7 +58,7 @@ const TabNavigator = createBottomTabNavigator({
       height: 65
     },
     style: {
-      backgroundColor: '#191919',
+      backgroundColor: '#EFE8D5',
       height: 65,
       borderTopWidth: 0, 
       elevation: 8

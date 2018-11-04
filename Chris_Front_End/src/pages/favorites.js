@@ -56,7 +56,7 @@ export default createStackNavigator({
     navigationOptions: {
       headerTitle: LogoTitle,
       headerStyle: {
-        backgroundColor: '#191919',
+        backgroundColor: '#EFE8D5',
       },
       headerTintColor: '#ffffff',
       }
@@ -66,7 +66,7 @@ export default createStackNavigator({
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#3f3f3f'
+    backgroundColor: '#938C72'
   },
 
   header: {

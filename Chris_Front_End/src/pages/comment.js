@@ -63,6 +63,7 @@ export default class Comment extends Component {
       <View style={styles.container}>
         {/* Loads all of the current comments */}
         <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={{marginBottom: 10}}></View>
           {this.state.comments}
           <View style={{marginBottom: 90}}></View>
         </ScrollView>
@@ -74,15 +75,13 @@ export default class Comment extends Component {
             multiline={true}
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="Leave a comment!"
-            placeholderTextColor='rgba(255,255,255,0.75)'
+            placeholderTextColor='rgba(147, 140, 114, 0.75)'
             selectionColor='rgba(255,255,255,0.75)' />
           <FontAwesome onPress={this.addComment} 
             name="telegram" 
             size={50} 
-            color='rgb(248, 147, 48)' 
-            margin='5'
-            borderWidth= '2'
-            borderColor= '#191919' />
+            color='#EFE8D5' 
+            margin='5' />
         </View>
       </View>
     )
@@ -92,7 +91,7 @@ export default class Comment extends Component {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#3f3f3f',
+    backgroundColor: '#938C72',
   },
 
   inputArea: {
@@ -105,13 +104,13 @@ const styles = StyleSheet.create({
   inputBox: {
     flex:1,
     height: 50,
-    backgroundColor: '#191919',
-    borderRadius: 5,
+    backgroundColor: '#DED7C4',
+    borderColor: "#938c72",
+    borderRadius: 10,
     paddingHorizontal: 20,
-    color: '#ffffff',
+    color: '#938c72',
     marginRight: 7,
-    borderColor:'rgb(248, 147, 48)',
-    borderWidth: 2
-
+    borderWidth: 2,
+    elevation: 5,
   },
 });

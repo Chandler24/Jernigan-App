@@ -23,6 +23,7 @@ export default class TimelineView extends Component {
     for (var i = 0; i < timelinePoints.timelinePoints.length; i++) {
       data.push({time: timelinePoints.timelinePoints[i].date, description: timelinePoints.timelinePoints[i].desc})
     }
+    data.push({description: " "})
   }
     
   render() {
@@ -33,18 +34,15 @@ export default class TimelineView extends Component {
             style={styles.timeLine}
             data={data}
             circleSize={20}
-            circleColor='rgb(21,50,133)'
-            lineColor='rgb(21,50,133)'
+            circleColor='#DED7C4'
+            lineColor='#DED7C4'
             timeContainerStyle={{minWidth:65, flex: 2, justifyContent:'center', paddingTop: 16}}
             timeStyle={{
               textAlign: 'center', 
-              backgroundColor:'rgb(248, 147, 48)', 
-              color:'white', padding:5, 
+              backgroundColor:'#EFE8D5', 
+              color:'#938c72', 
+              padding:5, 
               borderRadius:13, 
-              fontSize: 20, 
-              fontWeight: 'bold'}}
-            titleStyle={{
-              color:'white', 
               fontSize: 20, 
               fontWeight: 'bold'}}
             descriptionStyle={{color:'white'}}
@@ -63,7 +61,7 @@ export default class TimelineView extends Component {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#3f3f3f'
+    backgroundColor: '#938c72'
   },
 
   headerText: {

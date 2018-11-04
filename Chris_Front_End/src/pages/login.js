@@ -91,7 +91,8 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   welcomeContainer: {
     flexGrow: 1,
-    backgroundColor: 'rgb(21,50,133)',
+    backgroundColor: '#938C72',
+    //backgroundColor: 'rgb(21,50,133)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
   },
 
   button1Text: {
-    color: '#ffffff',
+    color: '#938C72',
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
@@ -122,7 +123,8 @@ const styles = StyleSheet.create({
   button1: {
     width: 300,
     height: 50,
-    backgroundColor: 'rgb(248, 147, 48)',
+    backgroundColor: '#EFE8D5',
+    //backgroundColor: 'rgb(248, 147, 48)',
     borderRadius: 5,
     paddingVertical: 11,
     elevation: 5

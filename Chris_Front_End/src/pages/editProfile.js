@@ -23,7 +23,7 @@ export default class Edit extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <FontAwesome  name="hand-o-down" size={40} color='#ffffff' />
+        <FontAwesome  name="hand-o-down" size={40} color='#938c72' />
         <ScrollView style={{maxHeight:150}} horizontal={true} showsHorizontalScrollIndicator={false}>
           <TouchableHighlight syle={{maxWidth: 150}}>
             <Image style={styles.avatars} source={require('../avatars/1.png')}/>
@@ -53,14 +53,14 @@ export default class Edit extends Component {
             <Image style={styles.avatars} source={require('../avatars/9.png')}/>
           </TouchableHighlight>
         </ScrollView>
-        <Text style={styles.buttonText} >Place of Residence</Text>
+        <Text style={styles.titleText} >Place of Residence</Text>
         <TextInput style={styles.inputBoxsm}
           onChangeText={this.changeTextHandler}
           value={this.state.workingComment}
           multiline={true}
           underlineColorAndroid='rgba(0,0,0,0)'
           selectionColor='rgba(255,255,255,0.75)'/>
-        <Text style={styles.buttonText} >Bio</Text>
+        <Text style={styles.titleText} >Bio</Text>
         <TextInput style={styles.inputBox}
           onChangeText={this.changeTextHandler}
           value={this.state.workingComment}
@@ -79,24 +79,23 @@ export default class Edit extends Component {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#3f3f3f',
+    backgroundColor: '#EFE8D5',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
-  buttonText: {
-    color: '#ffffff',
+  titleText: {
+    color: '#938c72',
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
   },
 
-  aboutText: {
-    color: '#ffffff',
-    fontSize: 14,
+  buttonText: {
+    color: '#EFE8D5',
+    fontSize: 20,
+    fontWeight: '500',
     textAlign: 'center',
-    marginLeft: 10,
-    marginRight: 10
   },
 
   avatars: {
@@ -105,10 +104,10 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    width: 300,
+    width: "90%",
     height: 50,
     marginTop: 20,
-    backgroundColor: 'rgb(248, 147, 48)',
+    backgroundColor: '#938c72',
     borderRadius: 5,
     paddingVertical: 11,
     elevation: 5
@@ -125,23 +124,25 @@ const styles = StyleSheet.create({
   inputBox: {
     width: "90%",
     height: 150,
-    backgroundColor: '#191919',
-    borderRadius: 5,
+    borderWidth: 2,
+    backgroundColor: '#DED7C4',
+    borderColor: "#938c72",
+    borderRadius: 10,
+    elevation: 5,
     paddingHorizontal: 20,
-    color: '#ffffff',
-    borderColor:'rgb(248, 147, 48)',
-    borderWidth: 2
+    color: '#938c72',
   },
 
   inputBoxsm: {
     width: "90%",
     height: 40,
-    backgroundColor: '#191919',
-    borderRadius: 5,
-    paddingHorizontal: 20,
-    color: '#ffffff',
-    borderColor:'rgb(248, 147, 48)',
     borderWidth: 2,
+    backgroundColor: '#DED7C4',
+    borderColor: "#938c72",
+    borderRadius: 10,
+    elevation: 5,
+    paddingHorizontal: 20,
+    color: '#938c72',
     marginBottom: 5
   }
 });

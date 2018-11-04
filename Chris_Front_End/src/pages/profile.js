@@ -69,7 +69,7 @@ export default createStackNavigator({
     navigationOptions: {
       headerTitle: LogoTitle,
       headerStyle: {
-        backgroundColor: '#191919',
+        backgroundColor: '#EFE8D5',
       },
       headerTintColor: '#ffffff'
     }
@@ -79,44 +79,50 @@ export default createStackNavigator({
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#3f3f3f',
+    backgroundColor: '#938c72',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   buttonText: {
-    color: '#ffffff',
+    color: '#938c72',
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
   },
 
   usernameText: {
-    color: '#ffffff',
+    color: '#EFE8D5',
     fontSize: 45,
     fontWeight: '500',
     textAlign: 'center',
+    textShadowColor: 'rgba(0,0,0,0.5)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10
   },
 
   residenceText: {
-    color: '#ffffff',
+    color: '#EFE8D5',
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
+    textShadowColor: 'rgba(0,0,0,0.5)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10
   },
 
   aboutText: {
-    color: '#ffffff',
+    color: '#EFE8D5',
     fontSize: 14,
     textAlign: 'center',
     margin: 10
   },
 
   button: {
-    width: 300,
+    width: 310,
     height: 50,
     marginTop: 20,
-    backgroundColor: 'rgb(248, 147, 48)',
+    backgroundColor: '#DED7C4',
     borderRadius: 5,
     paddingVertical: 11,
     elevation: 5,

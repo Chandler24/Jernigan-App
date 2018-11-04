@@ -15,19 +15,21 @@ export default class FavElement extends Component {
 
 const styles = StyleSheet.create({
   favoriteElement: {
-      height: 130,
-      marginBottom: 10,
+    height: 130,
+    marginBottom: 10,
+    backgroundColor: "#D1CCB8",
+    borderRadius: 10,
+    elevation: 5,
+    marginHorizontal: 10
   },
 
   image: {
-    borderRadius: 20,
-    borderWidth: 2,
-    borderColor: 'rgb(248, 147, 48)',
     flex: 1,
-    marginHorizontal: 10,
     width: null,
     height: null,
     resizeMode: 'cover',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10
   },
 
   title: {
@@ -35,9 +37,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: {width: -2, height: 4},
+    textShadowColor: 'rgba(0,0,0,0.5)',
+    textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 10,
-    paddingBottom: 20
-  }
+    paddingBottom: 5
+  },
 });
