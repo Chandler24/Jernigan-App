@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
 import { createStackNavigator } from 'react-navigation';
 
 import VisitedScreen from './visited'

@@ -53,7 +53,7 @@ export default class Comment extends Component {
     }
   }
 
-  // Aligns the header text with back button
+  // Organizaes header components
   static navigationOptions = {
     headerRight: <View/>
   }

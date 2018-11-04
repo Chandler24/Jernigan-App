@@ -1,49 +1,44 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image } from 'react-native';
 import LottieView from 'lottie-react-native';
 import './global'
 
 export default class Login extends Component {
 
-  state = {
-    username: '',
-    password: ''
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: ''
+    };
+    this.onLoginSubmit = this.onLoginSubmit.bind(this);
+  }
 
-  onLoginSubmit = () => {
-    var username = this.state.username;
-    var password = this.state.password;
-    var command = global.url + "/api/Account/SignIn?username=" + username + "&password=" + password;
+  async onLoginSubmit () {
+    const command = global.url + "/api/Account/SignIn?username=" + this.state.username + "&password=" + this.state.password;
+    const response = await fetch(command, {method: 'POST'});
     
-    // Calls backend using 'command' variable
-    fetch(command, { 
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-    },
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    }
+    
+    const data = await response.json();
 
-    // Validates server response & parces json data
-    }).then((response) => {
-      if (!response.ok) {
-        alert("Server Down");
-        throw Error(response.statusText);
-      }        
-      return response.json();
+    if (data.SignInSuccessful == true) {
+      var customData = require('../testdata/account/signInRequest.json');
+      global.userID = customData.userId;
+      global.username = customData.username;
+      /*
+      var customData = data;
+      global.userID = data.userId;
+      global.username = data.username;
+      */
+      this.props.navigation.navigate('Home')
 
-    //  Check response if login was successful
-    }).then((responseJson) => {
-      if (responseJson.SignInSuccessful == true) {
-        var customData = require('../testdata/account/signInRequest.json');
-        global.userID = customData.userId;
-        this.props.navigation.navigate('Home')
-
-      } else { 
-        alert("Invalid Username or Password");
-      } 
-    }).catch((error) => {
-      console.warn(error);
-    });
+    } else { 
+      alert("Invalid Username or Password");
+    }
   }
 
   render() {

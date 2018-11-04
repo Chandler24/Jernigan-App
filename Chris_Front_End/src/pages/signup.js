@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
-import LottieView from 'lottie-react-native';
 import './global'
 
 export default class Signup extends Component {
