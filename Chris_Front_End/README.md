@@ -1,11 +1,6 @@
-## Sprint #1 Functionality
+## Current Functionality
 
 ![Image](https://i.imgur.com/huHoyo0.gif)
-
-## Sprint #2 Functionality
-
-![Image](./Design/post2.gif)
-
 
 ## Table of Contents
 
