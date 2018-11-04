@@ -111,8 +111,6 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: '#3f3f3f',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 
   map: {

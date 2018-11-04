@@ -4,54 +4,49 @@ import './global'
 
 export default class Signup extends Component {
 
-  state = {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
       username: '',
       password: '',
-      passwordConfirm: ''
-  };
+      passwordConfirm: '',
+      por: ''
+    };
+    this.onSignupSubmit = this.onSignupSubmit.bind(this);
+  }
 
-  onSignUpSubmit = () => {
-    var username = this.state.username;
-    var password = this.state.password;
-    var passConfirm = this.state.passwordConfirm;
-    var location = this.state.location;
-    var command = global.url + "/api/Account/SignUp?username=" + username + "&password=" + password + "&cityOfResidence=" + location;
-      
-    if (password != passConfirm) {
+  async onSignupSubmit () {
+
+    if (this.state.password != this.state.passwordConfirm) {
       alert("Passwords do not match")
       return
     }
 
-    fetch(command, { 
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-    },
-    // Parces json data from server response
-    })
-    .then((response) => {
-      if (!response.ok) {
-        alert("Server Down");
-        throw Error(response.statusText);
-      }        
-      return response.json();
-    })
-    .then((responseJson) => {
-      if (responseJson.SignUpSuccessful == true) {
-        var customData = require('../testdata/account/signInRequest.json');
-        global.userID = customData.userId;
-        alert("Account successfully created")
-        this.props.navigation.navigate('Home')
+    const command = global.url + "/api/Account/SignUp?email=" + this.state.email + "&username=" + this.state.username + "&password=" + this.state.password;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    }
+    
+    const data = await response.json();
 
-      } else {
-        alert("Username already taken");
-      }           
-    })
-    //catches any error.
-    .catch((error) => {
-      console.error(error);
-    });
+    if (data.SignUpSuccessful == true) {
+      var customData = require('../testdata/account/signInRequest.json');
+      global.userID = customData.userId;
+      global.username = customData.username;
+      /*
+      var customData = data;
+      global.userID = data.userId;
+      global.username = data.username;
+      */
+      this.props.navigation.navigate('Home')
+
+    } else { 
+      alert("Username already taken");
+    }
   }
     
   render() {
@@ -59,6 +54,11 @@ export default class Signup extends Component {
       <View style={styles.container}>
         <Image style={styles.logo} source={require('../images/logo.png')} />
         <View style={{flex:2}}>
+        <TextInput style={styles.inputBox}
+            onChangeText={(value) => this.setState({email: value})}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Email"
+            placeholderTextColor='rgba(255,255,255,0.75)' />
           <TextInput style={styles.inputBox}
             onChangeText={(value) => this.setState({username: value})}
             underlineColorAndroid='rgba(0,0,0,0)'
@@ -77,11 +77,11 @@ export default class Signup extends Component {
             secureTextEntry={true}
             placeholderTextColor='rgba(255,255,255,0.75)' />
           <TextInput style={styles.inputBox}
-            onChangeText={(value) => this.setState({location: value})}
+            onChangeText={(value) => this.setState({por: value})}
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="City of Residence"
             placeholderTextColor='rgba(255,255,255,0.75)' />
-          <TouchableOpacity style={styles.button} onPress={this.onSignUpSubmit}>
+          <TouchableOpacity style={styles.button} onPress={this.onSignupSubmit}>
               <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
           <Text

@@ -43,7 +43,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.welcomeContainer}>
         {/* Rotating Earth Animation */}
         <View style={{flex:1, width: "100%", bottom: 15}}>
           <LottieView source={require('../images/world_locations')} autoPlay/>
@@ -54,7 +54,7 @@ export default class Login extends Component {
         </View>
         {/* Login Forum */}
         <View style={{flex:1, bottom: 75}}>
-          <TextInput style={styles.inputBox}
+          <TextInput style={styles.welcomeInputBox}
             onChangeText={(value) => this.setState({username: value})}
             value={this.state.username}
             underlineColorAndroid='rgba(0,0,0,0)'
@@ -64,7 +64,7 @@ export default class Login extends Component {
             returnKeyType = { "next" } 
             onSubmitEditing={() => { this.secondTextInput.focus(); }}
             blurOnSubmit={false} />
-          <TextInput style={styles.inputBox}
+          <TextInput style={styles.welcomeInputBox}
             onChangeText={(value) => this.setState({password: value})}
             value={this.state.password}
             underlineColorAndroid='rgba(0,0,0,0)'
@@ -74,11 +74,11 @@ export default class Login extends Component {
             selectionColor='rgba(255,255,255,0.75)'
             returnKeyType = { "done" } 
             ref={(input) => { this.secondTextInput = input; }}/>
-          <TouchableOpacity style={styles.button} onPress={this.onLoginSubmit}>
-            <Text style={styles.buttonText} >Log In</Text>
+          <TouchableOpacity style={styles.button1} onPress={this.onLoginSubmit}>
+            <Text style={styles.button1Text} >Log In</Text>
           </TouchableOpacity>
           <Text
-            style={styles.signupText}
+            style={styles.welcomeNavText}
             onPress={() => this.props.navigation.navigate('Signup')}>
             Don't have an Account? Sign up
           </Text>
@@ -89,20 +89,20 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  welcomeContainer: {
     flexGrow: 1,
     backgroundColor: 'rgb(21,50,133)',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
-  signupText: {
+  welcomeNavText: {
     marginTop: 20,
     textAlign: 'center',
     color: '#ffffff',
   },
 
-  inputBox: {
+  welcomeInputBox: {
     marginBottom: 20,
     width: 300,
     height: 40,
@@ -112,14 +112,14 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
 
-  buttonText: {
+  button1Text: {
     color: '#ffffff',
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
   },
 
-  button: {
+  button1: {
     width: 300,
     height: 50,
     backgroundColor: 'rgb(248, 147, 48)',
@@ -136,4 +136,4 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     marginHorizontal: 10
   }
-}); 
+});
