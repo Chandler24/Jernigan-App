@@ -7,3 +7,6 @@ The public repository for the Jernigan History App made by UCF students for COP 
 
 [Results](https://docs.google.com/document/d/1HNkSLOOC-LnPsEjRRQlcPv5PkaRdFSNYAguaVAEaEhQ/edit?usp=sharing)
 
+## Current Functionality
+
+[Demo](https://youtu.be/0oqGERAdWJ4)
