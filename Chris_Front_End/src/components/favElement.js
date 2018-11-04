@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
+/* This is the components that make up the favorites and visited page */
 export default class FavElement extends Component {
   render() {
     return (

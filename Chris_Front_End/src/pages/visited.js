@@ -9,18 +9,26 @@ export default class Visited extends Component {
     headerRight: <View/>
   }
 
-  render() {
+  /* Envokes on page load */
+  componentWillMount() {
+    this.loadVisitedLocations()
+  }
+
+  /* Loads all comments of current location */
+  loadVisitedLocations = () => {
     var locations = require('../testdata/account/visitedRequest.json');
     visitedArray = []
 
     for (var i = 0; i < Object.keys(locations.visitedLocations).length; i++)
     {
-        visitedArray.push(<FavElement
-            key = {i} 
-            imageUri={locations.visitedLocations[i].image} 
-            name={locations.visitedLocations[i].title}/>)
+      visitedArray.push(<FavElement
+        key = {i} 
+        imageUri={locations.visitedLocations[i].image} 
+        name={locations.visitedLocations[i].title}/>)
     }
+  }
 
+  render() {
     return (
       <View style={styles.container}>
         <View>

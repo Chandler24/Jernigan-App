@@ -14,9 +14,9 @@ export default class Home extends Component {
   }
 }
 
+/* Adds bottom tab navigator to switch between Profile, Map, and Favorites pages */
 const TabNavigator = createBottomTabNavigator({
   Map: {
-    /* A JSX comment */
     screen: MapScreen,
     navigationOptions: {
       tabBarLabel: 'Map',
@@ -44,6 +44,7 @@ const TabNavigator = createBottomTabNavigator({
     }
   },
 },{
+  /* Settings and styles for bottom tab navigator */
   initialRouteName: 'Map',
   order: ['Profile', 'Map', 'Favorites'],
   tabBarOptions: {

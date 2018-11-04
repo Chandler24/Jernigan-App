@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 
-
+/* This class allows all pages to display the Jernigan logo o nthe top header */
 export default class LogoTitle extends Component {
   render() {
     return (

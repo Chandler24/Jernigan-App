@@ -9,47 +9,26 @@ import LogoTitle from './../components/logotitle'
 
 class Favorites extends Component {
 
-  generateTimeline = () => {
-      this.props.navigation.navigate('./../pages/timeline')
+  /* Envokes on page load */
+  componentWillMount() {
+    this.loadFavorites()
   }
 
-  state = {favorites : []};
-  componentWillMount(){
-    var userId = JSON.stringify({guid: 'bbbd861b-62ae-4eb5-9677-3aa2e354c583'});
-    var command = global.url + "/api/Location/GetFavoriteLocations?userId=" + userId;
+  /* Loads all favorites of current user */
+  loadFavorites = () => {
+    var locations = require('../testdata/account/favoritesRequest.json');
+    favArray = []
 
-    fetch(command, { 
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-    },
-
-    // Parces json data from server response
-    }).then((response) => response.json())
-    // plays with the parsed json data and performs some function.
-    .then((responseJson) => {
-      for (i = 0; i < responseJson.LocationInfo; i++)
-      this.setState({favorites : responseJson.LocationInfo[i]});
-    })
-    //catches any error.
-    .catch((error) => {
-      console.error(error);
-    });   
+    for (var i = 0; i < Object.keys(locations.favoriteLocations).length; i++)
+    {
+      favArray.push(<FavElement
+        key = {i} 
+        imageUri={locations.favoriteLocations[i].image} 
+        name={locations.favoriteLocations[i].title}/>)
+    }
   }
 
     render() {
-      var locations = require('../testdata/account/favoritesRequest.json');
-      favArray = []
-
-      for (var i = 0; i < Object.keys(locations.favoriteLocations).length; i++)
-      {
-        favArray.push(<FavElement
-          key = {i} 
-          imageUri={locations.favoriteLocations[i].image} 
-          name={locations.favoriteLocations[i].title}/>)
-      }
-
       return (
         <View style={styles.container}>
           <View>

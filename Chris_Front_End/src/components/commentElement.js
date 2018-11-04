@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { StyleSheet, Text, View } from 'react-native';
 
+/* This is a comment element that will be added evry time a users submits a comment */
 export default class CommentElement extends Component {
   render() {
     var date = new Date().toLocaleString() 

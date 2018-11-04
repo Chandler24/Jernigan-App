@@ -15,6 +15,7 @@ export default class Login extends Component {
     var password = this.state.password;
     var command = global.url + "/api/Account/SignIn?username=" + username + "&password=" + password;
     
+    // Calls backend using 'command' variable
     fetch(command, { 
       method: 'POST',
       headers: {
@@ -22,7 +23,7 @@ export default class Login extends Component {
         'Content-Type': 'application/json',
     },
 
-    // Parces json data from server response
+    // Validates server response & parces json data
     }).then((response) => {
       if (!response.ok) {
         alert("Server Down");
@@ -30,38 +31,33 @@ export default class Login extends Component {
       }        
       return response.json();
 
+    //  Check response if login was successful
     }).then((responseJson) => {
       if (responseJson.SignInSuccessful == true) {
-
         var customData = require('../testdata/account/signInRequest.json');
         global.userID = customData.userId;
-          
         this.props.navigation.navigate('Home')
+
       } else { 
         alert("Invalid Username or Password");
-    } 
-
+      } 
     }).catch((error) => {
       console.warn(error);
     });
   }
-  render() {
-    if (this.state.isLoading){
-      return(
-        <View style={{flex: 1, padding: 20}}>
-          <ActivityIndicator/>
-        </View>
-      )
-    }
 
+  render() {
     return (
       <View style={styles.container}>
+        {/* Rotating Earth Animation */}
         <View style={{flex:1, width: "100%", bottom: 15}}>
           <LottieView source={require('../images/world_locations')} autoPlay/>
         </View>
+        {/* Logo Title */}
         <View style={{flex:.5, width: "100%", bottom: 75}}>
           <Image style={styles.logo} source={require('../images/logo.png')} />
         </View>
+        {/* Login Forum */}
         <View style={{flex:1, bottom: 75}}>
           <TextInput style={styles.inputBox}
             onChangeText={(value) => this.setState({username: value})}

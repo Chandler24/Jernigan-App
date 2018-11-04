@@ -15,11 +15,29 @@ export default class Comment extends Component {
     this.addComment = this.addComment.bind(this);
   }
 
+  /* Handles user entry as they are typing */
   changeTextHandler = workingComment => {
     this.setState({ workingComment: workingComment });
   };
 
+  /* Envokes on page load */
+  componentWillMount() {
+    this.loadComments()
+  }
+
+  /* Loads all comments of current location */
+  loadComments = () => {
+    var previousComments = require('../testdata/location/commentsRequest.json');
+
+    for (var i = 0; i < previousComments.comments.length; i++)
+    {
+      this.state.comments.push(<CommentElement key={i} username={previousComments.comments[i].user} comment= {previousComments.comments[i].body}/>)
+    }
+  }
+
+  /* Function invoked when a comment is added */
   addComment = () => {
+    /* Sets 'notEmpty" to T/F is the entered comment contains data or not */
     let notEmpty = this.state.workingComment.trim().length > 0;
 
     if (notEmpty) {
@@ -41,20 +59,14 @@ export default class Comment extends Component {
   }
 
   render() {
-
-    var previousComments = require('../testdata/location/commentsRequest.json');
-
-    for (var i = 0; i < previousComments.comments.length; i++)
-    {
-      this.state.comments.push(<CommentElement key={i} username={previousComments.comments[i].user} comment= {previousComments.comments[i].body}/>)
-    }
-
     return (
       <View style={styles.container}>
+        {/* Loads all of the current comments */}
         <ScrollView showsVerticalScrollIndicator={false}>
           {this.state.comments}
           <View style={{marginBottom: 90}}></View>
         </ScrollView>
+        {/* Comment input area which contains a text field and a submit button */}
         <View style={styles.inputArea}>
           <TextInput style={styles.inputBox}
             onChangeText={this.changeTextHandler}

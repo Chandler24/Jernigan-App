@@ -14,6 +14,7 @@ class Map extends Component {
   static navigationOptions = {
     headerLeft: <View/>,
     headerRight: (
+      // Adds refresh button to header bar
       <View style={{flex:1, flexDirection: 'row', padding: 15}}>
         <FontAwesome
           name="refresh"
@@ -25,11 +26,13 @@ class Map extends Component {
     ),
   }
 
-  loadLocation = () => {
-    this.props.navigation.navigate('Location')
+  /* Envokes on page load */
+  componentWillMount() {
+    this.loadLocationsMarkers()
   }
-  
-  render() {
+
+  /* Loads all comments of current location */
+  loadLocationsMarkers = () => {
     var markers = require('../testdata/location/nearbyLocationsRequest.json');
     markersArray = []
 
@@ -42,7 +45,14 @@ class Map extends Component {
         onCalloutPress={this.loadLocation}
         pinColor= 'rgb(248, 147, 48)'/>)
     }
-    
+  }
+
+  // Calls backend to gather location data and navigate to page
+  loadLocation = () => {
+    this.props.navigation.navigate('Location')
+  }
+  
+  render() {   
     return (
       <View style={styles.container}>
         <MapView
@@ -52,6 +62,7 @@ class Map extends Component {
             longitude: -81.1987,
             latitudeDelta: 0.0020,
             longitudeDelta: 0.0020,}}>
+          {/* User's Location */}
           <MapView.Marker
             coordinate={{
               latitude: 28.6014,
@@ -61,6 +72,7 @@ class Map extends Component {
               <View style={styles.marker} />
             </View>
           </MapView.Marker>
+          {/* Displays all available Locations */}
           {markersArray}
         </MapView>
       </View>
@@ -68,6 +80,7 @@ class Map extends Component {
   }
 }
 
+// Navigator for reaching all location related pages from Map screen
 export default createStackNavigator({
   Map: {
     screen: Map

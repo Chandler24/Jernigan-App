@@ -9,16 +9,23 @@ export default class TimelineView extends Component {
   static navigationOptions = {
     headerRight: <View/>
   }
-    
-  render() {
+
+  /* Envokes on page load */
+  componentWillMount() {
+    this.loadTimelineEntrys()
+  }
+
+  /* Loads all comments of current location */
+  loadTimelineEntrys = () => {
     timelinePoints = require('../testdata/location/timelineRequest.json');
     data = []
 
-    for (var i = 0; i < timelinePoints.timelinePoints.length; i++)
-    {
+    for (var i = 0; i < timelinePoints.timelinePoints.length; i++) {
       data.push({time: timelinePoints.timelinePoints[i].date, description: timelinePoints.timelinePoints[i].desc})
     }
-
+  }
+    
+  render() {
     return (
       <View style={styles.container}>
         <View style={{flex: 1, padding: 10}}>
