@@ -56,21 +56,21 @@ export default class Comment extends Component {
           <View style={{marginBottom: 90}}></View>
         </ScrollView>
         <View style={styles.inputArea}>
-            <TextInput style={styles.inputBox}
-              onChangeText={this.changeTextHandler}
-              value={this.state.workingComment}
-              multiline={true}
-              underlineColorAndroid='rgba(0,0,0,0)'
-              placeholder="Leave a comment!"
-              placeholderTextColor='rgba(255,255,255,0.75)'
-              selectionColor='rgba(255,255,255,0.75)' />
-            <FontAwesome onPress={this.addComment} 
-              name="telegram" 
-              size={50} 
-              color='rgb(248, 147, 48)' 
-              margin='5'
-              borderWidth= '2'
-              borderColor= '#191919' />
+          <TextInput style={styles.inputBox}
+            onChangeText={this.changeTextHandler}
+            value={this.state.workingComment}
+            multiline={true}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Leave a comment!"
+            placeholderTextColor='rgba(255,255,255,0.75)'
+            selectionColor='rgba(255,255,255,0.75)' />
+          <FontAwesome onPress={this.addComment} 
+            name="telegram" 
+            size={50} 
+            color='rgb(248, 147, 48)' 
+            margin='5'
+            borderWidth= '2'
+            borderColor= '#191919' />
         </View>
       </View>
     )
@@ -78,28 +78,28 @@ export default class Comment extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flexGrow: 1,
-        backgroundColor: '#3f3f3f',
-    },
+  container: {
+    flexGrow: 1,
+    backgroundColor: '#3f3f3f',
+  },
 
-    inputArea: {
-      flexDirection: 'row', 
-      position: "absolute",
-      bottom: 20,
-      margin: 6
-    },
+  inputArea: {
+    flexDirection: 'row', 
+    position: "absolute",
+    bottom: 20,
+    margin: 6
+  },
 
-    inputBox: {
-      flex:1,
-      height: 50,
-      backgroundColor: '#191919',
-      borderRadius: 5,
-      paddingHorizontal: 20,
-      color: '#ffffff',
-      marginRight: 7,
-      borderColor:'rgb(248, 147, 48)',
-      borderWidth: 2
+  inputBox: {
+    flex:1,
+    height: 50,
+    backgroundColor: '#191919',
+    borderRadius: 5,
+    paddingHorizontal: 20,
+    color: '#ffffff',
+    marginRight: 7,
+    borderColor:'rgb(248, 147, 48)',
+    borderWidth: 2
 
   },
 });
