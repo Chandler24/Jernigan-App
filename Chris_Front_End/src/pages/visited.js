@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import './global'
 import FavElement from '../components/favElement'
 
 export default class Visited extends Component {
@@ -15,7 +16,18 @@ export default class Visited extends Component {
   }
 
   /* Loads all comments of current location */
-  loadVisitedLocations = () => {
+  async loadVisitedLocations () {
+/*
+    const command = global.url + "api/Location/GetVisitedLocations?userId=" + global.userID;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    }
+    
+    var locations = await response.json();
+*/
     var locations = require('../testdata/account/visitedRequest.json');
     visitedArray = []
 
@@ -32,7 +44,6 @@ export default class Visited extends Component {
     return (
       <View style={styles.container}>
         <View>
-        <Text style={styles.header}> (Press the name of a location to view it)</Text>
           <ScrollView horizontal={false} showsVerticalScrollIndicator={false}>
             <View style={{margin : 6}}/>
             {visitedArray}
@@ -47,7 +58,7 @@ export default class Visited extends Component {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#938C72'
+    backgroundColor: '#E9C46A'
     //backgroundColor: '#EFE8D5'
   },
 

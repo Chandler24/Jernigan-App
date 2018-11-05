@@ -1,26 +1,83 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import { Rating, AirbnbRating } from 'react-native-ratings';
+import { AirbnbRating } from 'react-native-ratings';
 
 export default class Location extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { locationData:{} };
+    this.loadLocation = this.loadLocation.bind(this);
+    this.addToFavorites = this.addToFavorites.bind(this);
+    this.submitRating = this.submitRating.bind(this);
+  } 
 
   // Aligns the header text with back button
   static navigationOptions = {
     headerRight: <View/>
   }
 
-  addToFavorites = () => {
+  /* Envokes on page load */
+  componentWillMount() {
+    this.loadLocation()
+  }
+
+  /* Loads current location*/
+  async loadLocation() {
+/*
+    const command = global.url + "api/Location/GetLocationInfo?locationId=" + passedIn.locationId;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    }
+    
+    this.state.locationData = await response.json();
+*/
+    this.state.locationData = require('../testdata/location/locationRequest.json');
+  }
+
+  /* Adds current location to user's favorites */ 
+  async addToFavorites () {
+/*
+    const command = global.url + "api/Location/AddFavoriteLocation?locationId=" + passedIn.locationId + "&userId" + global.userId;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    } else {
+      alert('Added to Favorites!')
+    }
+*/
     alert('Added to Favorites!')
   }
 
-  render() {
-    var locationData = require('../testdata/location/locationRequest.json');
+  /* Submits User's picked rating */
+  async submitRating () {
+/*
+    const command = global.url + "api/Location/submitRating?rating=" + passedIn.rating + "&userId" + global.userId;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    } else {
+      alert('Thanks!')
+    }
+*/
+  }
 
+  render() {
     return (
       <View style={styles.container}>
-        <Image source={{uri : locationData.image}} style={styles.image} />
-        <Text style={styles.titleText}>{locationData.title}</Text>
-        <AirbnbRating reviews={[]} defaultRating={locationData.rating} />
+        <Image source={{uri : this.state.locationData.image}} style={styles.image} />
+        <Text style={styles.titleText}>{this.state.locationData.title}</Text>
+        <AirbnbRating 
+          reviews={[]} 
+          ratingColor={'#E9C46A'}
+          defaultRating={this.state.locationData.rating} />
         <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Timeline')} >
           <Text style={styles.buttonText} > View Timeline</Text>
         </TouchableOpacity>
@@ -39,13 +96,13 @@ export default class Location extends Component {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#938C72',
+    backgroundColor: '#2A9D8F',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   buttonText: {
-    color: '#938C72',
+    color: '#E9C46A',
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
@@ -53,7 +110,7 @@ const styles = StyleSheet.create({
 
   titleText: {
     marginTop: 5,
-    color: '#EFE8D5',
+    color: '#ffffff',
     fontSize: 45,
     fontWeight: '500',
     textAlign: 'center',
@@ -67,7 +124,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 50,
     marginTop: 20,
-    backgroundColor: '#DED7C4',
+    backgroundColor: '#E76F51',
     borderRadius: 5,
     paddingVertical: 11,
     elevation: 5

@@ -15,7 +15,18 @@ class Favorites extends Component {
   }
 
   /* Loads all favorites of current user */
-  loadFavorites = () => {
+  async loadFavorites () {
+/*
+    const command = global.url + "api/Location/GetVisitedLocations?userId=" + global.userID;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    }
+    
+    var locations = await response.json();
+*/
     var locations = require('../testdata/account/favoritesRequest.json');
     favArray = []
 
@@ -32,12 +43,11 @@ class Favorites extends Component {
       return (
         <View style={styles.container}>
           <View>
-              <Text style={styles.header}> (Press the name of a location to view it)</Text>
-              <ScrollView showsVerticalScrollIndicator={false}>
-                <View style={{margin : 6}}/>
-                {favArray}
-                <View style={{marginBottom: 30}}></View>
-              </ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <View style={{margin : 6}}/>
+              {favArray}
+              <View style={{marginBottom: 30}}/>
+            </ScrollView>
           </View>
         </View>
     )
@@ -56,7 +66,7 @@ export default createStackNavigator({
     navigationOptions: {
       headerTitle: LogoTitle,
       headerStyle: {
-        backgroundColor: '#EFE8D5',
+        backgroundColor: '#264653',
       },
       headerTintColor: '#ffffff',
       }
@@ -66,7 +76,7 @@ export default createStackNavigator({
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#938C72'
+    backgroundColor: '#E9C46A'
   },
 
   header: {

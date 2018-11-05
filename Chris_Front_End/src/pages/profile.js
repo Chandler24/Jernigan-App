@@ -1,45 +1,53 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
-
+import './global'
 import VisitedScreen from './visited'
 import EditScreen from './editProfile'
 import LogoTitle from './../components/logotitle'
 
 class Profile extends Component {
 
-  state = {
-    dialogVisible: false,
-    bioText: "My name is Jay Edwards, and I love to travel. My biggest passion is traveling the world and experiencing new adventures and cultures. I live for it. I live in New York, but most years I manage to get three months off from my job to travel the world and write about what I see, hear, feel and do. Then I go back to work with my heart full and start saving and planning for my next adventure to a new destination.",
-    runningBioText: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = { profileData:{} };
+    this.loadProfile = this.loadProfile.bind(this);
+  }
 
-  showDialog = () => {
-    this.setState({ dialogVisible: true });
-  };
+  /* Envokes on page load */
+  componentWillMount() {
+    this.loadProfile()
+  }
+
+  /* Loads all comments of current location 
+  Idea: id argument is passed in, generarate profiel of that id
+  otherwise get profile of host user
+  */
+  async loadProfile() {
+/*
+    const command = global.url + "api/Account/GetUserAccountInfo?userId=" + global.userID;
+    const response = await fetch(command, {method: 'POST'});
     
-  handleCancel = () => {
-    this.setState({ dialogVisible: false });
-  };
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    }
     
-  handleSubmit = () => {
-    // The user has pressed the "Submit" button
-    this.setState({ bioText: this.state.runningBioText });
-    this.setState({ dialogVisible: false });
-  };
+    this.state.profileData = await response.json();
+*/
+    this.state.profileData = require('../testdata/account/profileRequest.json');
+  }
 
   render() {
-    var profileData = require('../testdata/account/profileRequest.json');
-
     return (
       <View style={styles.container}>
         <View style={{flex:1, maxHeight:170, width: "100%"}}>
-          <Image style={styles.avatars} source={require('../avatars/5.png')}/>
+          <Image style={styles.avatars} source={require('../avatars/9.png')}/>
         </View>
         <View style={{flex: .5}}>
-          <Text style={styles.usernameText}>{profileData.username}</Text>
-          <Text style={styles.residenceText}>{profileData.por}</Text>
-          <Text style={styles.aboutText}>{profileData.bio}</Text>
+          <Text style={styles.usernameText}>{this.state.profileData.username}</Text>
+          <Text style={styles.residenceText}>{this.state.profileData.por}</Text>
+          <Text style={styles.aboutText}>{this.state.profileData.bio}</Text>
         </View>
         <View style={{flex: .5}}>
           <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Visited')} >
@@ -69,7 +77,7 @@ export default createStackNavigator({
     navigationOptions: {
       headerTitle: LogoTitle,
       headerStyle: {
-        backgroundColor: '#EFE8D5',
+        backgroundColor: '#264653',
       },
       headerTintColor: '#ffffff'
     }
@@ -79,20 +87,20 @@ export default createStackNavigator({
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#938c72',
+    backgroundColor: '#E76F51',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   buttonText: {
-    color: '#938c72',
+    color: '#E9C46A',
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
   },
 
   usernameText: {
-    color: '#EFE8D5',
+    color: '#ffffff',
     fontSize: 45,
     fontWeight: '500',
     textAlign: 'center',
@@ -102,7 +110,7 @@ const styles = StyleSheet.create({
   },
 
   residenceText: {
-    color: '#EFE8D5',
+    color: '#ffffff',
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
@@ -112,7 +120,7 @@ const styles = StyleSheet.create({
   },
 
   aboutText: {
-    color: '#EFE8D5',
+    color: '#ffffff',
     fontSize: 14,
     textAlign: 'center',
     margin: 10
@@ -122,7 +130,7 @@ const styles = StyleSheet.create({
     width: 310,
     height: 50,
     marginTop: 20,
-    backgroundColor: '#DED7C4',
+    backgroundColor: '#2A9D8F',
     borderRadius: 5,
     paddingVertical: 11,
     elevation: 5,
@@ -142,6 +150,6 @@ const styles = StyleSheet.create({
     width: null,
     height: null,
     resizeMode: 'contain',
-    margin: 10,
+    margin: 10
   },
 });

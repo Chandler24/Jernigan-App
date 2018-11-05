@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   favoriteElement: {
     flexDirection: 'row', 
     flex: 1,
-    backgroundColor: '#D1CCB8',
+    backgroundColor: '#E76F51',
     borderRadius: 10,
     marginHorizontal: 10,
     marginBottom: 10,
@@ -31,21 +31,21 @@ const styles = StyleSheet.create({
   },
   
   username: {
-    color: '#938C72',
+    color: '#ffffff',
     fontWeight: 'bold',
     fontSize: 16,
     marginLeft: 10,
   },
 
   blockText: {
-    color: '#EFE8D5',
+    color: '#264653',
     fontSize: 14,
     marginLeft: 10,
     marginRight:10
   },
 
   commentbackground: {
-    backgroundColor: '#938c72',
+    backgroundColor: '#ffffff',
       borderRadius: 5, 
       marginHorizontal: 10, 
       marginVertical:2,   
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
 
   timestamp: {
-    color: '#938C72',
+    color: '#ffffff',
     fontSize: 8,
     marginLeft: 10,
     marginRight: 50,

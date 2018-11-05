@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   favoriteElement: {
     height: 130,
     marginBottom: 10,
-    backgroundColor: "#D1CCB8",
+    backgroundColor: "#E76F51",
     borderRadius: 10,
     elevation: 5,
     marginHorizontal: 10

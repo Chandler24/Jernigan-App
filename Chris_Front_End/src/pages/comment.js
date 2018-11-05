@@ -9,6 +9,7 @@ export default class Comment extends Component {
   constructor() {
     super();
     this.state = {
+      previousComments: {},
       workingComment: '',
       comments: []
     };
@@ -26,30 +27,50 @@ export default class Comment extends Component {
   }
 
   /* Loads all comments of current location */
-  loadComments = () => {
-    var previousComments = require('../testdata/location/commentsRequest.json');
+  async loadComments () {
+/*
+    const command = global.url + "api/Location/getComments?locationId=" + passedIn.locationId;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    }
+    
+    this.state.previousComments = await response.json();
+*/
+    this.state.previousComments = require('../testdata/location/commentsRequest.json');
 
-    for (var i = 0; i < previousComments.comments.length; i++)
+    for (var i = 0; i < this.state.previousComments.comments.length; i++)
     {
-      this.state.comments.push(<CommentElement key={i} username={previousComments.comments[i].user} comment= {previousComments.comments[i].body}/>)
+      this.state.comments.push(<CommentElement key={i} username={this.state.previousComments.comments[i].user} comment= {this.state.previousComments.comments[i].body}/>)
     }
   }
 
   /* Function invoked when a comment is added */
-  addComment = () => {
+  async addComment () {
     /* Sets 'notEmpty" to T/F is the entered comment contains data or not */
     let notEmpty = this.state.workingComment.trim().length > 0;
 
     if (notEmpty) {
-      this.setState(
-        prevState => {
-          let { comments } = prevState;
-          return {
-            comments: comments.concat(<CommentElement key={0} username={"User"} comment= {this.state.workingComment}/>),
-            workingComment: ""
-          };
-        }
-      );
+/*
+      const command = global.url + "api/Location/getComments?locationId=" + passedIn.locationId + "&userId" + global.userId + "&comment" + this.state.workingComment;
+      const response = await fetch(command, {method: 'POST'});
+      
+      if (!response.ok) {
+        alert("Server Down");
+        throw Error(response.statusText);
+      }
+*/
+      this.setState( prevState => {
+        let { comments } = prevState;
+        return {
+          comments: comments.concat(<CommentElement key={0} username={"User"} comment= {this.state.workingComment}/>),
+          workingComment: ""
+        };
+      });  
+    } else {
+      alert("Comment is empty!")
     }
   }
 
@@ -75,12 +96,12 @@ export default class Comment extends Component {
             multiline={true}
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="Leave a comment!"
-            placeholderTextColor='rgba(147, 140, 114, 0.75)'
+            placeholderTextColor='rgba(38, 70, 83, 0.5)'
             selectionColor='rgba(255,255,255,0.75)' />
           <FontAwesome onPress={this.addComment} 
             name="telegram" 
             size={50} 
-            color='#EFE8D5' 
+            color='#2A9D8F' 
             margin='5' />
         </View>
       </View>
@@ -91,7 +112,7 @@ export default class Comment extends Component {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#938C72',
+    backgroundColor: '#E9C46A',
   },
 
   inputArea: {
@@ -104,11 +125,11 @@ const styles = StyleSheet.create({
   inputBox: {
     flex:1,
     height: 50,
-    backgroundColor: '#DED7C4',
-    borderColor: "#938c72",
+    backgroundColor: '#ffffff',
+    borderColor: "#2A9D8F",
     borderRadius: 10,
     paddingHorizontal: 20,
-    color: '#938c72',
+    color: '#264653',
     marginRight: 7,
     borderWidth: 2,
     elevation: 5,

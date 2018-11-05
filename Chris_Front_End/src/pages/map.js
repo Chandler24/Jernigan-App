@@ -32,23 +32,37 @@ class Map extends Component {
   }
 
   /* Loads all comments of current location */
-  loadLocationsMarkers = () => {
-    var markers = require('../testdata/location/nearbyLocationsRequest.json');
-    markersArray = []
+  async loadLocationsMarkers() {
 
+    markersArray = []
+/*
+    const command = global.url + "api/Location/GetAvailableTimelines?longitude=" + this.state.longitude + "&latitude=" + this.state.latitude;
+    const response = await fetch(command, {method: 'POST'});
+ 
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    }
+
+    const markers = await response.json();
+*/
+    var markers = require('../testdata/location/nearbyLocationsRequest.json');
+    
     for (var i = 0; i < markers.locations.length; i++) {
-      markersArray.push(<MapView.Marker
-        key = {i} 
+      markersArray.push (
+        <MapView.Marker
+        key = {markers.locations[i].locationId}
         coordinate={{ latitude: markers.locations[i].latitude, longitude: markers.locations[i].longitude}}
         title={markers.locations[i].title}
         description={"Click here for timeline!"}
-        onCalloutPress={this.loadLocation}
-        pinColor= 'rgb(248, 147, 48)'/>)
+        onCalloutPress={(key) =>this.goToLocation(key)}
+        pinColor= '#E9C46A'/>
+      )
     }
   }
 
   // Calls backend to gather location data and navigate to page
-  loadLocation = () => {
+  goToLocation (event) {
     this.props.navigation.navigate('Location')
   }
   
@@ -100,7 +114,7 @@ export default createStackNavigator({
     navigationOptions: {
       headerTitle: LogoTitle,
       headerStyle: {
-        backgroundColor: '#EFE8D5',
+        backgroundColor: '#264653',
       },
       headerTintColor: '#ffffff',
     }
@@ -126,9 +140,9 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 25,
     overflow: 'hidden',
-    backgroundColor: 'rgba(21,50,133,0.1)',
+    backgroundColor: 'rgba(231, 111, 81, 0.1)',
     borderWidth: 1,
-    borderColor: 'rgba(21,50,133,0.3)',
+    borderColor: 'rgba(231, 111, 81, 0.3)',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -140,6 +154,6 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderRadius: 10,
     overflow: 'hidden',
-    backgroundColor: 'rgb(21,50,133)'
+    backgroundColor: '#E76F51'
   },
 });

@@ -10,20 +10,36 @@ export default class Edit extends Component {
     headerRight: <View/>
   }
 
-  state = {
+  constructor(props) {
+    super(props);
+    this.state = {
       pic: "",
       bioText: "",
       por: ""
-  };
-    
-  handleSubmit = () => {
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
+  async handleSubmit () {
+    /*
+    const command = global.url + "/api/Account/updateProfile?pic=" + this.state.pic + "&bio=" + this.state.bioText+ "&por=" + this.state.por;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    }
+    
+    const data = await response.json();
+    */
+    alert("Profile Updated")
+    this.props.navigation.navigate('Profile')
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <FontAwesome  name="hand-o-down" size={40} color='#938c72' />
+        <FontAwesome  name="hand-o-down" size={40} color='#F4A261' />
         <ScrollView style={{maxHeight:150}} horizontal={true} showsHorizontalScrollIndicator={false}>
           <TouchableHighlight syle={{maxWidth: 150}}>
             <Image style={styles.avatars} source={require('../avatars/1.png')}/>
@@ -67,7 +83,7 @@ export default class Edit extends Component {
           multiline={true}
           underlineColorAndroid='rgba(0,0,0,0)'
           selectionColor='rgba(255,255,255,0.75)' />
-        <TouchableOpacity style={styles.button} onPress={this.showDialog}>
+        <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
           <Text style={styles.buttonText} >Submit</Text>
         </TouchableOpacity>
         <View style={{marginBottom: 10}}/>
@@ -79,20 +95,20 @@ export default class Edit extends Component {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#EFE8D5',
+    backgroundColor: '#E76F51',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   titleText: {
-    color: '#938c72',
+    color: '#ffffff',
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
   },
 
   buttonText: {
-    color: '#EFE8D5',
+    color: '#E9C46A',
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
@@ -107,7 +123,7 @@ const styles = StyleSheet.create({
     width: "90%",
     height: 50,
     marginTop: 20,
-    backgroundColor: '#938c72',
+    backgroundColor: '#2A9D8F',
     borderRadius: 5,
     paddingVertical: 11,
     elevation: 5
@@ -125,24 +141,24 @@ const styles = StyleSheet.create({
     width: "90%",
     height: 150,
     borderWidth: 2,
-    backgroundColor: '#DED7C4',
-    borderColor: "#938c72",
+    backgroundColor: '#ffffff',
+    borderColor: "#264653",
     borderRadius: 10,
     elevation: 5,
     paddingHorizontal: 20,
-    color: '#938c72',
+    color: '#264653',
   },
 
   inputBoxsm: {
     width: "90%",
     height: 40,
     borderWidth: 2,
-    backgroundColor: '#DED7C4',
-    borderColor: "#938c72",
+    backgroundColor: '#ffffff',
+    borderColor: "#264653",
     borderRadius: 10,
     elevation: 5,
     paddingHorizontal: 20,
-    color: '#938c72',
+    color: '#264653',
     marginBottom: 5
   }
 });
