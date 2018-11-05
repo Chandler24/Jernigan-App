@@ -9,86 +9,84 @@ import LogoTitle from './../components/logotitle'
 
 class Favorites extends Component {
 
-    generateTimeline = () => {
-        this.props.navigation.navigate('./../pages/timeline')
-    }
+  /* Envokes on page load */
+  componentWillMount() {
+    this.loadFavorites()
+  }
 
-    state = {favorites : []};
-    componentWillMount(){
-        var userId = JSON.stringify({guid: 'bbbd861b-62ae-4eb5-9677-3aa2e354c583'});
-        var command = global.url + "/api/Location/GetFavoriteLocations?userId=" + userId;
-
-        fetch(command, { 
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-        },
-
-        // Parces json data from server response
-        }).then((response) => response.json())
-        // plays with the parsed json data and performs some function.
-        .then((responseJson) => {
-            for (i = 0; i < responseJson.LocationInfo; i++)
-            this.setState({favorites : responseJson.LocationInfo[i]});
-        })
-        //catches any error.
-        .catch((error) => {
-            console.error(error);
-        });
+  /* Loads all favorites of current user */
+  async loadFavorites () {
+/*
+    const command = global.url + "api/Location/GetVisitedLocations?userId=" + global.userID;
+    const response = await fetch(command, {method: 'POST'});
     
-        
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
     }
+    
+    var locations = await response.json();
+*/
+    var locations = require('../testdata/account/favoritesRequest.json');
+    favArray = []
+
+    for (var i = 0; i < Object.keys(locations.favoriteLocations).length; i++)
+    {
+      favArray.push(<FavElement
+        key = {i} 
+        imageUri={locations.favoriteLocations[i].image} 
+        name={locations.favoriteLocations[i].title}/>)
+    }
+  }
 
     render() {
-        return (
-            <View style={styles.container}>
-                <View>
-                    <ScrollView showsVerticalScrollIndicator={false}>
-                        <View style={{margin : 6}}/>
-                        <FavElement
-                            imageUri={require('../images/cityhall.jpg')}
-                            name="Orlando City Hall"
-                            onPress={this.generateTimeline}
-                        />
-                    </ScrollView>
-                </View>
-            </View>
-        )
-    }
+      return (
+        <View style={styles.container}>
+          <View>
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <View style={{margin : 6}}/>
+              {favArray}
+              <View style={{marginBottom: 30}}/>
+            </ScrollView>
+          </View>
+        </View>
+    )
+  }
 }
 
 export default createStackNavigator({
-    Favorites: {
-        screen: Favorites
-    },
-    Timeline: {
-      screen: TimelineScreen
-    },   
-    },
-    {
-        initialRouteName: 'Favorites',
-        navigationOptions: {
-            headerTitle: LogoTitle,
-            headerStyle: {
-                backgroundColor: '#191919',
-            },
-            headerTintColor: '#ffffff',
-          }
-    }
+  Favorites: {
+    screen: Favorites
+  },
+  Timeline: {
+    screen: TimelineScreen
+  },   
+},{
+    initialRouteName: 'Favorites',
+    navigationOptions: {
+      headerTitle: LogoTitle,
+      headerStyle: {
+        backgroundColor: '#264653',
+      },
+      headerTintColor: '#ffffff',
+      }
+  }
  );
 
 const styles = StyleSheet.create({
-    container: {
-        flexGrow: 1,
-        backgroundColor: '#3f3f3f'
-    },
+  container: {
+    flexGrow: 1,
+    backgroundColor: '#E9C46A'
+  },
 
-    headerText: {
-        color: '#ffffff',
-        fontSize: 40,
-        paddingBottom: 5,
-        fontWeight: '500',
-        textAlign: 'center',
-    },
+  header: {
+    color: '#ffffff',
+    fontSize: 14,
+    textAlign: 'center',
+    marginLeft: 10,
+    marginRight: 10,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10
+  },
 });

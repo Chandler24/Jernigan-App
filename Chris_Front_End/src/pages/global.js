@@ -1,1 +1,3 @@
-global.url = "http://43263f2b.ngrok.io"
+global.url = "http://05fbd73c.ngrok.io"
+global.userID = ""
+global.username = ""

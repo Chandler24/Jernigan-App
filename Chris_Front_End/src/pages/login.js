@@ -1,134 +1,141 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image } from 'react-native';
 import LottieView from 'lottie-react-native';
 import './global'
 
 export default class Login extends Component {
 
-    state = {
-        username: '',
-        password: ''
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: ''
     };
+    this.onLoginSubmit = this.onLoginSubmit.bind(this);
+  }
 
-    onLoginSubmit = () => {
-        var username = this.state.username;
-        var password = this.state.password;
-        var command = global.url + "/api/Account/SignIn?username=" + username + "&password=" + password;
-        
-        fetch(command, { 
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-        },
-        // Parces json data from server response
-        }).then((response) => response.json())
-        // plays with the parsed json data and performs some function.
-        .then((responseJson) => {
-            if (responseJson.SignInSuccessful == true)
-                this.props.navigation.navigate('Home')
-            else{
-                alert("Invalid Username or Password");
-        }           
-        })
-        //catches any error.
-        .catch((error) => {
-            console.error(error);
-        });
+  async onLoginSubmit () {
+    const command = global.url + "/api/Account/SignIn?username=" + this.state.username + "&password=" + this.state.password;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
     }
-    render() {
+    
+    const data = await response.json();
 
-        if (this.state.isLoading){
-            return(
-              <View style={{flex: 1, padding: 20}}>
-                <ActivityIndicator/>
-              </View>
-            )
-        }
+    if (data.SignInSuccessful == true) {
+      var customData = require('../testdata/account/signInRequest.json');
+      global.userID = customData.userId;
+      global.username = customData.username;
+      /*
+      var customData = data;
+      global.userID = data.userId;
+      global.username = data.username;
+      */
+      this.props.navigation.navigate('Home')
 
-        return (
-            <View style={styles.container}>
-                
-                <LottieView source={require('../images/gradient_animated_background')} style={{resizeMode:'cover'}}  autoPlay/>
-                <Image style={styles.logo} source={require('../images/logo.png')} />
-                <View style={{flex:2}}>
-                    <TextInput style={styles.inputBox}
-                        onChangeText={(value) => this.setState({username: value})}
-                        value={this.state.username}
-                        underlineColorAndroid='rgba(0,0,0,0)'
-                        placeholder="Username"
-                        placeholderTextColor='rgba(255,255,255,0.75)'
-                        selectionColor='rgba(255,255,255,0.75)' />
-                    <TextInput style={styles.inputBox}
-                        onChangeText={(value) => this.setState({password: value})}
-                        value={this.state.password}
-                        underlineColorAndroid='rgba(0,0,0,0)'
-                        placeholder="Password"
-                        secureTextEntry={true}
-                        placeholderTextColor='rgba(255,255,255,0.75)'
-                        selectionColor='rgba(255,255,255,0.75)' />
-                    <TouchableOpacity style={styles.button} onPress={this.onLoginSubmit}>
-                        <Text style={styles.buttonText} >Log In</Text>
-                    </TouchableOpacity>
-                    <Text
-                        style={styles.signupText}
-                        onPress={() => this.props.navigation.navigate('Signup')}>
-                        Don't have an Account? Sign up
-                    </Text>
-                </View>
-            </View>
-        )
+    } else { 
+      alert("Invalid Username or Password");
     }
+  }
+
+  render() {
+    return (
+      <View style={styles.welcomeContainer}>
+        {/* Rotating Earth Animation */}
+        <View style={{flex:1, width: "100%", bottom: 15}}>
+          <LottieView source={require('../images/world_locations')} autoPlay/>
+        </View>
+        {/* Logo Title */}
+        <View style={{flex:.5, width: "100%", bottom: 75}}>
+          <Image style={styles.logo} source={require('../images/logo.png')} />
+        </View>
+        {/* Login Forum */}
+        <View style={{flex:1, bottom: 75}}>
+          <TextInput style={styles.welcomeInputBox}
+            onChangeText={(value) => this.setState({username: value})}
+            value={this.state.username}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Username"
+            placeholderTextColor='rgba(255,255,255,0.75)'
+            selectionColor='rgba(255,255,255,0.75)'
+            returnKeyType = { "next" } 
+            onSubmitEditing={() => { this.secondTextInput.focus(); }}
+            blurOnSubmit={false} />
+          <TextInput style={styles.welcomeInputBox}
+            onChangeText={(value) => this.setState({password: value})}
+            value={this.state.password}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Password"
+            secureTextEntry={true}
+            placeholderTextColor='rgba(255,255,255,0.75)'
+            selectionColor='rgba(255,255,255,0.75)'
+            returnKeyType = { "done" } 
+            ref={(input) => { this.secondTextInput = input; }}/>
+          <TouchableOpacity style={styles.button1} onPress={this.onLoginSubmit}>
+            <Text style={styles.button1Text} >Log In</Text>
+          </TouchableOpacity>
+          <Text
+            style={styles.welcomeNavText}
+            onPress={() => this.props.navigation.navigate('Signup')}>
+            Don't have an Account? Sign up
+          </Text>
+        </View>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flexGrow: 1,
-        backgroundColor: '#2e88ff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+  welcomeContainer: {
+    flexGrow: 1,
+    backgroundColor: '#264653',
+    //backgroundColor: 'rgb(21,50,133)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-    signupText: {
-        marginTop: 20,
-        textAlign: 'center',
-        color: '#ffffff',
-    },
+  welcomeNavText: {
+    marginTop: 20,
+    textAlign: 'center',
+    color: '#ffffff',
+  },
 
-    inputBox: {
-        marginBottom: 20,
-        width: 300,
-        height: 40,
-        backgroundColor: 'rgba(255,255,255,0.3)',
-        borderRadius: 5,
-        paddingHorizontal: 20,
-        color: '#ffffff',
-        
-    },
+  welcomeInputBox: {
+    marginBottom: 20,
+    width: 300,
+    height: 40,
+    backgroundColor: 'rgba(255,255,255,0.3)',
+    borderRadius: 5,
+    paddingHorizontal: 20,
+    color: '#ffffff',
+  },
 
-    buttonText: {
-        color: '#ffffff',
-        fontSize: 20,
-        fontWeight: '500',
-        textAlign: 'center',
-    },
+  button1Text: {
+    color: '#E9C46A',
+    fontSize: 20,
+    fontWeight: '500',
+    textAlign: 'center',
+  },
 
-    button: {
-        width: 300,
-        height: 50,
-        backgroundColor: '#ff586e',
-        borderRadius: 5,
-        paddingVertical: 11,
-        elevation: 5
-    },
+  button1: {
+    width: 300,
+    height: 50,
+    backgroundColor: '#E76F51',
+    //backgroundColor: 'rgb(248, 147, 48)',
+    borderRadius: 5,
+    paddingVertical: 11,
+    elevation: 5
+  },
 
-    logo: {
-        flex:1,
-        alignSelf: 'stretch',
-        width: undefined,
-        height: undefined,
-        resizeMode: 'contain',
-        margin: 50
-        
-    }
-}); 
+  logo: {
+    flex:1,
+    alignSelf: 'stretch',
+    width: undefined,
+    height: undefined,
+    resizeMode: 'contain',
+    marginHorizontal: 10
+  }
+});

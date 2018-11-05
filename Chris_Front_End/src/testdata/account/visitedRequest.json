@@ -1,0 +1,44 @@
+{
+  "visitedLocations" : [
+    {
+      "locationID" : "0001",
+      "title" : "Trolly Grove Square",
+      "image" : "https://picsum.photos/700/300/?random"
+    },
+    {
+      "locationID" : "0002",
+      "title" : "Miller's Ale House Orlando",
+      "image" : "https://picsum.photos/700/301/?random"
+    },
+    {
+      "locationID" : "0003",
+      "title" : "Austin's Coffee",
+      "image" : "https://picsum.photos/700/302/?random"
+    },
+    {
+      "locationID" : "0004",
+      "title" : "Engineering Building I",
+      "image" : "https://picsum.photos/700/303/?random"
+    },
+    {
+      "locationID" : "0005",
+      "title" : "Disney's Wilderness Lodge",
+      "image" : "https://picsum.photos/700/304/?random"
+    },
+    {
+      "locationID" : "0006",
+      "title" : "The Pointe",
+      "image" : "https://picsum.photos/700/305/?random"
+    },
+    {
+      "locationID" : "0007",
+      "title" : "Papa Johns",
+      "image" : "https://picsum.photos/700/306/?random"
+    },
+    {
+      "locationID" : "0008",
+      "title" : "64 North",
+      "image" : "https://picsum.photos/700/307/?random"
+    }
+  ]
+}

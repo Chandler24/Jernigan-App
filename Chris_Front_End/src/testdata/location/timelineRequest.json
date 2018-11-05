@@ -1,0 +1,20 @@
+{
+  "timelinePoints" : [
+    {
+      "date" : 2018,
+      "desc" : "A React Native app is a real mobile app. With React Native, you don't build a mobile web app, an HTML5 app, or a hybrid app. ... React Native uses the same fundamental UI building blocks as regular iOS and Android apps. You just put those building blocks together using JavaScript and React."
+    },
+    {
+      "date" : 2015,
+      "desc" : "A React Native app is a real mobile app. With React Native, you don't build a mobile web app, an HTML5 app, or a hybrid app. ... React Native uses the same fundamental UI building blocks as regular iOS and Android apps. You just put those building blocks together using JavaScript and React."
+    },
+    {
+      "date" : 2011,
+      "desc" : "A React Native app is a real mobile app. With React Native, you don't build a mobile web app, an HTML5 app, or a hybrid app. ... React Native uses the same fundamental UI building blocks as regular iOS and Android apps. You just put those building blocks together using JavaScript and React."
+    },
+    {
+      "date" : 2008,
+      "desc" : "A React Native app is a real mobile app. With React Native, you don't build a mobile web app, an HTML5 app, or a hybrid app. ... React Native uses the same fundamental UI building blocks as regular iOS and Android apps. You just put those building blocks together using JavaScript and React."
+    }
+  ]
+}

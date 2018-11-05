@@ -5,6 +5,7 @@ import { createSwitchNavigator } from 'react-navigation';
 import LoginScreen from './src/pages/login'
 import SignupScreen from './src/pages/signup'
 import HomeScreen from './src/pages/home'
+console.disableYellowBox = true;
 
 export default class App extends Component {
   render() {
@@ -18,13 +19,4 @@ const AppRouteNavigator = createSwitchNavigator({
   Login: LoginScreen,
   Signup: SignupScreen,
   Home: HomeScreen,
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    backgroundColor: '#2e88ff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
 });

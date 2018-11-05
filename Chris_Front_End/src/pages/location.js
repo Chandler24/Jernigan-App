@@ -1,73 +1,137 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import { Rating, AirbnbRating } from 'react-native-ratings';
+import { AirbnbRating } from 'react-native-ratings';
 
 export default class Location extends Component {
 
-    // Aligns the header text with back button
-    static navigationOptions = {
-      headerRight: <View/>
-    }
+  constructor(props) {
+    super(props);
+    this.state = { locationData:{} };
+    this.loadLocation = this.loadLocation.bind(this);
+    this.addToFavorites = this.addToFavorites.bind(this);
+    this.submitRating = this.submitRating.bind(this);
+  } 
 
-    render() {
-        return (
-            <View style={styles.container}>
-                <Image source={require('../images/cityhall.jpg')} style={styles.image} />
-                <Text style={styles.userText}>Orlando City Hall</Text>
-                <AirbnbRating reviews={[]} />
-                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Timeline')} >
-                    <Text style={styles.buttonText} > View Timeline</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => alert('Added to Favorites!')}>
-                    <Text style={styles.buttonText} >Favorite</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Comment')} >
-                    <Text style={styles.buttonText} >Comment</Text>
-                </TouchableOpacity>
-            </View>
-        )
+  // Aligns the header text with back button
+  static navigationOptions = {
+    headerRight: <View/>
+  }
+
+  /* Envokes on page load */
+  componentWillMount() {
+    this.loadLocation()
+  }
+
+  /* Loads current location*/
+  async loadLocation() {
+/*
+    const command = global.url + "api/Location/GetLocationInfo?locationId=" + passedIn.locationId;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
     }
+    
+    this.state.locationData = await response.json();
+*/
+    this.state.locationData = require('../testdata/location/locationRequest.json');
+  }
+
+  /* Adds current location to user's favorites */ 
+  async addToFavorites () {
+/*
+    const command = global.url + "api/Location/AddFavoriteLocation?locationId=" + passedIn.locationId + "&userId" + global.userId;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    } else {
+      alert('Added to Favorites!')
+    }
+*/
+    alert('Added to Favorites!')
+  }
+
+  /* Submits User's picked rating */
+  async submitRating () {
+/*
+    const command = global.url + "api/Location/submitRating?rating=" + passedIn.rating + "&userId" + global.userId;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
+    } else {
+      alert('Thanks!')
+    }
+*/
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Image source={{uri : this.state.locationData.image}} style={styles.image} />
+        <Text style={styles.titleText}>{this.state.locationData.title}</Text>
+        <AirbnbRating 
+          reviews={[]} 
+          ratingColor={'#E9C46A'}
+          defaultRating={this.state.locationData.rating} />
+        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Timeline')} >
+          <Text style={styles.buttonText} > View Timeline</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={this.addToFavorites}>
+          <Text style={styles.buttonText} >Favorite</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Comment')} >
+          <Text style={styles.buttonText} >Comment</Text>
+        </TouchableOpacity>
+        <View style={{marginBottom: 20}}/>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flexGrow: 1,
-        backgroundColor: '#3f3f3f',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+  container: {
+    flexGrow: 1,
+    backgroundColor: '#2A9D8F',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-    buttonText: {
-        color: '#ffffff',
-        fontSize: 20,
-        fontWeight: '500',
-        textAlign: 'center',
-    },
+  buttonText: {
+    color: '#E9C46A',
+    fontSize: 20,
+    fontWeight: '500',
+    textAlign: 'center',
+  },
 
-    userText: {
-        marginTop: 10,
-        color: '#ffffff',
-        fontSize: 45,
-        fontWeight: '500',
-        textAlign: 'center',
-        marginBottom: -25,
-    },
+  titleText: {
+    marginTop: 5,
+    color: '#ffffff',
+    fontSize: 45,
+    fontWeight: '500',
+    textAlign: 'center',
+    marginBottom: -25,
+    textShadowColor: 'rgba(0,0,0,0.6)',
+    textShadowOffset: {width: -1, height: 1},
+    textShadowRadius: 10
+  },
 
-    button: {
-        width: 300,
-        height: 50,
-        marginTop: 20,
-        backgroundColor: '#c61b43',
-        borderRadius: 5,
-        paddingVertical: 11,
-        elevation: 5
-    },
+  button: {
+    width: 300,
+    height: 50,
+    marginTop: 20,
+    backgroundColor: '#E76F51',
+    borderRadius: 5,
+    paddingVertical: 11,
+    elevation: 5
+  },
 
-    image: {
-      borderRadius: 50,
-      flex: .8,
-      width: '90%',
-      borderWidth: 2,
-      borderColor: '#c61b43'
+  image: {
+    flex: 1,
+    width: '100%',
   },
 });

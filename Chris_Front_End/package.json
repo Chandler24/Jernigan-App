@@ -28,11 +28,10 @@
     "lottie-react-native": "^2.5.9",
     "react": "16.3.1",
     "react-native": "~0.55.2",
-    "react-native-comments": "^1.1.1",
     "react-native-maps": "^0.21.0",
     "react-native-ratings": "^6.0.0",
     "react-native-timeline-listview": "^0.2.3",
-    "react-navigation": "^2.17.0",
+    "react-navigation": "^2.18.2",
     "whatwg-fetch": "^2.0.4"
   }
 }
