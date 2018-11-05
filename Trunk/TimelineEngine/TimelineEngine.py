@@ -39,8 +39,9 @@ class TimelineEngine():
         return images[0]
 
     def generateTimeline(self, locationInfo):
-        if(not (self.TimelineGenerationCheck(locationInfo))):
-            return "No Timeline Avaliable"
+        print(locationInfo)
+        #if(not (self.TimelineGenerationCheck(locationInfo))):
+         #   return "No Timeline Avaliable"
 
         summary_text, ratio, images = self.getPageContent(locationInfo)
         summary_text = summarize(summary_text, ratio=ratio, split=True)
@@ -51,17 +52,17 @@ class TimelineEngine():
             if bool(re.search('[1-4][0-9]{3}', sentence)) and bool(re.search('in', sentence)):
                 timeline_sentences.append(sentence)
 
-        TimelineObject = {}
+        TimelineObject = []
         
         image = self.findBestImage(images, locationInfo)
-
-        years_sentences = {}
-
+        temp = {}
         for sentence in timeline_sentences:
-            years_sentences[re.search('[1-4][0-9]{3}', sentence).group()] = sentence
-
-        TimelineObject['sentences'] = years_sentences
-        TimelineObject['image'] = image
+            temp = {}
+            temp['year'] = re.search('[1-4][0-9]{3}', sentence).group()
+            temp['description'] = sentence
+            TimelineObject.append(temp)
+            
+        TimelineObject.append(dict({'image' : image}))
 
         print(TimelineObject)
         return json.dumps(TimelineObject)

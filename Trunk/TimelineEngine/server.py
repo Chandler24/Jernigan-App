@@ -1,21 +1,42 @@
-import socketserver
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import TimelineEngine as TE
+import json
+import http.client
+import re
 
-class MyTCPHandler(socketserver.BaseRequestHandler):
+PORT_NUMBER = 8080
+
+class myHandler(BaseHTTPRequestHandler):
+	#Handler for the GET requests
+	def do_GET(self):
+		TimelineEngine = TE.TimelineEngine()
+		self.send_response(200)
+		self.data = self.headers.as_string().split("\n")
+		self.headers = {}
+		for header in self.data:
+			temp = header.split(":")
+			if len(temp) >= 2:
+				self.headers[temp[0]] = temp[1]
+
+
+		self.send_header("Content-type", "application/json")
+		self.end_headers()
+		self.wfile.write(TimelineEngine.generateTimeline(self.headers['data']).encode("utf-8"))
+		return
+
+try:
+	#Create a web server and define the handler to manage the
+	#incoming request
+	server = HTTPServer(('localhost', PORT_NUMBER), myHandler)
+	print('Started httpserver on port ' , PORT_NUMBER)
 	
-	def handle(self):
-		self.data = self.request.recv(1024).strip()
-		self.data = self.data.decode()
-		index = self.data.rfind('\n')
-		self.data = self.data[index+1:]
-		print(type(self.data))
-		timeline_engine = TE.TimelineEngine()
-		results = timeline_engine.generateTimeline(self.data)
-		self.request.sendall(results.encode())
+	#Wait forever for incoming htto requests
+	server.serve_forever()
 
-if __name__ == "__main__":
-    HOST, PORT = "localhost", 9999
+except KeyboardInterrupt:
+	print ('^C received, shutting down the web server')
+	server.socket.close()
 
-    # Create the server, binding to localhost on port 9999
-    with socketserver.TCPServer((HOST, PORT), MyTCPHandler) as server:
-        server.serve_forever()
+
+
+
