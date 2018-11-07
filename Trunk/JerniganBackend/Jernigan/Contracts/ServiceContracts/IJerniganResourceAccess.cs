@@ -18,5 +18,8 @@ namespace CaerusSoft.Jernigan.Contracts
 
         [OperationContract]
         void DeleteFavoriteLocation(ManageLocationRequest request);
+
+        [OperationContract]
+        LocationResponse[] FetchLocations();
     }
 }

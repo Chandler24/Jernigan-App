@@ -44,5 +44,10 @@ namespace CaerusSoft.Jernigan.JerniganResourceAccess
         {
             m_JerniganResourceAccess.LeaveFeedback(request);
         }
+
+        public LocationResponse [] FetchLocations()
+        {
+            return m_JerniganResourceAccess.FetchLocations();
+        }
     }
 }

@@ -12,3 +12,5 @@ C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\obj\Debug\AccountManagerTests.csprojResolveAssemblyReference.cache
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\obj\Debug\AccountManagerTests.dll
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\obj\Debug\AccountManagerTests.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\CaerusSoft.Jernigan.AccountResourceAccess.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManagerTests\bin\Debug\CaerusSoft.Jernigan.AccountResourceAccess.pdb

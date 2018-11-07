@@ -20,3 +20,5 @@ C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManager\bin\D
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManager\obj\Debug\AccountManager.csprojResolveAssemblyReference.cache
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManager\obj\Debug\CaerusSoft.Jernigan.AccountManager.dll
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManager\obj\Debug\CaerusSoft.Jernigan.AccountManager.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManager\bin\Debug\CaerusSoft.Jernigan.AccountResourceAccess.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\AccountManager\bin\Debug\CaerusSoft.Jernigan.AccountResourceAccess.pdb

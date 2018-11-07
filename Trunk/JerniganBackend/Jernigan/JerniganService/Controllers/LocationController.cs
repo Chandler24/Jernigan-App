@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Web.Http;
 using CaerusSoft.Jernigan.Contracts;
 using JerniganService.Models;
+using CaerusSoft.Jernigan.JerniganManager;
+using System.Web.Http.Results;
 
 namespace JerniganService.Controllers
 {
@@ -19,13 +21,13 @@ namespace JerniganService.Controllers
             {
                 Comments = new Comment[]
                 {
-                    new Models.Comment
+                    new Comment
                     {
                         Message = "Testing Message 2. This should show second.",
                         DatePosted = DateTime.Now.AddDays(-1),
                         UserId = Guid.NewGuid()
                     },
-                    new Models.Comment
+                    new Comment
                     {
                         Message = "Testing Message 1. This should so first",
                         DatePosted = DateTime.Now,
@@ -37,14 +39,14 @@ namespace JerniganService.Controllers
 
         [HttpPost]
         [Route("api/Location/AddFavoriteLocation")]
-        public void AddFavoriteLocation(Guid locationId, Guid userId)
+        public void AddFavoriteLocation(int locationId, Guid userId)
         {
 
         }
 
         [HttpPost]
         [Route("api/Location/DeleteFavoriteLocation")]
-        public void DeleteFavoriteLocation(Guid locationId, Guid userId)
+        public void DeleteFavoriteLocation(int locationId, Guid userId)
         {
 
         }
@@ -80,43 +82,36 @@ namespace JerniganService.Controllers
         }
 
         [HttpPost]
-        [Route("api/Location/GetAvailableTimelines")]
-        public TimelineCheckResponse[] GetAvailableTimelines(string longitude, string latitude)
-        {
-            return new TimelineCheckResponse[]
-            {
-                new TimelineCheckResponse
-                {
-                    LocationId = Guid.NewGuid(),
-                    LocationAddress = "123 Candy Cane Way",
-                    LocationName = "Willy Wonka's Chocolate Factory",
-                    TimelineAvailable = true
-                },
-                new TimelineCheckResponse
-                {
-                    LocationId = Guid.NewGuid(),
-                    LocationAddress = "149 All Hallows Haunt",
-                    LocationName = "Samhain's Hill",
-                    TimelineAvailable = false
-                },
-                new TimelineCheckResponse
-                {
-                    LocationId = Guid.NewGuid(),
-                    LocationAddress = "917 Nightmare Lane",
-                    LocationName = "Camp Crystal Lake",
-                    TimelineAvailable = true
-                }
-            };
-        }
-
-        [HttpPost]
         [Route("api/Location/GenerateTimeline")]
-        public GenerateTimelineResponse GenerateTimeline (string locationName)
+        public JsonResult<TimelineModel> GenerateTimeline (string locationName)
         {
-            return new GenerateTimelineResponse()
+            IJerniganManager jerniganManager = new JerniganManager();
+            GenerateTimelineRequest request = new GenerateTimelineRequest()
             {
-                Timeline = "This is an example of a timeline for the given location"
+                LocationName = locationName
             };
+
+            GenerateTimelineResponse [] response = jerniganManager.GenerateTimeline(request);
+            TimelineModel model = new TimelineModel();
+            model.Info = new List<Info>();
+            response = response.OrderBy(x => x.year).ToArray();
+
+            foreach(GenerateTimelineResponse timeline in response)
+            {
+                if (timeline.year == null)
+                {
+                    model.Image = timeline.image;
+                }
+                else
+                {
+                    Info info = new Info();
+                    info.Year = timeline.year;
+                    info.Description = timeline.description;
+                    model.Info.Add(info);
+                }
+            }
+
+            return Json(model);
         }
 
     }

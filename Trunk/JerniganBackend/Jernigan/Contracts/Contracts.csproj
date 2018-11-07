@@ -47,6 +47,7 @@
     </Compile>
     <Compile Include="DataContracts\GenerateTimelineRequest.cs" />
     <Compile Include="DataContracts\GenerateTimelineResponse.cs" />
+    <Compile Include="DataContracts\LocationResponse.cs" />
     <Compile Include="DataContracts\ManageLocationRequest.cs" />
     <Compile Include="DataContracts\SignInRequest.cs" />
     <Compile Include="DataContracts\SignInResponse.cs" />

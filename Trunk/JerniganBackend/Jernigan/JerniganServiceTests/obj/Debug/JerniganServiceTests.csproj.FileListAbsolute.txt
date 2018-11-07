@@ -62,3 +62,11 @@ C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganServiceTests
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganServiceTests\obj\Debug\JerniganServiceTests.csprojResolveAssemblyReference.cache
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganServiceTests\obj\Debug\JerniganServiceTests.dll
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganServiceTests\obj\Debug\JerniganServiceTests.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganServiceTests\bin\Debug\CaerusSoft.Jernigan.JerniganManager.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganServiceTests\bin\Debug\CaerusSoft.Jernigan.Shared.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganServiceTests\bin\Debug\CaerusSoft.Jernigan.Proxies.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganServiceTests\bin\Debug\CaerusSoft.Jernigan.JerniganManager.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganServiceTests\bin\Debug\CaerusSoft.Jernigan.Shared.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganServiceTests\bin\Debug\CaerusSoft.Jernigan.Proxies.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganServiceTests\bin\Debug\CaerusSoft.Jernigan.JerniganResourceAccess.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganServiceTests\bin\Debug\CaerusSoft.Jernigan.JerniganResourceAccess.pdb

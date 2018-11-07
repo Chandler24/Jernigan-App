@@ -11,6 +11,12 @@ namespace CaerusSoft.Jernigan.Contracts
     public class GenerateTimelineResponse
     {
         [DataMember]
-        public string Timeline { get; set; }
+        public string year { get; set; }
+
+        [DataMember]
+        public string description { get; set; }
+
+        [DataMember]
+        public string image { get; set; }
     }
 }

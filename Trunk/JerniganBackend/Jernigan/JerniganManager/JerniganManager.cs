@@ -31,14 +31,9 @@ namespace CaerusSoft.Jernigan.JerniganManager
         }
 
         // TODO: Add logging
-        public GenerateTimelineResponse GenerateTimeline(GenerateTimelineRequest request)
+        public GenerateTimelineResponse [] GenerateTimeline(GenerateTimelineRequest request)
         {
             return m_JerniganManager.GenerateTimeline(request);
-        }
-
-        public TimelineCheckResponse[] TimelineCheck(GenerateTimelineRequest[] request)
-        {
-            return m_JerniganManager.TimelineCheck(request);
         }
 
         public void AddFavoriteLocation(ManageLocationRequest request)
@@ -54,6 +49,11 @@ namespace CaerusSoft.Jernigan.JerniganManager
         public void LeaveFeedback(ManageLocationRequest request)
         {
             m_JerniganManager.LeaveFeedback(request);
+        }
+
+        public LocationResponse[] FetchLocations()
+        {
+            return m_JerniganManager.FetchLocations();
         }
     }
 }

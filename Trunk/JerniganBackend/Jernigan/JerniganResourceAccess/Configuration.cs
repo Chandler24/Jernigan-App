@@ -34,5 +34,13 @@ namespace CaerusSoft.Jernigan.JerniganResourceAccess
             }
             return runtimeMode;
         }
+
+        public static string ConnectionString()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
+            if (!string.IsNullOrEmpty(connectionString))
+                return connectionString;
+            else return "error";
+        }
     }
 }

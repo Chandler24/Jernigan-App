@@ -25,37 +25,9 @@ namespace CaerusSoft.Jernigan.JerniganManager.Tests
             };
 
             // Invoke
-            GenerateTimelineResponse response = m_JerniganManager.GenerateTimeline(request);
-
-            // Verify
-            Assert.AreNotEqual(string.Empty, response.Timeline);
-        }
-
-        [TestMethod()]
-        public void TimelineCheckTest()
-        {
-            // Arrange
-            GenerateTimelineRequest[] request = new GenerateTimelineRequest[]
-            {
-                new GenerateTimelineRequest()
-                {
-                    LocationAddress = "Test Location Address 1",
-                    LocationName = "Test Location Name 1"
-                },
-                new GenerateTimelineRequest()
-                {
-                    LocationAddress = "Test Location Address 2",
-                    LocationName = "Test Location Name 2"
-                }
-            };
-
-            // Invoke
-            TimelineCheckResponse [] response = m_JerniganManager.TimelineCheck(request);
-
-            // Verify
-            int numberOfTimelines = response.Length;
-            Assert.AreNotEqual(0, numberOfTimelines);
-        }
+            GenerateTimelineResponse [] response = m_JerniganManager.GenerateTimeline(request);
+            
+        }     
 
         [TestMethod()]
         public void AddFavoriteLocationTest()

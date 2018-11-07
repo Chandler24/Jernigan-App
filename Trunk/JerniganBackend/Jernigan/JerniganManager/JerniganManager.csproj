@@ -67,6 +67,10 @@
       <HintPath>..\packages\DynamicLanguageRuntime.1.2.1\lib\net45\Microsoft.VisualStudio.CodeCoverage.Shim.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -91,6 +95,10 @@
     <ProjectReference Include="..\Contracts\Contracts.csproj">
       <Project>{0c7e12cc-42f6-4412-938f-1fffaeacf50e}</Project>
       <Name>Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JerniganResourceAccess\JerniganResourceAccess.csproj">
+      <Project>{036198cd-ed37-4e27-971b-790567121a8d}</Project>
+      <Name>JerniganResourceAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{9177181a-2f4e-482e-bf8c-10820de84848}</Project>
