@@ -21,11 +21,6 @@
       "longitude": -112.1130
     },
     {
-      "title" : "Statue of Liberty",
-      "latitude": 40.6892,
-      "longitude": -74.0445
-    },
-    {
       "title" : "Yellowstone National Park",
       "latitude": 44.4280,
       "longitude": -110.5885
@@ -44,6 +39,26 @@
       "title" : "Great Wall of China",
       "latitude": 40.6892,
       "longitude": 116.5704
+    },
+    {
+      "title" : "Petropavlovsk-Kamchatsky",
+      "latitude": 53.01,
+      "longitude": 158.39
+    },
+    {
+      "title" : "Pyongyang",
+      "latitude": 39.01,
+      "longitude": 125.44
+    },
+    {
+      "title" : "Beijing",
+      "latitude": 39.01,
+      "longitude": 125.44
+    },
+    {
+      "title" : "Bangalore",
+      "latitude": 12.58,
+      "longitude": 77.34
     }
   ]
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TextInput } from 'react-native';
 import MapView from 'react-native-maps';
 import { createStackNavigator } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
@@ -19,6 +19,7 @@ class Map extends Component {
       isLoading: true,
       lat: null,
       long: null,
+      markers: {}
     };
     this.getLocationAsync = this.getLocationAsync.bind(this);    
   };
@@ -74,7 +75,7 @@ class Map extends Component {
     for (var i = 0; i < markers.locations.length; i++) {
       markersArray.push (
         <MapView.Marker
-        key = {markers.locations[i].title}
+        key = {markers.locations[i].title} 
         coordinate={{ latitude: markers.locations[i].latitude, longitude: markers.locations[i].longitude}}
         title={markers.locations[i].title}
         description={"Click here for timeline!"}
@@ -106,8 +107,8 @@ class Map extends Component {
           initialRegion={{
             latitude: this.state.lat,
             longitude: this.state.long,
-            latitudeDelta: 0.0652,
-            longitudeDelta: 0.0922,}}>
+            latitudeDelta: 0.7500,
+            longitudeDelta: 0.7500,}}>
           {/* User's Location */}
           <MapView.Marker
             coordinate={{
@@ -121,6 +122,21 @@ class Map extends Component {
           {/* Displays all available Locations */}
           {markersArray}
         </MapView>
+        <View style={styles.inputArea}>
+          <TextInput style={styles.inputBox}
+            returnKeyType = { "done" } 
+            onChangeText={this.changeTextHandler}
+            value={this.state.workingComment}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            placeholder="Enter Name of Location"
+            placeholderTextColor='rgba(38, 70, 83, 0.5)'
+            selectionColor='rgba(255,255,255,0.75)' />
+          <FontAwesome onPress={this.addComment} 
+            name="telegram" 
+            size={50} 
+            color='#E76F51' 
+            margin='5' />
+        </View>
       </View>
     )
   }
@@ -165,6 +181,27 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     position: 'absolute'
+  },
+
+  inputArea: {
+    flexDirection: 'row', 
+    position: "absolute",
+    bottom: 1,
+    margin: 6,
+  },
+
+  inputBox: {
+    flex:1,
+    height: 50,
+    backgroundColor: '#ffffff',
+    borderColor: "#E76F51",
+    borderRadius: 10,
+    paddingHorizontal: 20,
+    color: '#264653',
+    marginRight: 7,
+    borderWidth: 2,
+    elevation: 5,
+    fontSize: 25
   },
 
   radius: {

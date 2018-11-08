@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createBottomTabNavigator } from 'react-navigation';
-import { Foundation, Entypo, MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Entypo, MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
 import MapScreen from './map'
 import ProfileScreen from './profile'
