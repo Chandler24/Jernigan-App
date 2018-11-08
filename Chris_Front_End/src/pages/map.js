@@ -19,7 +19,6 @@ class Map extends Component {
       isLoading: true,
       lat: null,
       long: null,
-      markers: {}
     };
     this.getLocationAsync = this.getLocationAsync.bind(this);    
   };

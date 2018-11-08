@@ -2,18 +2,48 @@
   "locations" : [
     {
       "title" : "University Of Central Florida",
-      "latitude": 28.6014,
-      "longitude": -81.1995
+      "latitude": 28.6024,
+      "longitude": -81.2001
     },
     {
       "title" : "Disney World",
-      "latitude": 28.6007,
-      "longitude": -81.1980
+      "latitude": 28.3852,
+      "longitude": -81.5639
     },
     {
       "title" : "The Pentagon",
-      "latitude": 28.6020,
-      "longitude": -81.1982
+      "latitude": 38.8719,
+      "longitude": -77.0563
+    },
+    {
+      "title" : "The Grand Canyon",
+      "latitude": 36.1070,
+      "longitude": -112.1130
+    },
+    {
+      "title" : "Statue of Liberty",
+      "latitude": 40.6892,
+      "longitude": -74.0445
+    },
+    {
+      "title" : "Yellowstone National Park",
+      "latitude": 44.4280,
+      "longitude": -110.5885
+    },
+    {
+      "title" : "Mount Rushmore",
+      "latitude": 43.8791,
+      "longitude": -103.4591
+    },
+    {
+      "title" : "Pantheon",
+      "latitude": 41.8986,
+      "longitude": -12.4769
+    },
+    {
+      "title" : "Great Wall of China",
+      "latitude": 40.6892,
+      "longitude": 116.5704
     }
   ]
 }
