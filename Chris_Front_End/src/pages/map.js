@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import MapView from 'react-native-maps';
 import { createStackNavigator } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
+import { Location, Permissions } from 'expo';
+import LottieView from 'lottie-react-native';
 
 import CommentScreen from './comment'
 import LocationScreen from './location'
@@ -11,6 +13,16 @@ import LogoTitle from './../components/logotitle'
 
 class Map extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      isLoading: true,
+      lat: null,
+      long: null,
+    };
+    this.getLocationAsync = this.getLocationAsync.bind(this);    
+  };
+
   static navigationOptions = {
     headerLeft: <View/>,
     headerRight: (
@@ -18,7 +30,7 @@ class Map extends Component {
       <View style={{flex:1, flexDirection: 'row', padding: 15}}>
         <FontAwesome
           name="refresh"
-          onPress={() => {}}
+          onPress={this.getLocationAsync}
           color="#fff"
           size={30}
         />
@@ -28,8 +40,18 @@ class Map extends Component {
 
   /* Envokes on page load */
   componentWillMount() {
+    this.getLocationAsync();
     this.loadLocationsMarkers()
   }
+
+  async getLocationAsync () {
+    this.setState({ isLoading: true })
+    await Permissions.askAsync(Permissions.LOCATION);
+    let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true});
+    this.setState({ lat: location.coords.latitude });    
+    this.setState({ long: location.coords.longitude });
+    this.setState({ isLoading: false })
+  };
 
   /* Loads all comments of current location */
   async loadLocationsMarkers() {
@@ -47,7 +69,7 @@ class Map extends Component {
     const markers = await response.json();
 */
     var markers = require('../testdata/location/nearbyLocationsRequest.json');
-    
+
     for (var i = 0; i < markers.locations.length; i++) {
       markersArray.push (
         <MapView.Marker
@@ -66,21 +88,29 @@ class Map extends Component {
     this.props.navigation.navigate('Location')
   }
   
-  render() {   
+  render() {
+    if (this.state.isLoading) {
+      return (
+        <View style={{flex: 1, paddingTop: 20, backgroundColor: '#E76F51'}}>
+          <LottieView source={require('../images/world_locations')} autoPlay/>
+        </View>
+      );
+    }
+
     return (
       <View style={styles.container}>
         <MapView
           style={styles.map}
           initialRegion={{
-            latitude: 28.6014,
-            longitude: -81.1987,
-            latitudeDelta: 0.0020,
-            longitudeDelta: 0.0020,}}>
+            latitude: this.state.lat,
+            longitude: this.state.long,
+            latitudeDelta: 0.0652,
+            longitudeDelta: 0.0922,}}>
           {/* User's Location */}
           <MapView.Marker
             coordinate={{
-              latitude: 28.6014,
-              longitude: -81.1987,
+              latitude: this.state.lat,
+              longitude: this.state.long,
             }}>
             <View style={styles.radius}>
               <View style={styles.marker} />

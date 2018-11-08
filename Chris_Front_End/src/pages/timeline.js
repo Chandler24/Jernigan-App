@@ -25,21 +25,30 @@ export default class TimelineView extends Component {
   /* Loads all comments of current location */
   async loadTimelineEntrys () {
 /*
-    const command = global.url + "api/Location/GenerateTimeline?locationName=" + passedIn.locationName;
+    data = []
+
+    const command = global.url + "/api/Location/GenerateTimeline?locationName=" + "University OF Central FLorida";
     const response = await fetch(command, {method: 'POST'});
-    
+
     if (!response.ok) {
       alert("Server Down");
       throw Error(response.statusText);
     }
-    
-    this.state.timelinePoints = await response.json();
+
+    this.state.timelinePoints = await JSON.parse(response.text());
+
+    console.log(this.state.timelinePoints);
+
+    for (var i = 0; i < this.state.timelinePoints.Info.length; i++) {
+      data.push({time: this.state.timelinePoints.Info[i].Year, description: this.state.timelinePoints.Info[i].Description})
+    }
+    data.push({description: " "})
 */
-    this.state.timelinePoints = require('../testdata/location/timelineRequest.json');
+    this.state.timelinePoints = require('../testdata/location/timelineresponse.json');
     data = []
 
-    for (var i = 0; i < this.state.timelinePoints.timelinePoints.length; i++) {
-      data.push({time: this.state.timelinePoints.timelinePoints[i].date, description: this.state.timelinePoints.timelinePoints[i].desc})
+    for (var i = 0; i < this.state.timelinePoints.Info.length; i++) {
+      data.push({time: this.state.timelinePoints.Info[i].Year, description: this.state.timelinePoints.Info[i].Description})
     }
     data.push({description: " "})
   }

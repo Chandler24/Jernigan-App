@@ -1,7 +1,38 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image } from 'react-native';
+import { Animated, StyleSheet, Text, View, TouchableOpacity, TextInput, Image } from 'react-native';
 import LottieView from 'lottie-react-native';
 import './global'
+
+class FadeInView extends React.Component {
+  state = {
+    fadeAnim: new Animated.Value(0),  // Initial value for opacity: 0
+  }
+
+  componentDidMount() {
+    Animated.timing(                  // Animate over time
+      this.state.fadeAnim,            // The animated value to drive
+      {
+        toValue: 1,                   // Animate to opacity: 1 (opaque)
+        duration: 5000,              // Make it take a while
+      }
+    ).start();                        // Starts the animation
+  }
+
+  render() {
+    let { fadeAnim } = this.state;
+
+    return (
+      <Animated.View                 // Special animatable View
+        style={{
+          ...this.props.style,
+          opacity: fadeAnim,         // Bind opacity to animated value
+        }}
+      >
+        {this.props.children}
+      </Animated.View>
+    );
+  }
+}
 
 export default class Login extends Component {
 
@@ -45,15 +76,15 @@ export default class Login extends Component {
     return (
       <View style={styles.welcomeContainer}>
         {/* Rotating Earth Animation */}
-        <View style={{flex:1, width: "100%", bottom: 15}}>
+        <FadeInView style={{flex:1, width: "100%", bottom: 15}}>
           <LottieView source={require('../images/world_locations')} autoPlay/>
-        </View>
+        </FadeInView>
         {/* Logo Title */}
-        <View style={{flex:.5, width: "100%", bottom: 75}}>
+        <FadeInView style={{flex:.5, width: "100%", bottom: 75}}>
           <Image style={styles.logo} source={require('../images/logo.png')} />
-        </View>
+        </FadeInView>
         {/* Login Forum */}
-        <View style={{flex:1, bottom: 75}}>
+        <FadeInView style={{flex:1, bottom: 75}}>
           <TextInput style={styles.welcomeInputBox}
             onChangeText={(value) => this.setState({username: value})}
             value={this.state.username}
@@ -82,7 +113,7 @@ export default class Login extends Component {
             onPress={() => this.props.navigation.navigate('Signup')}>
             Don't have an Account? Sign up
           </Text>
-        </View>
+        </FadeInView>
       </View>
     )
   }
