@@ -243,6 +243,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LocationInfo.cs" />
+    <Compile Include="Models\TimelineModel.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -324,6 +325,10 @@
     <ProjectReference Include="..\Contracts\Contracts.csproj">
       <Project>{0c7e12cc-42f6-4412-938f-1fffaeacf50e}</Project>
       <Name>Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JerniganManager\JerniganManager.csproj">
+      <Project>{10922b84-4fdf-446a-97a7-c27492c80c9c}</Project>
+      <Name>JerniganManager</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

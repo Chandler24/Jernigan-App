@@ -46,3 +46,5 @@ C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\ConsoleHost\bin\Debu
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\ConsoleHost\bin\Debug\CaerusSoft.Jernigan.Shared.pdb
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\ConsoleHost\bin\Debug\CaerusSoft.Jernigan.Proxies.pdb
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\ConsoleHost\obj\Debug\ConsoleHost.csprojResolveAssemblyReference.cache
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\ConsoleHost\bin\Debug\Newtonsoft.Json.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\ConsoleHost\bin\Debug\Newtonsoft.Json.xml

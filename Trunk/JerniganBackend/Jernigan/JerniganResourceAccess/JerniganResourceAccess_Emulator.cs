@@ -19,6 +19,25 @@ namespace CaerusSoft.Jernigan.JerniganResourceAccess
             // Assume it worked
         }
 
+        public LocationResponse[] FetchLocations()
+        {
+            return new LocationResponse[]
+            {
+                new LocationResponse()
+                {
+                    Latitude = 81.2001m,
+                    Longitude = 28.6024m,
+                    LocationName = "University of Central Florida"
+                },
+                new LocationResponse()
+                {
+                    Latitude = 81.5639m,
+                    Longitude = 28.3852m,
+                    LocationName = "Walt Disney World"
+                }
+            };
+        }
+
         public void LeaveFeedback(ManageLocationRequest request)
         {
             // Assume it worked

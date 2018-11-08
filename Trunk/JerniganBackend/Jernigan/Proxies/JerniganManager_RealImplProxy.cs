@@ -19,7 +19,12 @@ namespace CaerusSoft.Jernigan.Proxies
             base.Channel.DeleteFavoriteLocation(request);
         }
 
-        public GenerateTimelineResponse GenerateTimeline(GenerateTimelineRequest request)
+        public LocationResponse[] FetchLocations()
+        {
+            return base.Channel.FetchLocations();
+        }
+
+        public GenerateTimelineResponse [] GenerateTimeline(GenerateTimelineRequest request)
         {
             return base.Channel.GenerateTimeline(request);
         }
@@ -29,9 +34,5 @@ namespace CaerusSoft.Jernigan.Proxies
             base.Channel.LeaveFeedback(request);
         }
 
-        public TimelineCheckResponse [] TimelineCheck(GenerateTimelineRequest[] request)
-        {
-            return base.Channel.TimelineCheck(request);
-        }
     }
 }

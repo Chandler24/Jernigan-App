@@ -34,3 +34,7 @@ C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\TestClient\bin\Debug
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\TestClient\bin\Debug\CaerusSoft.Jernigan.Shared.pdb
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\TestClient\bin\Debug\CaerusSoft.Jernigan.Proxies.pdb
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\TestClient\obj\Debug\TestClient.csprojResolveAssemblyReference.cache
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\TestClient\bin\Debug\Newtonsoft.Json.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\TestClient\bin\Debug\Newtonsoft.Json.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\TestClient\bin\Debug\CaerusSoft.Jernigan.JerniganResourceAccess.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\TestClient\bin\Debug\CaerusSoft.Jernigan.JerniganResourceAccess.pdb

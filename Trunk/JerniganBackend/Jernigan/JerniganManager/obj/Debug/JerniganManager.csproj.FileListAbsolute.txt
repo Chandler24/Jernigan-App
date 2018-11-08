@@ -52,3 +52,7 @@ C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\obj\Debug\JerniganManager.csprojResolveAssemblyReference.cache
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\obj\Debug\CaerusSoft.Jernigan.JerniganManager.dll
 C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\obj\Debug\CaerusSoft.Jernigan.JerniganManager.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\Newtonsoft.Json.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\Newtonsoft.Json.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\CaerusSoft.Jernigan.JerniganResourceAccess.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganManager\bin\Debug\CaerusSoft.Jernigan.JerniganResourceAccess.pdb

@@ -11,10 +11,10 @@ namespace CaerusSoft.Jernigan.Contracts
     public interface IJerniganManager
     {
         [OperationContract]
-        TimelineCheckResponse [] TimelineCheck(GenerateTimelineRequest[] request);
+        LocationResponse [] FetchLocations();
 
         [OperationContract]
-        GenerateTimelineResponse GenerateTimeline(GenerateTimelineRequest request);
+        GenerateTimelineResponse [] GenerateTimeline(GenerateTimelineRequest request);
 
         [OperationContract]
         void LeaveFeedback(ManageLocationRequest request);

@@ -276,3 +276,11 @@ C:\Users\deist\Documents\GitHub\Jernigan-App\Trunk\JerniganBackend\Jernigan\Jern
 C:\Users\deist\Documents\GitHub\Jernigan-App\Trunk\JerniganBackend\Jernigan\JerniganService\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\deist\Documents\GitHub\Jernigan-App\Trunk\JerniganBackend\Jernigan\JerniganService\bin\System.Web.Http.Owin.xml
 C:\Users\deist\Documents\GitHub\Jernigan-App\Trunk\JerniganBackend\Jernigan\JerniganService\obj\Debug\JerniganService.csproj.CopyComplete
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganService\bin\CaerusSoft.Jernigan.JerniganManager.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganService\bin\CaerusSoft.Jernigan.Shared.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganService\bin\CaerusSoft.Jernigan.Proxies.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganService\bin\CaerusSoft.Jernigan.JerniganManager.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganService\bin\CaerusSoft.Jernigan.Shared.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganService\bin\CaerusSoft.Jernigan.Proxies.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganService\bin\CaerusSoft.Jernigan.JerniganResourceAccess.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganService\bin\CaerusSoft.Jernigan.JerniganResourceAccess.pdb

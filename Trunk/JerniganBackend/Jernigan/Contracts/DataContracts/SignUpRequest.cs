@@ -14,6 +14,15 @@ namespace CaerusSoft.Jernigan.Contracts
         public string Username { get; set; }
 
         [DataMember]
+        public string AboutMe { get; set; }
+
+        [DataMember]
+        public string CityOfResidence { get; set; }
+
+        [DataMember]
+        public int Photo { get; set; }
+
+        [DataMember]
         public string Password { get; set; }
 
         [DataMember]

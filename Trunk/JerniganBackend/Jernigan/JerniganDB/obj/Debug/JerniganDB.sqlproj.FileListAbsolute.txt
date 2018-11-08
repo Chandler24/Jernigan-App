@@ -1,0 +1,9 @@
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganDB\bin\Debug\JerniganDB.dacpac
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganDB\bin\Debug\JerniganDB.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganDB\bin\Debug\JerniganDB.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganDB\obj\Debug\JerniganDB.dll
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganDB\obj\Debug\JerniganDB.pdb
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganDB\obj\Debug\Model.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganDB\obj\Debug\refactor.xml
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganDB\obj\Debug\postdeploy.sql
+C:\Dev\Projects\Jernigan App\Trunk\JerniganBackend\Jernigan\JerniganDB\obj\Debug\predeploy.sql

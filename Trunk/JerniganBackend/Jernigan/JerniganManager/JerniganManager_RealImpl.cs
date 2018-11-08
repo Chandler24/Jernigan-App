@@ -5,64 +5,43 @@ using System.Text;
 using System.Threading.Tasks;
 using CaerusSoft.Jernigan.Contracts;
 using IronPython.Modules;
+using Newtonsoft.Json;
 using System.Net.Http; 
 
 namespace CaerusSoft.Jernigan.JerniganManager
 {
     public class JerniganManager_RealImpl : IJerniganManager_RealImpl
     {
+        IJerniganResourceAccess m_JerniganResourceAccess = new JerniganResourceAccess.JerniganResourceAccess();
+
         public void AddFavoriteLocation(ManageLocationRequest request)
         {
-            throw new NotImplementedException();
+            m_JerniganResourceAccess.AddFavoriteLocation(request);
         }
 
         public void DeleteFavoriteLocation(ManageLocationRequest request)
         {
-            throw new NotImplementedException();
+            m_JerniganResourceAccess.DeleteFavoriteLocation(request);
         }
 
-        public GenerateTimelineResponse GenerateTimeline(GenerateTimelineRequest request)
-        {
-            var content = new FormUrlEncodedContent(new[]
-            {
-                new KeyValuePair<string, string>("data", request.LocationName)
-            });
-
-
+        public GenerateTimelineResponse [] GenerateTimeline(GenerateTimelineRequest request)
+        {    
             HttpClient client = new HttpClient();
-            var d = client.PostAsync("http://localhost:9999/", content);
-
-            GenerateTimelineResponse response = new GenerateTimelineResponse() {
-               Timeline = d.Result.ToString()
-            };
-
-            return response;
+            client.DefaultRequestHeaders.Add("data", request.LocationName);
+            var d = client.GetAsync("http://localhost:8080/");
+            var r = d.Result.Content.ReadAsStringAsync();
+            GenerateTimelineResponse [] timelines = JsonConvert.DeserializeObject<GenerateTimelineResponse[]>(r.Result);
+            return timelines;
         }
 
         public void LeaveFeedback(ManageLocationRequest request)
         {
-            throw new NotImplementedException();
+            m_JerniganResourceAccess.LeaveFeedback(request);
         }
 
-        public TimelineCheckResponse [] TimelineCheck(GenerateTimelineRequest[] request)
+        public LocationResponse[] FetchLocations()
         {
-            return new TimelineCheckResponse[]
-            {
-                new TimelineCheckResponse
-                {
-                    LocationAddress = "123 Candy Cane Way",
-                    LocationName = "Willy Wonkas Chocolate Factory",
-                    TimelineAvailable = true
-                },
-                new TimelineCheckResponse
-                {
-                    LocationAddress = "151 Pegasus Ln",
-                    LocationName = "King Arthur's Castle",
-                    TimelineAvailable = false
-                }
-            };
+            return m_JerniganResourceAccess.FetchLocations();
         }
-
-
     }
 }

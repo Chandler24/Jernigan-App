@@ -23,5 +23,10 @@ namespace CaerusSoft.Jernigan.Proxies
         {
             base.Channel.LeaveFeedback(request);
         }
+
+        public LocationResponse [] FetchLocations()
+        {
+            return base.Channel.FetchLocations();
+        }
     }
 }
