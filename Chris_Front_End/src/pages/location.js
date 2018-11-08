@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
+import LottieView from 'lottie-react-native';
 
 export default class Location extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { locationData:{} };
+    this.state = {
+      locationName: "",
+      locationData:{},
+      isLoading: true,
+    };
     this.loadLocation = this.loadLocation.bind(this);
     this.addToFavorites = this.addToFavorites.bind(this);
     this.submitRating = this.submitRating.bind(this);
@@ -24,18 +29,29 @@ export default class Location extends Component {
 
   /* Loads current location*/
   async loadLocation() {
-/*
-    const command = global.url + "api/Location/GetLocationInfo?locationId=" + passedIn.locationId;
+
+    data = []
+
+    // Grabs the name of the location passed from Map Marker
+    const { navigation } = this.props;
+    const name = navigation.getParam('name', 'unknown')
+
+    // Uses location name in api cal to get location info object
+    const command = global.url + "/api/Location/GenerateTimeline?locationName=" + name;
     const response = await fetch(command, {method: 'POST'});
-    
+
     if (!response.ok) {
       alert("Server Down");
       throw Error(response.statusText);
     }
-    
+
     this.state.locationData = await response.json();
-*/
-    this.state.locationData = require('../testdata/location/locationRequest.json');
+
+    console.log(this.state.locationData);
+
+    this.setState({ locationName: name})
+    this.setState({ isLoading: false })
+   // this.state.locationData = require('../testdata/location/locationRequest.json');
   }
 
   /* Adds current location to user's favorites */ 
@@ -70,15 +86,24 @@ export default class Location extends Component {
   }
 
   render() {
+
+    if (this.state.isLoading) {
+      return (
+        <View style={{flex: 1, paddingTop: 20, backgroundColor: '#E76F51'}}>
+          <LottieView source={require('../images/world_locations')} autoPlay/>
+        </View>
+      );
+    }
+
     return (
       <View style={styles.container}>
-        <Image source={{uri : this.state.locationData.image}} style={styles.image} />
-        <Text style={styles.titleText}>{this.state.locationData.title}</Text>
+        <Image source={{uri : this.state.locationData.Image}} style={styles.image} />
+        <Text style={styles.titleText}>{this.state.locationName}</Text>
         <AirbnbRating 
           reviews={[]} 
           ratingColor={'#E9C46A'}
-          defaultRating={this.state.locationData.rating} />
-        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Timeline')} >
+          defaultRating= '5'/>
+        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Timeline', {data: this.state.locationData.Info})} >
           <Text style={styles.buttonText} > View Timeline</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={this.addToFavorites}>

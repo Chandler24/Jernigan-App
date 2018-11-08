@@ -1,20 +1,17 @@
 {
   "locations" : [
     {
-      "locationId" : "0001",
-      "title" : "Trolly Grove Square",
+      "title" : "University Of Central Florida",
       "latitude": 28.6014,
       "longitude": -81.1995
     },
     {
-      "locationId" : "0002",
-      "title" : "Miller's Ale House Orlando",
+      "title" : "Disney World",
       "latitude": 28.6007,
       "longitude": -81.1980
     },
     {
-      "locationId" : "0003",
-      "title" : "Austin's Coffee",
+      "title" : "The Pentagon",
       "latitude": 28.6020,
       "longitude": -81.1982
     }

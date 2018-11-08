@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import MapView from 'react-native-maps';
 import { createStackNavigator } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
@@ -19,6 +19,7 @@ class Map extends Component {
       isLoading: true,
       lat: null,
       long: null,
+      markers: {}
     };
     this.getLocationAsync = this.getLocationAsync.bind(this);    
   };
@@ -55,7 +56,7 @@ class Map extends Component {
 
   /* Loads all comments of current location */
   async loadLocationsMarkers() {
-
+    
     markersArray = []
 /*
     const command = global.url + "api/Location/GetAvailableTimelines?longitude=" + this.state.longitude + "&latitude=" + this.state.latitude;
@@ -69,23 +70,25 @@ class Map extends Component {
     const markers = await response.json();
 */
     var markers = require('../testdata/location/nearbyLocationsRequest.json');
+    this.setState({ markers: markers})
 
     for (var i = 0; i < markers.locations.length; i++) {
       markersArray.push (
         <MapView.Marker
-        key = {markers.locations[i].locationId}
+        key = {markers.locations[i].title}
         coordinate={{ latitude: markers.locations[i].latitude, longitude: markers.locations[i].longitude}}
         title={markers.locations[i].title}
         description={"Click here for timeline!"}
-        onCalloutPress={(key) =>this.goToLocation(key)}
+        onCalloutPress={(event) => this.goToLocation(event) }
         pinColor= '#E9C46A'/>
       )
     }
   }
 
-  // Calls backend to gather location data and navigate to page
+  // Navigate to location page passing name of selected marker
   goToLocation (event) {
-    this.props.navigation.navigate('Location')
+    const markerId = event._targetInst.return.key
+    this.props.navigation.navigate('Location',{ name: markerId })
   }
   
   render() {

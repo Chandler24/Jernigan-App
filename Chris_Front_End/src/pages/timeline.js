@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View} from 'react-native';
-import Timeline from 'react-native-timeline-listview'
+import Timeline from 'react-native-timeline-listview';
 
 export default class TimelineView extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      timelinePoints: {},
-    };
-    this.loadTimelineEntrys = this.loadTimelineEntrys.bind(this);
-  }
 
   // Aligns the header text with back button
   static navigationOptions = {
@@ -23,32 +15,13 @@ export default class TimelineView extends Component {
   }
 
   /* Loads all comments of current location */
-  async loadTimelineEntrys () {
-/*
+  loadTimelineEntrys () {
     data = []
+    const {navigation} = this.props
+    const timelineData = navigation.getParam('data', 'failed')
 
-    const command = global.url + "/api/Location/GenerateTimeline?locationName=" + "University OF Central FLorida";
-    const response = await fetch(command, {method: 'POST'});
-
-    if (!response.ok) {
-      alert("Server Down");
-      throw Error(response.statusText);
-    }
-
-    this.state.timelinePoints = await JSON.parse(response.text());
-
-    console.log(this.state.timelinePoints);
-
-    for (var i = 0; i < this.state.timelinePoints.Info.length; i++) {
-      data.push({time: this.state.timelinePoints.Info[i].Year, description: this.state.timelinePoints.Info[i].Description})
-    }
-    data.push({description: " "})
-*/
-    this.state.timelinePoints = require('../testdata/location/timelineresponse.json');
-    data = []
-
-    for (var i = 0; i < this.state.timelinePoints.Info.length; i++) {
-      data.push({time: this.state.timelinePoints.Info[i].Year, description: this.state.timelinePoints.Info[i].Description})
+    for (var i = 0; i < timelineData.length; i++) {
+      data.push({time: timelineData[i].Year, description: timelineData[i].Description})
     }
     data.push({description: " "})
   }
