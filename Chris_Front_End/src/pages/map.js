@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
 import { Location, Permissions } from 'expo';
 import LottieView from 'lottie-react-native';
+import AwesomeAlert from 'react-native-awesome-alerts';
 
 import CommentScreen from './comment'
 import LocationScreen from './location'
@@ -21,25 +22,12 @@ class Map extends Component {
       long: null,
       markers: {},
       query: "",
+      showAlert: false,
+      alertTitle: ""
     };
     this.getLocationAsync = this.getLocationAsync.bind(this);
     this.search = this.search.bind(this);    
   };
-
-  static navigationOptions = {
-    headerLeft: <View/>,
-    headerRight: (
-      // Adds refresh button to header bar
-      <View style={{flex:1, flexDirection: 'row', padding: 15}}>
-        <FontAwesome
-          name="refresh"
-          onPress={this.getLocationAsync}
-          color="#fff"
-          size={30}
-        />
-      </View>
-    ),
-  }
 
   /* Envokes on page load */
   componentWillMount() {
@@ -97,8 +85,28 @@ class Map extends Component {
     this.props.navigation.navigate('Location',{ name: this.state.query })
     this.setState({ query: ""})
   }
+
+  checkPoint (event) {
+    this.setState({ alertTitle: event.name });
+    this.showAlert();
+  }
+
+  confirmAlert () {
+    this.hideAlert();
+    this.props.navigation.navigate('Location',{ name: this.state.alertTitle })
+  }
+
+  showAlert = () => {
+    this.setState({ showAlert: true });
+  };
+ 
+  hideAlert = () => {
+    this.setState({ showAlert: false });
+  };
   
   render() {
+    const {showAlert} = this.state;
+
     if (this.state.isLoading) {
       return (
         <View style={{flex: 1, paddingTop: 20, backgroundColor: '#E76F51'}}>
@@ -111,21 +119,21 @@ class Map extends Component {
       <View style={styles.container}>
         <MapView
           style={styles.map}
+          showsUserLocation= {true}
+          followsUserLocation= {true}
+          showsScale= {false}
+          showsCompass= {false}
+          showsBuildings= {false}
+          showsTraffic= {false}
+          showsIndoors= {false}
+          rotateEnabled= {false}
+          toolbarEnabled= {false}
+          onPoiClick={e => this.checkPoint(e.nativeEvent)}
           initialRegion={{
             latitude: this.state.lat,
             longitude: this.state.long,
             latitudeDelta: 0.7500,
             longitudeDelta: 0.7500,}}>
-          {/* User's Location */}
-          <MapView.Marker
-            coordinate={{
-              latitude: this.state.lat,
-              longitude: this.state.long,
-            }}>
-            <View style={styles.radius}>
-              <View style={styles.marker} />
-            </View>
-          </MapView.Marker>
           {/* Displays all available Locations */}
           {markersArray}
         </MapView>
@@ -140,12 +148,28 @@ class Map extends Component {
             selectionColor='rgba(231, 111, 81, .15)' />
             <TouchableOpacity onPress={this.search}>
             <FontAwesome 
+              style={styles.shadow}
               name="telegram" 
               size={50} 
               color='rgba(231, 111, 81, 1)' 
               margin='5' />
             </TouchableOpacity>
         </View>
+        <AwesomeAlert
+          show={showAlert}
+          showProgress={false}
+          title= {this.state.alertTitle}
+          message="Would you like to see if there is a timeline available here?"
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showCancelButton={true}
+          showConfirmButton={true}
+          cancelText="No Thanks"
+          confirmText="Heck Yeah!"
+          confirmButtonColor="#DD6B55"
+          onCancelPressed={() => { this.hideAlert(); }}
+          onConfirmPressed={() => { this.confirmAlert(); }}
+        />
       </View>
     )
   }
@@ -196,7 +220,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row', 
     position: "absolute",
     bottom: 1,
-    margin: 6,
+  },
+
+  shadow: {
+    flex:1,
+    textShadowOffset:{width:0, height:.1},
+    shadowColor:'#000000',
+    textShadowRadius: 5,
+    shadowOpacity:0.3,
+    marginRight: 7,
+    marginVertical: 7,
   },
 
   inputBox: {
@@ -206,30 +239,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 20,
     color: '#264653',
-    marginRight: 7,
+    marginHorizontal: 7,
+    marginVertical: 7,
     elevation: 5,
     fontSize: 25
-  },
-
-  radius: {
-    height: 50,
-    width: 50,
-    borderRadius: 25,
-    overflow: 'hidden',
-    backgroundColor: 'rgba(231, 111, 81, 0.1)',
-    borderWidth: 1,
-    borderColor: 'rgba(231, 111, 81, 0.3)',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-
-  marker: {
-    height: 20,
-    width: 20,
-    borderWidth: 3,
-    borderColor: 'white',
-    borderRadius: 10,
-    overflow: 'hidden',
-    backgroundColor: '#E76F51'
-  },
+  }
 });

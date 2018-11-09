@@ -41,7 +41,8 @@ export default class Location extends Component {
     const response = await fetch(command, {method: 'POST'});
 
     if (!response.ok) {
-      alert("Server Down");
+      alert("🙁 Location Could Not Be Generated  🙁");
+      this.props.navigation.navigate('Map')
       throw Error(response.statusText);
     }
 

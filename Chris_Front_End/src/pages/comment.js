@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, TextInput, ScrollView } from 'react-native';
+import { TouchableOpacity, StyleSheet, View, TextInput, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 import CommentElement from './../components/commentElement'
@@ -98,11 +98,13 @@ export default class Comment extends Component {
             placeholder="Leave a comment!"
             placeholderTextColor='rgba(38, 70, 83, 0.5)'
             selectionColor='rgba(255,255,255,0.75)' />
-          <FontAwesome onPress={this.addComment} 
-            name="telegram" 
-            size={50} 
-            color='#2A9D8F' 
-            margin='5' />
+            <TouchableOpacity onPress={this.addComment}>
+            <FontAwesome 
+              name="telegram" 
+              size={50} 
+              color='#2A9D8F' 
+              margin='5' />
+            </TouchableOpacity>
         </View>
       </View>
     )
