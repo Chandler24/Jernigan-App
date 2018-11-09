@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
 import LottieView from 'lottie-react-native';
+import AwesomeAlert from 'react-native-awesome-alerts';
 
 export default class Location extends Component {
 
@@ -11,6 +12,8 @@ export default class Location extends Component {
       locationName: "",
       locationData:{},
       isLoading: true,
+      showAlertFav: false,
+      showAlertFail: false
     };
     this.loadLocation = this.loadLocation.bind(this);
     this.addToFavorites = this.addToFavorites.bind(this);
@@ -42,19 +45,19 @@ export default class Location extends Component {
     const response = await fetch(command, {method: 'POST'});
 
     if (!response.ok) {
-      alert("🙁 Location Could Not Be Generated  🙁");
-      this.props.navigation.navigate('Map')
+      this.setState({ showAlertFail: true });
       throw Error(response.statusText);
     }
 
     this.state.locationData = await response.json();
 
     console.log(this.state.locationData);
-
     this.setState({ locationName: name})
     this.setState({ isLoading: false })
     
-   // this.state.locationData = require('../testdata/location/locationRequest.json');
+    if (coordinate != null) {
+      // add location to datavase
+    }
   }
 
   /* Adds current location to user's favorites */ 
@@ -70,7 +73,7 @@ export default class Location extends Component {
       alert('Added to Favorites!')
     }
 */
-    alert('Added to Favorites!')
+    this.setState({ showAlertFav: true });
   }
 
   /* Submits User's picked rating */
@@ -88,12 +91,30 @@ export default class Location extends Component {
 */
   }
 
+  closeAndReturn () {
+    this.setState({ showAlertFail: false })
+    this.props.navigation.navigate('Map')
+  }
+
   render() {
 
     if (this.state.isLoading) {
       return (
         <View style={{flex: 1, paddingTop: 20, backgroundColor: '#E76F51'}}>
           <LottieView source={require('../images/world_locations')} autoPlay/>
+          <AwesomeAlert
+          show={this.state.showAlertFail}
+          contentContainerStyle={{bottom: 20}}
+          showProgress={false}
+          title= "Timeline Unavailable"
+          titleStyle= {{textAlign: 'center'}}
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showConfirmButton={true}
+          confirmText="Okay"
+          confirmButtonColor="#E76F51"
+          onConfirmPressed={() => { this.closeAndReturn() }}
+        />
         </View>
       );
     }
@@ -116,7 +137,21 @@ export default class Location extends Component {
           <Text style={styles.buttonText} >Comment</Text>
         </TouchableOpacity>
         <View style={{marginBottom: 20}}/>
+        <AwesomeAlert
+          show={this.state.showAlertFav}
+          contentContainerStyle={{bottom: 20}}
+          showProgress={false}
+          title= "Added to Favorites!"
+          titleStyle= {{textAlign: 'center'}}
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showConfirmButton={true}
+          confirmText="Okay"
+          confirmButtonColor="#E76F51"
+          onConfirmPressed={() => { this.setState({ showAlertFav: false }) }}
+        />
       </View>
+      
     )
   }
 }
