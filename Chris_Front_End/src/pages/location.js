@@ -35,6 +35,7 @@ export default class Location extends Component {
     // Grabs the name of the location passed from Map Marker
     const { navigation } = this.props;
     const name = navigation.getParam('name', 'unknown')
+    const coordinate = navigation.getParam('coordinates', null)
 
     // Uses location name in api cal to get location info object
     const command = global.url + "/api/Location/GenerateTimeline?locationName=" + name;
@@ -52,6 +53,7 @@ export default class Location extends Component {
 
     this.setState({ locationName: name})
     this.setState({ isLoading: false })
+    
    // this.state.locationData = require('../testdata/location/locationRequest.json');
   }
 
