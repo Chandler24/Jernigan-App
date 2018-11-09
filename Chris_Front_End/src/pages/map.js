@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, TextInput } from 'react-native';
+import { StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
 import MapView from 'react-native-maps';
 import { createStackNavigator } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
@@ -13,15 +13,17 @@ import LogoTitle from './../components/logotitle'
 
 class Map extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isLoading: true,
       lat: null,
       long: null,
-      markers: {}
+      markers: {},
+      query: "",
     };
-    this.getLocationAsync = this.getLocationAsync.bind(this);    
+    this.getLocationAsync = this.getLocationAsync.bind(this);
+    this.search = this.search.bind(this);    
   };
 
   static navigationOptions = {
@@ -90,6 +92,11 @@ class Map extends Component {
     const markerId = event._targetInst.return.key
     this.props.navigation.navigate('Location',{ name: markerId })
   }
+
+  search (event) {
+    this.props.navigation.navigate('Location',{ name: this.state.query })
+    this.setState({ query: ""})
+  }
   
   render() {
     if (this.state.isLoading) {
@@ -125,17 +132,19 @@ class Map extends Component {
         <View style={styles.inputArea}>
           <TextInput style={styles.inputBox}
             returnKeyType = { "done" } 
-            onChangeText={this.changeTextHandler}
-            value={this.state.workingComment}
+            onChangeText={(value) => this.setState({query: value})}
+            value={this.state.query}
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="Enter Name of Location"
             placeholderTextColor='rgba(38, 70, 83, 0.5)'
             selectionColor='rgba(255,255,255,0.75)' />
-          <FontAwesome onPress={this.addComment} 
-            name="telegram" 
-            size={50} 
-            color='#E76F51' 
-            margin='5' />
+            <TouchableOpacity onPress={this.search}>
+            <FontAwesome 
+              name="telegram" 
+              size={50} 
+              color='#E76F51' 
+              margin='5' />
+            </TouchableOpacity>
         </View>
       </View>
     )
