@@ -23,7 +23,8 @@ class Map extends Component {
       markers: {},
       query: "",
       showAlert: false,
-      alertTitle: ""
+      alertTitle: "",
+      alertCoordinates: {}
     };
     this.getLocationAsync = this.getLocationAsync.bind(this);
     this.search = this.search.bind(this);    
@@ -81,24 +82,26 @@ class Map extends Component {
     this.props.navigation.navigate('Location',{ name: markerId })
   }
 
+  // Navigate to location page of search query
   search (event) {
     this.props.navigation.navigate('Location',{ name: this.state.query })
     this.setState({ query: ""})
   }
 
-  checkPoint (event) {
-    this.setState({ alertTitle: event.name });
-    this.showAlert();
+  // SHows alert for a Place of Intrest selected
+  showAlert (event) {
+    console.log(event)
+    var temp = event.name
+    temp = temp.replace(/(\r\n\t|\n|\r\t)/gm," ");
+    this.setState({ alertTitle: temp });
+    this.setState({ alertCoordinates: event.coordinate});
+    this.setState({ showAlert: true });
   }
 
   confirmAlert () {
     this.hideAlert();
-    this.props.navigation.navigate('Location',{ name: this.state.alertTitle })
+    this.props.navigation.navigate('Location',{ name: this.state.alertTitle, coordinates: this.state.alertCoordinates })
   }
-
-  showAlert = () => {
-    this.setState({ showAlert: true });
-  };
  
   hideAlert = () => {
     this.setState({ showAlert: false });
@@ -128,7 +131,7 @@ class Map extends Component {
           showsIndoors= {false}
           rotateEnabled= {false}
           toolbarEnabled= {false}
-          onPoiClick={e => this.checkPoint(e.nativeEvent)}
+          onPoiClick={e => this.showAlert(e.nativeEvent)}
           initialRegion={{
             latitude: this.state.lat,
             longitude: this.state.long,
@@ -159,14 +162,16 @@ class Map extends Component {
           show={showAlert}
           showProgress={false}
           title= {this.state.alertTitle}
+          titleStyle= {{textAlign: 'center'}}
           message="Would you like to see if there is a timeline available here?"
+          messageStyle= {{textAlign: 'center'}}
           closeOnTouchOutside={true}
           closeOnHardwareBackPress={false}
           showCancelButton={true}
           showConfirmButton={true}
           cancelText="No Thanks"
           confirmText="Heck Yeah!"
-          confirmButtonColor="#DD6B55"
+          confirmButtonColor="#E76F51"
           onCancelPressed={() => { this.hideAlert(); }}
           onConfirmPressed={() => { this.confirmAlert(); }}
         />
