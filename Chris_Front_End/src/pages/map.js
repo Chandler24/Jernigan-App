@@ -137,12 +137,12 @@ class Map extends Component {
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="Enter Name of Location"
             placeholderTextColor='rgba(38, 70, 83, 0.5)'
-            selectionColor='rgba(255,255,255,0.75)' />
+            selectionColor='rgba(231, 111, 81, .15)' />
             <TouchableOpacity onPress={this.search}>
             <FontAwesome 
               name="telegram" 
               size={50} 
-              color='#E76F51' 
+              color='rgba(231, 111, 81, 1)' 
               margin='5' />
             </TouchableOpacity>
         </View>
@@ -203,12 +203,10 @@ const styles = StyleSheet.create({
     flex:1,
     height: 50,
     backgroundColor: '#ffffff',
-    borderColor: "#E76F51",
     borderRadius: 10,
     paddingHorizontal: 20,
     color: '#264653',
     marginRight: 7,
-    borderWidth: 2,
     elevation: 5,
     fontSize: 25
   },

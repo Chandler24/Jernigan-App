@@ -33,7 +33,7 @@
     {
       "title" : "Pantheon",
       "latitude": 41.8986,
-      "longitude": -12.4769
+      "longitude": 12.4769
     },
     {
       "title" : "Great Wall of China",
@@ -59,6 +59,11 @@
       "title" : "Bangalore",
       "latitude": 12.58,
       "longitude": 77.34
+    },
+    {
+      "title" : "Greenland",
+      "latitude": 71.7069,
+      "longitude": -42.6043
     }
   ]
 }
