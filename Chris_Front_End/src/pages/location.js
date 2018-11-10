@@ -4,6 +4,7 @@ import { AirbnbRating } from 'react-native-ratings';
 import LottieView from 'lottie-react-native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import ImageViewer from 'react-native-image-zoom-viewer';
+import LogoTitle from './../components/logotitle'
 
 export default class Location extends Component {
 
@@ -112,8 +113,9 @@ export default class Location extends Component {
 
     if (this.state.isLoading) {
       return (
-        <View style={{flex: 1, paddingTop: 20, backgroundColor: '#E76F51'}}>
-          <LottieView source={require('../images/world_locations')} autoPlay/>
+        <View style={{flex: 1, backgroundColor: '#E76F51'}}>
+          <LogoTitle/>
+          <LottieView style={{paddingTop:20}} source={require('../images/world_locations')} autoPlay/>
           <AwesomeAlert
           show={this.state.showAlertFail}
           contentContainerStyle={{bottom: 20}}
@@ -133,10 +135,10 @@ export default class Location extends Component {
 
     return (
       <View style={styles.container}>
-        <Modal visible={this.state.imageView} transparent={true}>
+        <Modal visible={this.state.imageView} transparent={true} onRequestClose={() => this.setState({ imageView: false })}>
           <ImageViewer onCancel={() => this.setState({ imageView: false })} enableSwipeDown={true} imageUrls={images}/>
         </Modal>
-        <TouchableHighlight onPress={() => {this.openImage()}} style={{flex:1, width: '100%'}}>
+        <TouchableHighlight onPress={() => {this.openImage()}} style={{flex:1, width: '100%', elevation: 5}}>
           <Image resizeMode="cover" source={{uri : this.state.locationData.Image}} style={styles.image}/>
         </TouchableHighlight>
         <ScrollView style={{maxHeight:60, marginBottom: -30}} horizontal={true} showsHorizontalScrollIndicator={false}>

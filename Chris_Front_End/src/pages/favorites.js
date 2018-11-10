@@ -42,11 +42,12 @@ class Favorites extends Component {
     render() {
       return (
         <View style={styles.container}>
+          <LogoTitle/>
           <View>
             <ScrollView showsVerticalScrollIndicator={false}>
               <View style={{margin : 6}}/>
               {favArray}
-              <View style={{marginBottom: 30}}/>
+              <View style={{marginBottom: 150}}/>
             </ScrollView>
           </View>
         </View>
@@ -63,13 +64,10 @@ export default createStackNavigator({
   },   
 },{
     initialRouteName: 'Favorites',
+    headerMode: "float",
     navigationOptions: {
-      headerTitle: LogoTitle,
-      headerStyle: {
-        backgroundColor: '#264653',
-      },
-      headerTintColor: '#ffffff',
-      }
+      header: null
+    }
   }
  );
 

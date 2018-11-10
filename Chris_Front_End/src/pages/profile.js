@@ -41,8 +41,9 @@ class Profile extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <LogoTitle/>
         <View style={{flex:1, maxHeight:170, width: "100%"}}>
-          <Image style={styles.avatars} source={require('../avatars/9.png')}/>
+          
         </View>
         <View style={{flex: .5}}>
           <Text style={styles.usernameText}>{this.state.profileData.username}</Text>
@@ -74,12 +75,9 @@ export default createStackNavigator({
   },     
 },{
     initialRouteName: 'Profile',
+    headerMode: "float",
     navigationOptions: {
-      headerTitle: LogoTitle,
-      headerStyle: {
-        backgroundColor: '#264653',
-      },
-      headerTintColor: '#ffffff'
+      header: null
     }
   }
 );

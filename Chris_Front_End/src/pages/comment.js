@@ -84,7 +84,7 @@ export default class Comment extends Component {
       <View style={styles.container}>
         {/* Loads all of the current comments */}
         <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={{marginBottom: 10}}></View>
+          <View style={{marginBottom: 10}}></View>
           {this.state.comments}
           <View style={{marginBottom: 90}}></View>
         </ScrollView>

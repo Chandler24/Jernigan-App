@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 
-/* This class allows all pages to display the Jernigan logo o nthe top header */
+/* This class allows all pages to display the Jernigan logo on the top header */
 export default class LogoTitle extends Component {
   render() {
     return (
-      <View style={{flex:1, flexDirection:'row', justifyContent:'center'}}>
+      <View style={{height: 60, backgroundColor: '#264653', elevation: 5}}>
         <Image
           source={require('../images/smalllogo.png')}
           style={styles.headerImage}
@@ -17,8 +17,8 @@ export default class LogoTitle extends Component {
 
 const styles = StyleSheet.create({
   headerImage: {
-    height: 50,
-    marginBottom: 5,
+    height: 60,
+    paddingLeft:2,
     resizeMode: 'contain',
     alignSelf: 'center',
   }

@@ -112,14 +112,16 @@ class Map extends Component {
 
     if (this.state.isLoading) {
       return (
-        <View style={{flex: 1, paddingTop: 20, backgroundColor: '#E76F51'}}>
-          <LottieView source={require('../images/world_locations')} autoPlay/>
+        <View style={{flex: 1, backgroundColor: '#E76F51'}}>
+          <LogoTitle/>
+          <LottieView style={{paddingTop:20}} source={require('../images/world_locations')} autoPlay/>
         </View>
       );
     }
 
     return (
       <View style={styles.container}>
+
         <MapView
           style={styles.map}
           showsUserLocation= {true}
@@ -140,6 +142,7 @@ class Map extends Component {
           {/* Displays all available Locations */}
           {markersArray}
         </MapView>
+        <LogoTitle/>
         <View style={styles.inputArea}>
           <TextInput style={styles.inputBox}
             returnKeyType = { "done" } 
@@ -197,12 +200,9 @@ export default createStackNavigator({
   },
   {
     initialRouteName: 'Map',
+    headerMode: "float",
     navigationOptions: {
-      headerTitle: LogoTitle,
-      headerStyle: {
-        backgroundColor: '#264653',
-      },
-      headerTintColor: '#ffffff',
+      header: null
     }
   }
 );
