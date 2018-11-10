@@ -43,5 +43,10 @@ namespace CaerusSoft.Jernigan.AccountResourceAccess
         {
             return m_AccountResourceAccess.SignUp(request);
         }
+
+        public void UpdateProfile(UpdateProfileRequest request)
+        {
+            m_AccountResourceAccess.UpdateProfile(request);
+        }
     }
 }

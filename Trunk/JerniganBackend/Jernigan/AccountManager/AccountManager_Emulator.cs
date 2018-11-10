@@ -26,5 +26,9 @@ namespace CaerusSoft.Jernigan.AccountManager
                 SignUpSuccessful = true
             };
         }
+
+        public void UpdateProfile(UpdateProfileRequest request)
+        {
+        }
     }
 }

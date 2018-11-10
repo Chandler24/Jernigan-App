@@ -115,5 +115,26 @@ namespace CaerusSoft.Jernigan.AccountResourceAccess
                 ErrorMessage = error
             };
         }
+
+        public void UpdateProfile(UpdateProfileRequest request)
+        {
+            using (SqlConnection connection = new SqlConnection(Configuration.ConnectionString()))
+            {
+                SqlCommand command = new SqlCommand("UpdateProfile", connection);
+                SqlParameter[] sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@CityOfResidence", request.CityOfResidence),
+                    new SqlParameter("@UserId", request.UserId),
+                    new SqlParameter("@Bio", request.Bio),
+                    new SqlParameter("@Picture", request.Picture)
+                };
+
+                command.Connection = connection;
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddRange(sqlParams);
+                connection.Open();
+                command.ExecuteNonQuery();
+            }            
+        }
     }
 }

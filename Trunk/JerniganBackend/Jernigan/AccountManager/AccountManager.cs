@@ -38,5 +38,10 @@ namespace CaerusSoft.Jernigan.AccountManager
         {
             return m_AccountManager.SignUp(request);
         }
+
+        public void UpdateProfile(UpdateProfileRequest request)
+        {
+            m_AccountManager.UpdateProfile(request);
+        }
     }
 }
