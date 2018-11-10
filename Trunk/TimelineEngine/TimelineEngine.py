@@ -9,16 +9,16 @@ TOTAL_SUMMARY_RATIO = .2 # Ratio for NLP summarization on entire wiki page conte
 HISTORY_SUMMARY_RATIO = .9 # Ratio for NLP summarization on history section of wiki page
 DEFAULT_IMAGE = 'Default Image String' # Default image for return when a valid image fails to be found
 
-'''''
+"""
 Timeline Engine class that is started by the server.py file when a get request is received. The main class method is generateTimeline() and expects a location name in string format.
-'''''
+"""
 class TimelineEngine():
 
-    '''''
+    """
     Description: Takes a location string and returns a wiki page object for that location.
     Input: <String> locationInfo 
     Output: <WikiPage> wiki_page
-    '''''
+    """
     def getWikiPage(self, locationInfo):
         if locationInfo == None or locationInfo == "":
             return None
@@ -29,11 +29,11 @@ class TimelineEngine():
         wiki_page = wikipedia.page(search_results[0])
         return wiki_page
 
-    '''''
+    """
     Description: Takes a WikiPage and returns the best content, as well as the appropriate acceptance ratio for that content and page images.
     Input: <String> locationInfo 
     Output: <WikiPage> page_history, <Float> summary_ratio, <Array> page_images 
-    '''''
+    """
     def getPageContent(self, locationInfo):
         if locationInfo == None or locationInfo == "":
             return None
@@ -50,11 +50,11 @@ class TimelineEngine():
 
         return page_history, HISTORY_SUMMARY_RATIO, wiki_page.images
 
-    '''''
+    """
     Description: Attempts to find a valid and relevant image for return packaged with the timeline
     Input: <Array> images, <String> label
     Output: <String> image
-    '''''
+    """
     def findBestImage(self, images, label):
         if images == None or images == [] or label == None or label == "":
             return None
@@ -65,11 +65,11 @@ class TimelineEngine():
         
         return DEFAULT_IMAGE
 
-    '''''
+    """
     Description: Main class function that takes in the location and creates the timeline object to be returned.
     Input: <String> locationInfo
     Output: <JSON> TimelineObject
-    '''''
+    """
     def generateTimeline(self, locationInfo):
         if(not (self.TimelineGenerationCheck(locationInfo))):
             return json.dumps([dict({"Info" : "No Timeline Avaliable"})])
@@ -101,11 +101,11 @@ class TimelineEngine():
 
         return json.dumps(TimelineObject)
             
-    '''''
+    """
     Description: Simple check if a valid timeline can be created. 
     Input: <String> locationInfo
     Output: <Bool> result
-    '''''
+    """
     def TimelineGenerationCheck(self, locationInfo):
         if locationInfo == None or locationInfo == "":
             return False
