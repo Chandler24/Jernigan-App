@@ -7,7 +7,7 @@ import json
 MINIMUM_CONTENT = 100 # Minimum content in history section to accept
 TOTAL_SUMMARY_RATIO = .2 # Ratio for NLP summarization on entire wiki page content
 HISTORY_SUMMARY_RATIO = .9 # Ratio for NLP summarization on history section of wiki page
-DEFAULT_IMAGE = 'https://i.imgur.com/EKZzDWH.jpg' # Default image for return when a valid image fails to be found
+DEFAULT_IMAGE = 'http://i.imgur.com/zmUC0bL.jpg' # Default image for return when a valid image fails to be found
 
 class TimelineEngine():
     """
