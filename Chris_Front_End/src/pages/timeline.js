@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View} from 'react-native';
 import Timeline from 'react-native-timeline-listview';
+import LogoTitle from '../components/logotitle';
+
 
 export default class TimelineView extends Component {
 
@@ -23,17 +25,19 @@ export default class TimelineView extends Component {
     for (var i = 0; i < timelineData.length; i++) {
       data.push({time: timelineData[i].Year, description: timelineData[i].Description})
     }
+    data.push({time: "🏁"})
   }
     
   render() {
     return (
       <View style={styles.container}>
+        <LogoTitle/>
           <Timeline 
             data={data}
             circleSize={20}
             circleColor='#E9C46A'
             lineColor='#E9C46A'
-            timeContainerStyle={{flex: 2, justifyContent:'center', paddingTop: 16}}
+            timeContainerStyle={{flex: 2, justifyContent:'center', paddingTop: 16, marginBottom:10}}
             timeStyle={{
               textAlign: 'center', 
               backgroundColor:'#2A9D8F', 
@@ -46,7 +50,7 @@ export default class TimelineView extends Component {
             innerCircle={'dot'}
             columnFormat='single-column-left'
             options={{
-              style:{paddingTop:5, paddingHorizontal: 5}
+              style:{padding: 5}
             }}
           />
       </View>

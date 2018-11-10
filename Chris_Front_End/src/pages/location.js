@@ -141,9 +141,7 @@ export default class Location extends Component {
         <TouchableHighlight onPress={() => {this.openImage()}} style={{flex:1, width: '100%', elevation: 5}}>
           <Image resizeMode="cover" source={{uri : this.state.locationData.Image}} style={styles.image}/>
         </TouchableHighlight>
-        <ScrollView style={{maxHeight:60, marginBottom: -30}} horizontal={true} showsHorizontalScrollIndicator={false}>
-          <Text numberOfLines={1} style={styles.titleText}>{this.state.locationName}</Text>
-        </ScrollView>
+        <Text style={styles.titleText}>{this.state.locationName}</Text>
         <AirbnbRating 
           style={{maxHeight:60}}
           reviews={[]} 
@@ -202,7 +200,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     textShadowColor: 'rgba(0,0,0,0.6)',
     textShadowOffset: {width: -1, height: 1},
-    textShadowRadius: 10
+    textShadowRadius: 10,
+    marginBottom: -30
   },
 
   button: {
