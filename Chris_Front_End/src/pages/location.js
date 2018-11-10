@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, TouchableHighlight, ScrollView, Modal, ToastAndroid } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
 import LottieView from 'lottie-react-native';
 import AwesomeAlert from 'react-native-awesome-alerts';
+import ImageViewer from 'react-native-image-zoom-viewer';
 
 export default class Location extends Component {
 
@@ -13,7 +14,8 @@ export default class Location extends Component {
       locationData:{},
       isLoading: true,
       showAlertFav: false,
-      showAlertFail: false
+      showAlertFail: false,
+      imageView: false
     };
     this.loadLocation = this.loadLocation.bind(this);
     this.addToFavorites = this.addToFavorites.bind(this);
@@ -96,7 +98,17 @@ export default class Location extends Component {
     this.props.navigation.navigate('Map')
   }
 
+  openImage () {
+    ToastAndroid.show(
+      'Swipe Down To Close',
+      ToastAndroid.LONG,
+    );
+    this.setState({ imageView: true })
+  }
+
   render() {
+
+    const images = [{url: this.state.locationData.Image}]
 
     if (this.state.isLoading) {
       return (
@@ -121,9 +133,17 @@ export default class Location extends Component {
 
     return (
       <View style={styles.container}>
-        <Image source={{uri : this.state.locationData.Image}} style={styles.image} />
-        <Text style={styles.titleText}>{this.state.locationName}</Text>
+        <Modal visible={this.state.imageView} transparent={true}>
+          <ImageViewer onCancel={() => this.setState({ imageView: false })} enableSwipeDown={true} imageUrls={images}/>
+        </Modal>
+        <TouchableHighlight onPress={() => {this.openImage()}} style={{flex:1, width: '100%'}}>
+          <Image resizeMode="cover" source={{uri : this.state.locationData.Image}} style={styles.image}/>
+        </TouchableHighlight>
+        <ScrollView style={{maxHeight:60, marginBottom: -30}} horizontal={true} showsHorizontalScrollIndicator={false}>
+          <Text numberOfLines={1} style={styles.titleText}>{this.state.locationName}</Text>
+        </ScrollView>
         <AirbnbRating 
+          style={{maxHeight:60}}
           reviews={[]} 
           ratingColor={'#E9C46A'}
           defaultRating= '5'/>
@@ -174,10 +194,10 @@ const styles = StyleSheet.create({
   titleText: {
     marginTop: 5,
     color: '#ffffff',
-    fontSize: 45,
+    fontSize: 35,
     fontWeight: '500',
     textAlign: 'center',
-    marginBottom: -25,
+    marginHorizontal: 10,
     textShadowColor: 'rgba(0,0,0,0.6)',
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 10
@@ -194,7 +214,8 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    flex: 1,
-    width: '100%',
+    flex:1,
+    width: undefined,
+    height: undefined   
   },
 });

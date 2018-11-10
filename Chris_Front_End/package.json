@@ -29,6 +29,7 @@
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-native-awesome-alerts": "^1.1.1",
+    "react-native-image-zoom-viewer": "^2.2.23",
     "react-native-maps": "^0.21.0",
     "react-native-ratings": "^6.0.0",
     "react-native-timeline-listview": "^0.2.3",
