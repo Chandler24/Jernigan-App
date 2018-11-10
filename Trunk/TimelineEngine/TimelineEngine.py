@@ -4,75 +4,112 @@ from gensim.summarization.summarizer import summarize
 import sys
 import json
 
+MINIMUM_CONTENT = 100 # Minimum content in history section to accept
+TOTAL_SUMMARY_RATIO = .2 # Ratio for NLP summarization on entire wiki page content
+HISTORY_SUMMARY_RATIO = .9 # Ratio for NLP summarization on history section of wiki page
+DEFAULT_IMAGE = 'Default Image String' # Default image for return when a valid image fails to be found
+
+'''''
+Timeline Engine class that is started by the server.py file when a get request is received. The main class method is generateTimeline() and expects a location name in string format.
+'''''
 class TimelineEngine():
 
+    '''''
+    Description: Takes a location string and returns a wiki page object for that location.
+    Input: <String> locationInfo 
+    Output: <WikiPage> wiki_page
+    '''''
     def getWikiPage(self, locationInfo):
         if locationInfo == None or locationInfo == "":
             return None
             
-        result = wikipedia.search("{}".format(locationInfo))[0]
-        page = wikipedia.page(result)
-        return page
+        search_results = wikipedia.search("{}".format(locationInfo))
+        if len(search_results) < 1:
+            return None
+        wiki_page = wikipedia.page(search_results[0])
+        return wiki_page
 
-
+    '''''
+    Description: Takes a WikiPage and returns the best content, as well as the appropriate acceptance ratio for that content and page images.
+    Input: <String> locationInfo 
+    Output: <WikiPage> page_history, <Float> summary_ratio, <Array> page_images 
+    '''''
     def getPageContent(self, locationInfo):
         if locationInfo == None or locationInfo == "":
             return None
 
-        page = self.getWikiPage(locationInfo)
+        wiki_page = self.getWikiPage(locationInfo)
 
-        page_history = page.section("History")
-        page_content = page.content
-        if len(page_history) < 10:
-            return page_content, .2, page.images
+        if wiki_page == None:
+            return None, None, None
 
-        return page_history, .9, page.images
-    
+        page_history = wiki_page.section("History")
+        page_content = wiki_page.content
+        if page_history == None or len(page_history) < MINIMUM_CONTENT:
+            return page_content, TOTAL_SUMMARY_RATIO, wiki_page.images
+
+        return page_history, HISTORY_SUMMARY_RATIO, wiki_page.images
+
+    '''''
+    Description: Attempts to find a valid and relevant image for return packaged with the timeline
+    Input: <Array> images, <String> label
+    Output: <String> image
+    '''''
     def findBestImage(self, images, label):
         if images == None or images == [] or label == None or label == "":
             return None
 
         for image in images:
-            if re.search(image, label):
+            if re.search(image, label) and (re.search(image, 'jpg') or re.search(image, 'png')):
                 return image
         
-        return images[0]
+        return DEFAULT_IMAGE
 
+    '''''
+    Description: Main class function that takes in the location and creates the timeline object to be returned.
+    Input: <String> locationInfo
+    Output: <JSON> TimelineObject
+    '''''
     def generateTimeline(self, locationInfo):
-        print(locationInfo)
-        #if(not (self.TimelineGenerationCheck(locationInfo))):
-         #   return "No Timeline Avaliable"
+        if(not (self.TimelineGenerationCheck(locationInfo))):
+            return json.dumps([dict({"Info" : "No Timeline Avaliable"})])
 
-        summary_text, ratio, images = self.getPageContent(locationInfo)
-        summary_text = summarize(summary_text, ratio=ratio, split=True)
+        page_content, ratio, images = self.getPageContent(locationInfo)
+   
+
+        summary_text = summarize(page_content, ratio=ratio, split=True)
 
         timeline_sentences = []
 
         for sentence in summary_text:
+            # Searching for years in the sentence using regular expressions
             if bool(re.search('[1-4][0-9]{3}', sentence)) and bool(re.search('in', sentence)):
                 timeline_sentences.append(sentence)
 
         TimelineObject = []
         
         image = self.findBestImage(images, locationInfo)
-        temp = {}
+
+        year_event_description = {}
         for sentence in timeline_sentences:
-            temp = {}
-            temp['year'] = re.search('[1-4][0-9]{3}', sentence).group()
-            temp['description'] = sentence
-            TimelineObject.append(temp)
+            year_event_description = {}
+            year_event_description['year'] = re.search('[1-4][0-9]{3}', sentence).group()
+            year_event_description['description'] = sentence
+            TimelineObject.append(year_event_description)
             
         TimelineObject.append(dict({'image' : image}))
 
-        print(TimelineObject)
         return json.dumps(TimelineObject)
             
-
+    '''''
+    Description: Simple check if a valid timeline can be created. 
+    Input: <String> locationInfo
+    Output: <Bool> result
+    '''''
     def TimelineGenerationCheck(self, locationInfo):
-        if locationInfo == None or locationInfo == "" or type(locationInfo) != str:
+        if locationInfo == None or locationInfo == "":
             return False
-
-        if bool(re.search(locationInfo, self.getPageContent(locationInfo)[0]) != None):         
-            return True
+        if self.getPageContent(locationInfo)[0] == None:
+            return False
         else:
-            return False
+            return True
