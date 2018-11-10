@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { TextInput , StyleSheet,  Image, Text, View, TouchableOpacity, ScrollView, TouchableHighlight } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import AwesomeAlert from 'react-native-awesome-alerts';
 import './global'
 
 export default class Edit extends Component {
@@ -15,7 +16,8 @@ export default class Edit extends Component {
     this.state = {
       pic: "",
       bioText: "",
-      por: ""
+      por: "",
+      showAlert: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -32,9 +34,14 @@ export default class Edit extends Component {
     
     const data = await response.json();
     */
-    alert("Profile Updated")
+    //this.setState({ showAlert: true });
     this.props.navigation.navigate('Profile')
   };
+
+  closeAndReturn () {
+    this.setState({ showAlert: false })
+    this.props.navigation.navigate('Profile')
+  }
 
   render() {
     return (
@@ -87,6 +94,19 @@ export default class Edit extends Component {
           <Text style={styles.buttonText} >Submit</Text>
         </TouchableOpacity>
         <View style={{marginBottom: 10}}/>
+        <AwesomeAlert
+          show={this.state.showAlert}
+          contentContainerStyle={{bottom: 50}}
+          showProgress={false}
+          title= "Profile Updated"
+          titleStyle= {{textAlign: 'center'}}
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showConfirmButton={true}
+          confirmText="Cool Beans!"
+          confirmButtonColor="#E76F51"
+          onConfirmPressed={() => { this.closeAndReturn() }}
+        />
       </View>
     )
   }

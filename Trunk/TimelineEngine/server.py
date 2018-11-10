@@ -7,8 +7,15 @@ import re
 PORT_NUMBER = 8080
 
 class myHandler(BaseHTTPRequestHandler):
-	#Handler for the GET requests
+	"""
+	Basic HTTP Request Handler that implements the GET request. Expects header 'data' with value equal to the string of the location name.
+	"""
 	def do_GET(self):
+		"""
+		Description: Get request handler function.
+		Input: None
+		Output: None
+		"""
 		TimelineEngine = TE.TimelineEngine()
 		self.send_response(200)
 		self.data = self.headers.as_string().split("\n")
@@ -24,19 +31,25 @@ class myHandler(BaseHTTPRequestHandler):
 		self.wfile.write(TimelineEngine.generateTimeline(self.headers['data']).encode("utf-8"))
 		return
 
-try:
-	#Create a web server and define the handler to manage the
-	#incoming request
-	server = HTTPServer(('localhost', PORT_NUMBER), myHandler)
-	print('Started httpserver on port ' , PORT_NUMBER)
-	
-	#Wait forever for incoming htto requests
-	server.serve_forever()
+def main():
+	"""
+	This code sets up the connection on the specificed port and listens for requests until canceled.
+	"""
+	try:
+		#Create a web server and define the handler to manage the
+		#incoming request
+		server = HTTPServer(('localhost', PORT_NUMBER), myHandler)
+		print('Started httpserver on port ' , PORT_NUMBER)
+		
+		#Wait forever for incoming http requests
+		server.serve_forever()
 
-except KeyboardInterrupt:
-	print ('^C received, shutting down the web server')
-	server.socket.close()
+	except KeyboardInterrupt:
+		print ('^C received, shutting down the web server')
+		server.socket.close()
 
+if __name__ == "__main__":
+	main()
 
 
 

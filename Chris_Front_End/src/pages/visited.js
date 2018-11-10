@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import LogoTitle from './../components/logotitle'
 import './global'
 import FavElement from '../components/favElement'
 
@@ -43,11 +44,12 @@ export default class Visited extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <LogoTitle/>
         <View>
           <ScrollView horizontal={false} showsVerticalScrollIndicator={false}>
             <View style={{margin : 6}}/>
             {visitedArray}
-            <View style={{marginBottom: 30}}></View>
+            <View style={{marginBottom: 150}}></View>
           </ScrollView>
         </View>
       </View>

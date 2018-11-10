@@ -1,22 +1,69 @@
 {
   "locations" : [
     {
-      "locationId" : "0001",
-      "title" : "Trolly Grove Square",
-      "latitude": 28.6014,
-      "longitude": -81.1995
+      "title" : "University Of Central Florida",
+      "latitude": 28.6024,
+      "longitude": -81.2001
     },
     {
-      "locationId" : "0002",
-      "title" : "Miller's Ale House Orlando",
-      "latitude": 28.6007,
-      "longitude": -81.1980
+      "title" : "Disney World",
+      "latitude": 28.3852,
+      "longitude": -81.5639
     },
     {
-      "locationId" : "0003",
-      "title" : "Austin's Coffee",
-      "latitude": 28.6020,
-      "longitude": -81.1982
+      "title" : "The Pentagon",
+      "latitude": 38.8719,
+      "longitude": -77.0563
+    },
+    {
+      "title" : "The Grand Canyon",
+      "latitude": 36.1070,
+      "longitude": -112.1130
+    },
+    {
+      "title" : "Yellowstone National Park",
+      "latitude": 44.4280,
+      "longitude": -110.5885
+    },
+    {
+      "title" : "Mount Rushmore",
+      "latitude": 43.8791,
+      "longitude": -103.4591
+    },
+    {
+      "title" : "Pantheon",
+      "latitude": 41.8986,
+      "longitude": 12.4769
+    },
+    {
+      "title" : "Great Wall of China",
+      "latitude": 40.6892,
+      "longitude": 116.5704
+    },
+    {
+      "title" : "Petropavlovsk-Kamchatsky",
+      "latitude": 53.01,
+      "longitude": 158.39
+    },
+    {
+      "title" : "Pyongyang",
+      "latitude": 39.01,
+      "longitude": 125.44
+    },
+    {
+      "title" : "Beijing",
+      "latitude": 39.01,
+      "longitude": 125.44
+    },
+    {
+      "title" : "Bangalore",
+      "latitude": 12.58,
+      "longitude": 77.34
+    },
+    {
+      "title" : "Greenland",
+      "latitude": 71.7069,
+      "longitude": -42.6043
     }
   ]
 }

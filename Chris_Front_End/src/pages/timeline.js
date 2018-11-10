@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, View} from 'react-native';
-import Timeline from 'react-native-timeline-listview'
+import Timeline from 'react-native-timeline-listview';
+import LogoTitle from '../components/logotitle';
+
 
 export default class TimelineView extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      timelinePoints: {},
-    };
-    this.loadTimelineEntrys = this.loadTimelineEntrys.bind(this);
-  }
 
   // Aligns the header text with back button
   static navigationOptions = {
@@ -23,38 +17,27 @@ export default class TimelineView extends Component {
   }
 
   /* Loads all comments of current location */
-  async loadTimelineEntrys () {
-/*
-    const command = global.url + "api/Location/GenerateTimeline?locationName=" + passedIn.locationName;
-    const response = await fetch(command, {method: 'POST'});
-    
-    if (!response.ok) {
-      alert("Server Down");
-      throw Error(response.statusText);
-    }
-    
-    this.state.timelinePoints = await response.json();
-*/
-    this.state.timelinePoints = require('../testdata/location/timelineRequest.json');
+  loadTimelineEntrys () {
     data = []
+    const {navigation} = this.props
+    const timelineData = navigation.getParam('data', 'failed')
 
-    for (var i = 0; i < this.state.timelinePoints.timelinePoints.length; i++) {
-      data.push({time: this.state.timelinePoints.timelinePoints[i].date, description: this.state.timelinePoints.timelinePoints[i].desc})
+    for (var i = 0; i < timelineData.length; i++) {
+      data.push({time: timelineData[i].Year, description: timelineData[i].Description})
     }
-    data.push({description: " "})
+    data.push({time: "🏁"})
   }
     
   render() {
     return (
       <View style={styles.container}>
-        <View style={{flex: 1, padding: 10}}>
+        <LogoTitle/>
           <Timeline 
-            style={styles.timeline}
             data={data}
             circleSize={20}
             circleColor='#E9C46A'
             lineColor='#E9C46A'
-            timeContainerStyle={{minWidth:65, flex: 2, justifyContent:'center', paddingTop: 16}}
+            timeContainerStyle={{flex: 2, justifyContent:'center', paddingTop: 16, marginBottom:10}}
             timeStyle={{
               textAlign: 'center', 
               backgroundColor:'#2A9D8F', 
@@ -67,10 +50,9 @@ export default class TimelineView extends Component {
             innerCircle={'dot'}
             columnFormat='single-column-left'
             options={{
-              style:{paddingTop:5}
+              style:{padding: 5}
             }}
           />
-        </View>
       </View>
     )
   }
@@ -81,38 +63,4 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     backgroundColor: '#E76F51'
   },
-
-  headerText: {
-    color: '#ffffff',
-    fontSize: 40,
-    marginTop: 5,
-    fontWeight: '500',
-    textAlign: 'center',
-  },
-
-  buttonLayout: {
-    flex: .1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingTop: 2
-  },
-
-  button: {
-    width: '45%',
-    height: 43,
-    backgroundColor: '#005ccb',
-    borderRadius: 25,
-  },
-
-  buttonText: {
-    color: '#ffffff',
-    fontSize: 20,
-    fontWeight: '500',
-    textAlign: 'center',
-    paddingTop: 4
-  },
-
-  timeline: {
-    top: 35
-  }
 });
