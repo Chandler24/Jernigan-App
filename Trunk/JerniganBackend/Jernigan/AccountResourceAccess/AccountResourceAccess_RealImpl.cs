@@ -12,12 +12,73 @@ namespace CaerusSoft.Jernigan.AccountResourceAccess
     {
         public bool AccountExists(SignUpRequest request)
         {
-            throw new NotImplementedException();
+            bool accountExists = false;
+            using (SqlConnection connection = new SqlConnection(Configuration.ConnectionString()))
+            {
+                SqlCommand command = new SqlCommand("SignIn", connection);
+                SqlParameter[] sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@Username", request.Username)
+                };
+                command.Connection = connection;
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddRange(sqlParams);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    accountExists = true;
+                }                
+            }
+            return accountExists;
         }
 
         public SignInResponse SignIn(SignInRequest request)
         {
-            throw new NotImplementedException();
+            bool successful = false;
+            string error = string.Empty;
+            int userid = -1;
+            using (SqlConnection connection = new SqlConnection(Configuration.ConnectionString()))
+            {
+                SqlCommand command = new SqlCommand("SignIn", connection);
+                SqlParameter[] sqlParams = new SqlParameter[]
+                {
+                    new SqlParameter("@Username", request.Username)
+                };
+
+                command.Connection = connection;
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddRange(sqlParams);
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string password = reader.GetString(0);
+                        if (password == request.Password)
+                        {
+                            successful = true;
+                            userid = reader.GetInt32(1);
+                        }
+                        else
+                            error = "Invalid password.";
+                    }
+                }
+                else error = "Invalid username";
+
+            }
+
+            SignInResponse response = new SignInResponse()
+            {
+                ErrorMessage = error,
+                SignInSuccessful = successful,
+                UserId = userid
+            };
+
+            return response;
         }
 
         public SignUpResponse SignUp(SignUpRequest request)
@@ -26,15 +87,13 @@ namespace CaerusSoft.Jernigan.AccountResourceAccess
             string error = string.Empty;
             using (SqlConnection connection = new SqlConnection(Configuration.ConnectionString()))
             {
-                SqlCommand command = new SqlCommand("AddUser", connection);
+                SqlCommand command = new SqlCommand("SignUp", connection);
                 SqlParameter[] sqlParams = new SqlParameter[]
                 {
-                    new SqlParameter("@AboutMe", request.AboutMe),
                     new SqlParameter("@CityOfResidence", request.CityOfResidence),
                     new SqlParameter("@Password", request.Password),
                     new SqlParameter("@UserName", request.Username),
-                    new SqlParameter("@UserId", Guid.NewGuid()),
-                    new SqlParameter("@Picture", request.Photo)
+                    new SqlParameter("@Email", request.Email)
                 };
 
                 command.Connection = connection;

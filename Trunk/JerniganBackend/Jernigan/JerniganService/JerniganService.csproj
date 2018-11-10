@@ -322,6 +322,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccountManager\AccountManager.csproj">
+      <Project>{6836ebd3-2141-4051-8241-2173495f79a7}</Project>
+      <Name>AccountManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Contracts\Contracts.csproj">
       <Project>{0c7e12cc-42f6-4412-938f-1fffaeacf50e}</Project>
       <Name>Contracts</Name>

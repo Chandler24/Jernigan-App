@@ -9,11 +9,6 @@ namespace CaerusSoft.Jernigan.Proxies
 {
     public class AccountManager_RealImplProxy : DisposableClientBase<IAccountManager_RealImpl>, IAccountManager_RealImpl
     {
-        public bool AccountExists(SignUpRequest request)
-        {
-            return base.Channel.AccountExists(request);
-        }
-
         public SignInResponse SignIn(SignInRequest request)
         {
             return base.Channel.SignIn(request);

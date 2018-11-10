@@ -11,16 +11,13 @@ namespace CaerusSoft.Jernigan.Contracts
     public class SignUpRequest
     {
         [DataMember]
+        public string Email { get; set; }
+
+        [DataMember]
         public string Username { get; set; }
 
         [DataMember]
-        public string AboutMe { get; set; }
-
-        [DataMember]
         public string CityOfResidence { get; set; }
-
-        [DataMember]
-        public int Photo { get; set; }
 
         [DataMember]
         public string Password { get; set; }

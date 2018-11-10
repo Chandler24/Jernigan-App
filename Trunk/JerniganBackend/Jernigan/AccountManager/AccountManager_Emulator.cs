@@ -9,12 +9,6 @@ namespace CaerusSoft.Jernigan.AccountManager
 {
     public class AccountManager_Emulator : IAccountManager_Emulator
     {
-        public bool AccountExists(SignUpRequest request)
-        {
-            // Return true means that the user can't sign up as they already have an account, false means the new account can be made
-            return false;
-        }
-
         public SignInResponse SignIn(SignInRequest request)
         {
             return new SignInResponse()

@@ -12,11 +12,6 @@ namespace CaerusSoft.Jernigan.AccountManager
     {
         IAccountResourceAccess m_AccountResourceAccess = new AccountResourceAccess.AccountResourceAccess();
 
-        public bool AccountExists(SignUpRequest request)
-        {
-            return m_AccountResourceAccess.AccountExists(request);
-        }
-
         public SignInResponse SignIn(SignInRequest request)
         {
             return m_AccountResourceAccess.SignIn(request);
@@ -24,7 +19,21 @@ namespace CaerusSoft.Jernigan.AccountManager
 
         public SignUpResponse SignUp(SignUpRequest request)
         {
-            return m_AccountResourceAccess.SignUp(request);
+            SignUpResponse response = new SignUpResponse();
+
+            bool accountExists = m_AccountResourceAccess.AccountExists(request);
+
+            if (!accountExists)
+            {
+                response = m_AccountResourceAccess.SignUp(request);
+            }
+            else
+            {
+                response.ErrorMessage = "Account already exists! Please try signing in";
+                response.SignUpSuccessful = false;
+            }
+
+            return response;
         }
     }
 }

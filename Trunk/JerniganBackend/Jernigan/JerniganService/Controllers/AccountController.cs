@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using CaerusSoft.Jernigan.Contracts;
 using JerniganService.Models;
+using CaerusSoft.Jernigan.AccountManager;
 
 namespace JerniganService.Controllers
 {
@@ -15,34 +16,59 @@ namespace JerniganService.Controllers
         [Route("api/Account/SignIn")]
         public SignInResponse SignIn (string username, string password)
         {
-            return new SignInResponse()
+            IAccountManager accountManager = new AccountManager();
+
+            SignInRequest request = new SignInRequest()
             {
-                ErrorMessage = string.Empty,
-                SignInSuccessful = true
+                Password = password,
+                Username = username
             };
+
+            SignInResponse response = accountManager.SignIn(request);
+
+            return response;
         }
         
         [HttpPost]
         [Route("api/Account/SignUp")]
-        public SignUpResponse SignUp(string username, string password, string cityOfResidence)
+        public SignUpResponse SignUp(string email, string username, string password, string passwordConfirm, string cityOfResidence)
         {
-            return new SignUpResponse()
+            SignUpResponse response = new SignUpResponse();
+            IAccountManager accountManager = new AccountManager(); 
+
+            if (password != passwordConfirm)
             {
-                ErrorMessage = string.Empty,
-                SignUpSuccessful = true
-            };
+                response.SignUpSuccessful = false;
+                response.ErrorMessage = "Passwords do not match!";
+            }
+
+            else
+            {
+                SignUpRequest request = new SignUpRequest()
+                {
+                    Email = email,
+                    CityOfResidence = cityOfResidence,
+                    Password = password,
+                    ConfirmPassword = passwordConfirm,
+                    Username = username
+                };
+
+                response = accountManager.SignUp(request);
+            }
+
+            return response;
         }
 
         [HttpPost]
         [Route("api/Account/AddBio")]
-        public void AddBio(Guid userId, string bio)
+        public void AddBio(int userId, string bio)
         {
 
         }
 
         [HttpPost]
         [Route("api/Account/GetUserAccountInfo")]
-        public UserInfo GetUserAccountInfo (Guid userId)
+        public UserInfo GetUserAccountInfo (int userId)
         {
             return new UserInfo
             {
