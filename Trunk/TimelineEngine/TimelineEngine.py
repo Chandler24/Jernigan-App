@@ -7,7 +7,7 @@ import json
 MINIMUM_CONTENT = 100 # Minimum content in history section to accept
 TOTAL_SUMMARY_RATIO = .2 # Ratio for NLP summarization on entire wiki page content
 HISTORY_SUMMARY_RATIO = .9 # Ratio for NLP summarization on history section of wiki page
-DEFAULT_IMAGE = 'Default Image String' # Default image for return when a valid image fails to be found
+DEFAULT_IMAGE = 'https://i.imgur.com/EKZzDWH.jpg' # Default image for return when a valid image fails to be found
 
 class TimelineEngine():
     """
@@ -59,10 +59,13 @@ class TimelineEngine():
             return None
 
         for image in images:
-            if re.search(image, label) and (re.search(image, 'jpg') or re.search(image, 'png')):
+            if re.search(image, label) and (re.search(image, 'jpg') or re.search(image, 'png') or re.search(image, 'jpeg')):
                 return image
         
-        return DEFAULT_IMAGE
+        if (re.search(image, 'jpg') or re.search(image, 'png') or re.search(image, 'jpeg')):
+            return images[0]
+        else:
+            return DEFAULT_IMAGE
 
     def generateTimeline(self, locationInfo):
         """
