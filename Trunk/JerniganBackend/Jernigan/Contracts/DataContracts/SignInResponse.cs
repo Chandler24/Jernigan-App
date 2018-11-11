@@ -15,5 +15,8 @@ namespace CaerusSoft.Jernigan.Contracts
 
         [DataMember]
         public string ErrorMessage { get; set; }
+
+        [DataMember]
+        public int UserId { get; set; }
     }
 }

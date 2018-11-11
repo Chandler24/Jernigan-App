@@ -15,24 +15,6 @@ namespace CaerusSoft.Jernigan.AccountManager.Tests
         private readonly AccountManager_Emulator m_AccountManager = new AccountManager_Emulator();
 
         [TestMethod()]
-        public void AccountExists()
-        {
-            // Arrange
-            SignUpRequest request = new SignUpRequest()
-            {
-                ConfirmPassword = "Test",
-                Password = "Test",
-                Username = "test@test.com"
-            };
-
-            // Act
-            bool accountExists = m_AccountManager.AccountExists(request);
-
-            // Assert
-            Assert.AreEqual(false, accountExists);
-        }
-
-        [TestMethod()]
         public void SignIn()
         {
             // Arrange

@@ -11,9 +11,6 @@ namespace CaerusSoft.Jernigan.Contracts
     public interface IAccountManager
     {
         [OperationContract]
-        bool AccountExists(SignUpRequest request);
-
-        [OperationContract]
         SignUpResponse SignUp(SignUpRequest request);
 
         [OperationContract]

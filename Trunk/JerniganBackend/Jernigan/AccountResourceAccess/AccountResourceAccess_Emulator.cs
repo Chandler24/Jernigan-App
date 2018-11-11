@@ -31,5 +31,10 @@ namespace CaerusSoft.Jernigan.AccountResourceAccess
                 SignUpSuccessful = true
             };
         }
+
+        public void UpdateProfile(UpdateProfileRequest request)
+        {
+            
+        }
     }
 }

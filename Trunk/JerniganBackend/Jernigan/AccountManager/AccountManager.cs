@@ -29,11 +29,6 @@ namespace CaerusSoft.Jernigan.AccountManager
             }
         }
 
-        public bool AccountExists(SignUpRequest request)
-        {
-            return m_AccountManager.AccountExists(request);
-        }
-
         public SignInResponse SignIn(SignInRequest request)
         {
             return m_AccountManager.SignIn(request);
@@ -42,6 +37,11 @@ namespace CaerusSoft.Jernigan.AccountManager
         public SignUpResponse SignUp(SignUpRequest request)
         {
             return m_AccountManager.SignUp(request);
+        }
+
+        public void UpdateProfile(UpdateProfileRequest request)
+        {
+            m_AccountManager.UpdateProfile(request);
         }
     }
 }
