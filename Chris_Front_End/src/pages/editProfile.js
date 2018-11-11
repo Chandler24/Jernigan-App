@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { TextInput , StyleSheet,  Image, Text, View, TouchableOpacity, ScrollView, TouchableHighlight } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
-import AwesomeAlert from 'react-native-awesome-alerts';
+import { TextInput , StyleSheet,  ToastAndroid, Text, View, TouchableOpacity } from 'react-native';
+import { ImagePicker } from 'expo';
+import LogoTitle from './../components/logotitle'
 import './global'
 
 export default class Edit extends Component {
@@ -14,99 +14,90 @@ export default class Edit extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pic: "",
       bioText: "",
-      por: "",
-      showAlert: false,
+      cityOfResidence: "",
+      image: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.pickImage = this.pickImage.bind(this);
+  }
+
+  async pickImage () {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      aspect: [4, 3],
+    });
+
+    if (result.cancelled == false) {
+      this.setState( {image : result.uri})
+    } 
+    console.log(result);
+
+    if (!result.cancelled) {
+      this.setState({ image: result.uri });
+    }
   }
 
   async handleSubmit () {
-    /*
-    const command = global.url + "/api/Account/updateProfile?pic=" + this.state.pic + "&bio=" + this.state.bioText+ "&por=" + this.state.por;
-    const response = await fetch(command, {method: 'POST'});
-    
-    if (!response.ok) {
-      alert("Server Down");
-      throw Error(response.statusText);
-    }
-    
-    const data = await response.json();
-    */
-    //this.setState({ showAlert: true });
-    this.props.navigation.navigate('Profile')
-  };
+ 
+    if (global.offline == false) {
+      const command = global.url + "/api/Account/UpdateProfile?userId=" + global.userID + "&image=" + this.state.image + "&bio=" + this.state.bioText+ "&cityOfResidence=" + this.state.cityOfResidence;
+      const response = await fetch(command, {method: 'POST'});
+      
+      if (!response.ok) {
+        alert("Server Down");
+        throw Error(response.statusText);
+      }
+      
+      const data = await response.json();
 
-  closeAndReturn () {
-    this.setState({ showAlert: false })
-    this.props.navigation.navigate('Profile')
-  }
+      if (data == true) {
+        ToastAndroid.showWithGravity(
+          'Profile Updated',
+          ToastAndroid.SHORT,
+          ToastAndroid.CENTER
+        );
+        this.props.navigation.navigate('Profile')
+      } else {
+        ToastAndroid.showWithGravity(
+          'Error Updating Profile',
+          ToastAndroid.SHORT,
+          ToastAndroid.CENTER
+        );
+      }
+    } else {
+      alert("Feature Unavailable in Offline Mode")
+    }
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <FontAwesome  name="hand-o-down" size={40} color='#F4A261' />
-        <ScrollView style={{maxHeight:150}} horizontal={true} showsHorizontalScrollIndicator={false}>
-          <TouchableHighlight syle={{maxWidth: 150}}>
-            <Image style={styles.avatars} source={require('../avatars/1.png')}/>
-          </TouchableHighlight>
-          <TouchableHighlight syle={{maxWidth: 150}}>
-            <Image style={styles.avatars} source={require('../avatars/2.png')}/>
-          </TouchableHighlight>
-          <TouchableHighlight syle={{maxWidth: 150}}>
-            <Image style={styles.avatars} source={require('../avatars/3.png')}/>
-          </TouchableHighlight>
-          <TouchableHighlight syle={{maxWidth: 150}}>
-            <Image style={styles.avatars} source={require('../avatars/4.png')}/>
-          </TouchableHighlight>
-          <TouchableHighlight syle={{maxWidth: 150}}>
-            <Image style={styles.avatars} source={require('../avatars/5.png')}/>
-          </TouchableHighlight>
-          <TouchableHighlight syle={{maxWidth: 150}}>
-            <Image style={styles.avatars} source={require('../avatars/6.png')}/>
-          </TouchableHighlight>
-          <TouchableHighlight syle={{maxWidth: 150}}>
-            <Image style={styles.avatars} source={require('../avatars/7.png')}/>
-          </TouchableHighlight>
-          <TouchableHighlight syle={{maxWidth: 150}}>
-            <Image style={styles.avatars} source={require('../avatars/8.png')}/>
-          </TouchableHighlight>
-          <TouchableHighlight syle={{maxWidth: 150}}>
-            <Image style={styles.avatars} source={require('../avatars/9.png')}/>
-          </TouchableHighlight>
-        </ScrollView>
-        <Text style={styles.titleText} >Place of Residence</Text>
-        <TextInput style={styles.inputBoxsm}
-          onChangeText={this.changeTextHandler}
-          value={this.state.workingComment}
-          multiline={true}
-          underlineColorAndroid='rgba(0,0,0,0)'
-          selectionColor='rgba(255,255,255,0.75)'/>
-        <Text style={styles.titleText} >Bio</Text>
-        <TextInput style={styles.inputBox}
-          onChangeText={this.changeTextHandler}
-          value={this.state.workingComment}
-          multiline={true}
-          underlineColorAndroid='rgba(0,0,0,0)'
-          selectionColor='rgba(255,255,255,0.75)' />
-        <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
-          <Text style={styles.buttonText} >Submit</Text>
-        </TouchableOpacity>
-        <View style={{marginBottom: 10}}/>
-        <AwesomeAlert
-          show={this.state.showAlert}
-          contentContainerStyle={{bottom: 50}}
-          showProgress={false}
-          title= "Profile Updated"
-          titleStyle= {{textAlign: 'center'}}
-          closeOnTouchOutside={true}
-          closeOnHardwareBackPress={false}
-          showConfirmButton={true}
-          confirmText="Cool Beans!"
-          confirmButtonColor="#E76F51"
-          onConfirmPressed={() => { this.closeAndReturn() }}
-        />
+        <LogoTitle/>
+        <View style={{ alignItems: 'center',justifyContent: 'center' }}>
+          <View style={{marginBottom: 10}}/>
+          <Text style={styles.titleText} >Place of Residence</Text>
+          <TextInput style={styles.inputBoxsm}
+            onChangeText={(value) => this.setState({cityOfResidence: value})}
+            value={this.state.cityOfResidence}
+            multiline={true}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            selectionColor='rgba(255,255,255,0.75)'/>
+          <Text style={styles.titleText} >Bio</Text>
+          <TextInput style={styles.inputBox}
+            onChangeText={(value) => this.setState({bioText: value})}
+            value={this.state.bioText}
+            multiline={true}
+            underlineColorAndroid='rgba(0,0,0,0)'
+            selectionColor='rgba(255,255,255,0.75)' />
+          <TouchableOpacity style={styles.button} onPress={this.pickImage}>
+            <Text style={styles.buttonText} >Edit Photo</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
+            <Text style={styles.buttonText} >Submit</Text>
+          </TouchableOpacity>
+          <View style={{marginBottom: 10}}/>
+        </View>
       </View>
     )
   }
@@ -116,8 +107,6 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: '#E76F51',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 
   titleText: {

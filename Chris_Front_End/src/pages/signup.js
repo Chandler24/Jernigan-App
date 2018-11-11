@@ -11,7 +11,7 @@ export default class Signup extends Component {
       username: '',
       password: '',
       passwordConfirm: '',
-      por: ''
+      cityOfResidence: ''
     };
     this.onSignupSubmit = this.onSignupSubmit.bind(this);
   }
@@ -23,7 +23,7 @@ export default class Signup extends Component {
       return
     }
 
-    const command = global.url + "/api/Account/SignUp?email=" + this.state.email + "&username=" + this.state.username + "&password=" + this.state.password;
+    const command = global.url + "/api/Account/SignUp?email=" + this.state.email + "&username=" + this.state.username + "&password=" + this.state.password + "&passwordConfirm=" + this.state.passwordConfirm + "&cityOfResidence=" + this.state.cityOfResidence;
     const response = await fetch(command, {method: 'POST'});
     
     if (!response.ok) {
@@ -34,16 +34,8 @@ export default class Signup extends Component {
     const data = await response.json();
 
     if (data.SignUpSuccessful == true) {
-      var customData = require('../testdata/account/signInRequest.json');
-      global.userID = customData.userId;
-      global.username = customData.username;
-      /*
-      var customData = data;
-      global.userID = data.userId;
-      global.username = data.username;
-      */
-      this.props.navigation.navigate('Home')
-
+      alert("Successful")
+      this.props.navigation.navigate('Login')
     } else { 
       alert("Username already taken");
     }
@@ -77,7 +69,7 @@ export default class Signup extends Component {
             secureTextEntry={true}
             placeholderTextColor='rgba(255,255,255,0.75)' />
           <TextInput style={styles.inputBox}
-            onChangeText={(value) => this.setState({por: value})}
+            onChangeText={(value) => this.setState({cityOfResidence: value})}
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholder="City of Residence"
             placeholderTextColor='rgba(255,255,255,0.75)' />

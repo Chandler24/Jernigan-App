@@ -11,6 +11,7 @@ import CommentScreen from './comment'
 import LocationScreen from './location'
 import TimelineScreen from './timeline'
 import LogoTitle from './../components/logotitle'
+import './global'
 
 class Map extends Component {
 
@@ -49,18 +50,12 @@ class Map extends Component {
   async loadLocationsMarkers() {
     
     markersArray = []
-/*
-    const command = global.url + "api/Location/GetAvailableTimelines?longitude=" + this.state.longitude + "&latitude=" + this.state.latitude;
-    const response = await fetch(command, {method: 'POST'});
- 
-    if (!response.ok) {
-      alert("Server Down");
-      throw Error(response.statusText);
-    }
 
-    const markers = await response.json();
-*/
-    var markers = require('../testdata/location/nearbyLocationsRequest.json');
+    if (global.offline == false ) {
+      var markers = require('../testdata/location/nearbyLocationsRequest.json');
+    } else {
+      var markers = require('../testdata/location/offlineLocation.json');
+    }
     this.setState({ markers: markers})
 
     for (var i = 0; i < markers.locations.length; i++) {
@@ -84,8 +79,10 @@ class Map extends Component {
 
   // Navigate to location page of search query
   search (event) {
-    this.props.navigation.navigate('Location',{ name: this.state.query })
-    this.setState({ query: ""})
+    if (global.offline == false) {
+      this.props.navigation.navigate('Location',{ name: this.state.query })
+      this.setState({ query: ""})
+    }
   }
 
   // SHows alert for a Place of Intrest selected
@@ -100,7 +97,9 @@ class Map extends Component {
 
   confirmAlert () {
     this.hideAlert();
-    this.props.navigation.navigate('Location',{ name: this.state.alertTitle, coordinates: this.state.alertCoordinates })
+    if (global.offline == false) {
+      this.props.navigation.navigate('Location',{ name: this.state.alertTitle, coordinates: this.state.alertCoordinates })
+    }
   }
  
   hideAlert = () => {

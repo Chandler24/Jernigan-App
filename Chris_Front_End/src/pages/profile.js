@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import LottieView from 'lottie-react-native';
 import './global'
 import VisitedScreen from './visited'
 import EditScreen from './editProfile'
@@ -10,7 +11,10 @@ class Profile extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { profileData:{} };
+    this.state = { 
+      profileData:{}, 
+      isLoading: true,
+    };
     this.loadProfile = this.loadProfile.bind(this);
   }
 
@@ -24,21 +28,35 @@ class Profile extends Component {
   otherwise get profile of host user
   */
   async loadProfile() {
-/*
-    const command = global.url + "api/Account/GetUserAccountInfo?userId=" + global.userID;
-    const response = await fetch(command, {method: 'POST'});
-    
-    if (!response.ok) {
-      alert("Server Down");
-      throw Error(response.statusText);
+
+    if (global.offline == false) {
+      const command = global.url + "/api/Account/GetUserAccountInfo?userId=" + global.userID;
+      const response = await fetch(command, {method: 'POST'});
+      
+      if (!response.ok) {
+        alert("Server Down");
+        throw Error(response.statusText);
+      }
+      
+      this.state.profileData = await response.json();
+      this.setState({ isLoading: false })
+    } else {
+      this.state.profileData = require('../testdata/account/profileRequest.json');
+      this.setState({ isLoading: false })
     }
-    
-    this.state.profileData = await response.json();
-*/
-    this.state.profileData = require('../testdata/account/profileRequest.json');
   }
 
   render() {
+
+    if (this.state.isLoading) {
+      return (
+        <View style={{flex: 1, backgroundColor: '#E76F51'}}>
+          <LogoTitle/>
+          <LottieView style={{paddingTop:20}} source={require('../images/world_locations')} autoPlay/>
+        </View>
+      );
+    }
+
     return (
       <View style={styles.container}>
         <LogoTitle/>
@@ -47,7 +65,7 @@ class Profile extends Component {
         </View>
         <View style={{flex: .5}}>
           <Text style={styles.usernameText}>{this.state.profileData.username}</Text>
-          <Text style={styles.residenceText}>{this.state.profileData.por}</Text>
+          <Text style={styles.residenceText}>{this.state.profileData.cityOfResidence}</Text>
           <Text style={styles.aboutText}>{this.state.profileData.bio}</Text>
         </View>
         <View style={{flex: .5}}>
@@ -99,7 +117,7 @@ const styles = StyleSheet.create({
 
   usernameText: {
     color: '#ffffff',
-    fontSize: 45,
+    fontSize: 55,
     fontWeight: '500',
     textAlign: 'center',
     textShadowColor: 'rgba(0,0,0,0.5)',
@@ -109,7 +127,7 @@ const styles = StyleSheet.create({
 
   residenceText: {
     color: '#ffffff',
-    fontSize: 20,
+    fontSize: 35,
     fontWeight: '500',
     textAlign: 'center',
     textShadowColor: 'rgba(0,0,0,0.5)',

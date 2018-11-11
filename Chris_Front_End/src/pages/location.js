@@ -5,6 +5,7 @@ import LottieView from 'lottie-react-native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import LogoTitle from './../components/logotitle'
+import { Font } from 'expo';
 
 export default class Location extends Component {
 
@@ -43,21 +44,34 @@ export default class Location extends Component {
     const name = navigation.getParam('name', 'unknown')
     const coordinate = navigation.getParam('coordinates', null)
 
-    // Uses location name in api cal to get location info object
-    const command = global.url + "/api/Location/GenerateTimeline?locationName=" + name;
-    const response = await fetch(command, {method: 'POST'});
+    if (global.offline == false) {
+      // Uses location name in api cal to get location info object
+      const command = global.url + "/api/Location/GenerateTimeline?locationName=" + name;
+      const response = await fetch(command, {method: 'POST'});
 
-    if (!response.ok) {
-      this.setState({ showAlertFail: true });
-      throw Error(response.statusText);
+      if (!response.ok) {
+        this.setState({ showAlertFail: true });
+        throw Error(response.statusText);
+      }
+
+      this.state.locationData = await response.json();
+
+      console.log(this.state.locationData);
+      this.setState({ locationName: name})
+
+      await Font.loadAsync({
+        'Backpack': require('../components/backpack.ttf'),
+      });
+
+      this.setState({ isLoading: false })
+    } else {
+      await Font.loadAsync({
+        'Backpack': require('../components/backpack.ttf'),
+      });
+      this.setState({ locationName: name})
+      this.state.locationData = require('../testdata/location/locationRequest.json');
+      this.setState({ isLoading: false })
     }
-
-    this.state.locationData = await response.json();
-
-    console.log(this.state.locationData);
-    this.setState({ locationName: name})
-    this.setState({ isLoading: false })
-    
     if (coordinate != null) {
       // add location to datavase
     }
@@ -185,17 +199,18 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
+    fontFamily: 'Backpack',
     color: '#E9C46A',
-    fontSize: 20,
-    fontWeight: '500',
+    fontSize: 40,
     textAlign: 'center',
   },
 
   titleText: {
     marginTop: 5,
     color: '#ffffff',
-    fontSize: 35,
-    fontWeight: '500',
+    width: '100%',
+    fontSize: 55,
+    fontFamily: 'Backpack',
     textAlign: 'center',
     marginHorizontal: 10,
     textShadowColor: 'rgba(0,0,0,0.6)',
@@ -210,7 +225,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: '#E76F51',
     borderRadius: 5,
-    paddingVertical: 11,
+    paddingVertical: 4,
     elevation: 5
   },
 

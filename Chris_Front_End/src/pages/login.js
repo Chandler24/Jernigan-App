@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Animated, StyleSheet, Text, View, TouchableOpacity, TextInput, Image } from 'react-native';
+import { Animated, StyleSheet, Text, View, TouchableOpacity, TextInput, Image, TouchableHighlight } from 'react-native';
 import LottieView from 'lottie-react-native';
 import './global'
 
-class FadeInView extends React.Component {
+class FadeInView extends React.Component { 
   state = {
     fadeAnim: new Animated.Value(0),  // Initial value for opacity: 0
   }
@@ -46,29 +46,44 @@ export default class Login extends Component {
   }
 
   async onLoginSubmit () {
-    const command = global.url + "/api/Account/SignIn?username=" + this.state.username + "&password=" + this.state.password;
-    const response = await fetch(command, {method: 'POST'});
     
-    if (!response.ok) {
-      alert("Server Down");
-      throw Error(response.statusText);
+    if (global.offline == false) {
+      const command = global.url + "/api/Account/SignIn?username=" + this.state.username + "&password=" + this.state.password;
+      const response = await fetch(command, {method: 'POST'});
+      
+      if (!response.ok) {
+        alert("Server Down");
+        throw Error(response.statusText);
+      }
+      
+      const data = await response.json();
+
+      if (data.SignInSuccessful == true) {
+        //var customData = require('../testdata/account/signInRequest.json');
+        //global.userID = customData.userId;
+        //global.username = customData.username;
+
+        global.userID = data.UserId;
+        global.username = this.state.usernme;
+
+        this.props.navigation.navigate('Home')
+
+      } else { 
+        alert("Invalid Username or Password");
+      }
+    } else {
+      this.props.navigation.navigate('Home')
     }
     
-    const data = await response.json();
+  }
 
-    if (data.SignInSuccessful == true) {
-      var customData = require('../testdata/account/signInRequest.json');
-      global.userID = customData.userId;
-      global.username = customData.username;
-      /*
-      var customData = data;
-      global.userID = data.userId;
-      global.username = data.username;
-      */
-      this.props.navigation.navigate('Home')
-
-    } else { 
-      alert("Invalid Username or Password");
+  toggleOfflineMode () {
+    if (global.offline == true){
+      alert("Online Mode")
+      global.offline = false
+    } else {
+      alert("Offline Mode")
+      global.offline = true
     }
   }
 
@@ -77,7 +92,9 @@ export default class Login extends Component {
       <View style={styles.welcomeContainer}>
         {/* Rotating Earth Animation */}
         <FadeInView style={{flex:1, width: "100%", bottom: 15}}>
-          <LottieView source={require('../images/world_locations')} autoPlay/>
+          <TouchableOpacity style={{flex:1}} onPress={() => {this.toggleOfflineMode()}}>
+            <LottieView source={require('../images/world_locations')} autoPlay/>
+          </TouchableOpacity>
         </FadeInView>
         {/* Logo Title */}
         <FadeInView style={{flex:.5, width: "100%", bottom: 75}}>
