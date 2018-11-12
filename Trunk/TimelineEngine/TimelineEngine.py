@@ -59,13 +59,11 @@ class TimelineEngine():
             return None
 
         for image in images:
-            if re.search(image, label) and (re.search(image, 'jpg') or re.search(image, 'png') or re.search(image, 'jpeg')):
+            if (("jpg" in image) or ("png" in image) or ("jpeg" in image)):
+                print("TEST")
                 return image
         
-        if (re.search(image, 'jpg') or re.search(image, 'png') or re.search(image, 'jpeg')):
-            return images[0]
-        else:
-            return DEFAULT_IMAGE
+        return DEFAULT_IMAGE
 
     def generateTimeline(self, locationInfo):
         """
