@@ -3,10 +3,10 @@
 
 The public repository for the Jernigan History App made by UCF students for COP 4331 - C
 
-## Sprint #2 Links
+## Sprint #3 Links
 
-[Results](https://docs.google.com/document/d/1HNkSLOOC-LnPsEjRRQlcPv5PkaRdFSNYAguaVAEaEhQ/edit?usp=sharing)
+[Results](https://docs.google.com/document/d/16mRJ-Fqu1uf84R4T-wOLNsqEeqGoY_NcbgKsY2XxISk/edit#)
 
 ## Current Functionality
 
-[Demo](https://youtu.be/0oqGERAdWJ4)
+[Demo](https://youtu.be/0oqGERAdWJ4) ## NEED NEW DEMO LINK
