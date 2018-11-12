@@ -60,7 +60,6 @@ class TimelineEngine():
 
         for image in images:
             if (("jpg" in image) or ("png" in image) or ("jpeg" in image)):
-                print("TEST")
                 return image
         
         return DEFAULT_IMAGE
