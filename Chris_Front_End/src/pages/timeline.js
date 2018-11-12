@@ -6,7 +6,7 @@ import LogoTitle from '../components/logotitle';
 
 export default class TimelineView extends Component {
 
-  // Aligns the header text with back button
+  /* Aligns the header text with back button */
   static navigationOptions = {
     headerRight: <View/>
   }

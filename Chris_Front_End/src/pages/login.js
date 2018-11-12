@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
-import { Animated, StyleSheet, Text, View, TouchableOpacity, TextInput, Image, TouchableHighlight } from 'react-native';
+import { Animated, StyleSheet, Text, View, TouchableOpacity, TextInput, Image, ToastAndroid } from 'react-native';
 import LottieView from 'lottie-react-native';
 import './global'
 
+// Fade in amimation
 class FadeInView extends React.Component { 
   state = {
-    fadeAnim: new Animated.Value(0),  // Initial value for opacity: 0
+    fadeAnim: new Animated.Value(0),  
   }
 
   componentDidMount() {
-    Animated.timing(                  // Animate over time
-      this.state.fadeAnim,            // The animated value to drive
+    Animated.timing(
+      this.state.fadeAnim,
       {
-        toValue: 1,                   // Animate to opacity: 1 (opaque)
-        duration: 5000,              // Make it take a while
+        toValue: 1,
+        duration: 5000,
       }
-    ).start();                        // Starts the animation
+    ).start();
   }
 
   render() {
     let { fadeAnim } = this.state;
 
     return (
-      <Animated.View                 // Special animatable View
-        style={{
-          ...this.props.style,
-          opacity: fadeAnim,         // Bind opacity to animated value
-        }}
-      >
+      <Animated.View style={{ ...this.props.style, opacity: fadeAnim }}>
         {this.props.children}
       </Animated.View>
     );
@@ -52,37 +48,47 @@ export default class Login extends Component {
       const response = await fetch(command, {method: 'POST'});
       
       if (!response.ok) {
-        alert("Server Down");
+        ToastAndroid.show(
+          'Server Down',
+          ToastAndroid.LONG,
+        );;
         throw Error(response.statusText);
       }
       
       const data = await response.json();
 
       if (data.SignInSuccessful == true) {
-        //var customData = require('../testdata/account/signInRequest.json');
-        //global.userID = customData.userId;
-        //global.username = customData.username;
-
         global.userID = data.UserId;
         global.username = this.state.usernme;
-
         this.props.navigation.navigate('Home')
-
       } else { 
-        alert("Invalid Username or Password");
+        ToastAndroid.show(
+          'Invalid Username or Password',
+          ToastAndroid.LONG,
+        );
       }
     } else {
       this.props.navigation.navigate('Home')
     }
-    
   }
 
+  /*
+  Offline Mode Toggle
+  This mode is here just in case the back-end and does not get completed or is buggy
+  Allows the user to view all UI features without needing any api calls
+  */
   toggleOfflineMode () {
     if (global.offline == true){
-      alert("Online Mode")
+      ToastAndroid.show(
+        'Online Mode',
+        ToastAndroid.LONG,
+      );
       global.offline = false
     } else {
-      alert("Offline Mode")
+      ToastAndroid.show(
+        'Offline Mode',
+        ToastAndroid.LONG,
+      );
       global.offline = true
     }
   }

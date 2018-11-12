@@ -28,7 +28,8 @@ export default class Comment extends Component {
 
   /* Loads all comments of current location */
   async loadComments () {
-/*
+    // Calls Back-end for location comments (endpoint not finished)
+    /*
     const command = global.url + "api/Location/getComments?locationId=" + passedIn.locationId;
     const response = await fetch(command, {method: 'POST'});
     
@@ -38,11 +39,13 @@ export default class Comment extends Component {
     }
     
     this.state.previousComments = await response.json();
-*/
+    */
+
+    // Grabs Comments from local JSON file
     this.state.previousComments = require('../testdata/location/commentsRequest.json');
 
-    for (var i = 0; i < this.state.previousComments.comments.length; i++)
-    {
+    // Populates comments array
+    for (var i = 0; i < this.state.previousComments.comments.length; i++) {
       this.state.comments.push(<CommentElement key={i} username={this.state.previousComments.comments[i].user} comment= {this.state.previousComments.comments[i].body}/>)
     }
   }
@@ -53,7 +56,8 @@ export default class Comment extends Component {
     let notEmpty = this.state.workingComment.trim().length > 0;
 
     if (notEmpty) {
-/*
+      // Calls Back-end to post comment (endpoint not finished)
+      /*
       const command = global.url + "api/Location/getComments?locationId=" + passedIn.locationId + "&userId" + global.userId + "&comment" + this.state.workingComment;
       const response = await fetch(command, {method: 'POST'});
       
@@ -61,7 +65,9 @@ export default class Comment extends Component {
         alert("Server Down");
         throw Error(response.statusText);
       }
-*/
+      */
+
+      // Adds submitted comment to (local) comments
       this.setState( prevState => {
         let { comments } = prevState;
         return {

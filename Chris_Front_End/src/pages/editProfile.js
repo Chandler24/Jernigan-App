@@ -22,22 +22,20 @@ export default class Edit extends Component {
     this.pickImage = this.pickImage.bind(this);
   }
 
+  // Alows user to pick an image from their phone 
   async pickImage () {
     let result = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
       aspect: [4, 3],
     });
 
-    if (result.cancelled == false) {
+    if (!result.cancelled) {
       this.setState( {image : result.uri})
     } 
     console.log(result);
-
-    if (!result.cancelled) {
-      this.setState({ image: result.uri });
-    }
   }
 
+  // Submits the edited fields to the server
   async handleSubmit () {
  
     if (global.offline == false) {
@@ -74,6 +72,7 @@ export default class Edit extends Component {
     return (
       <View style={styles.container}>
         <LogoTitle/>
+        <View style={{marginBottom: 75}}/>
         <View style={{ alignItems: 'center',justifyContent: 'center' }}>
           <View style={{marginBottom: 10}}/>
           <Text style={styles.titleText} >Place of Residence</Text>
