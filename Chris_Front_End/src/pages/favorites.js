@@ -16,7 +16,7 @@ class Favorites extends Component {
 
   /* Loads all favorites of current user */
   async loadFavorites () {
-/*
+    /*
     const command = global.url + "api/Location/GetVisitedLocations?userId=" + global.userID;
     const response = await fetch(command, {method: 'POST'});
     
@@ -26,7 +26,7 @@ class Favorites extends Component {
     }
     
     var locations = await response.json();
-*/
+    */
     var locations = require('../testdata/account/favoritesRequest.json');
     favArray = []
 
@@ -39,22 +39,23 @@ class Favorites extends Component {
     }
   }
 
-    render() {
-      return (
-        <View style={styles.container}>
-          <LogoTitle/>
-          <View>
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <View style={{margin : 6}}/>
-              {favArray}
-              <View style={{marginBottom: 150}}/>
-            </ScrollView>
-          </View>
+  render() {
+    return (
+      <View style={styles.container}>
+        <LogoTitle/>
+        <View>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={{margin : 6}}/>
+            {favArray}
+            <View style={{marginBottom: 150}}/>
+          </ScrollView>
         </View>
+      </View>
     )
   }
 }
 
+// Allows users to navigate from the favorites screen to a location
 export default createStackNavigator({
   Favorites: {
     screen: Favorites
@@ -69,7 +70,7 @@ export default createStackNavigator({
       header: null
     }
   }
- );
+);
 
 const styles = StyleSheet.create({
   container: {

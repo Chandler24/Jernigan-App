@@ -7,6 +7,7 @@ import { Location, Permissions } from 'expo';
 import LottieView from 'lottie-react-native';
 import AwesomeAlert from 'react-native-awesome-alerts';
 
+/* Loads in pages to navigate to */
 import CommentScreen from './comment'
 import LocationScreen from './location'
 import TimelineScreen from './timeline'
@@ -37,6 +38,7 @@ class Map extends Component {
     this.loadLocationsMarkers()
   }
 
+  /* Grabs User Location */
   async getLocationAsync () {
     this.setState({ isLoading: true })
     await Permissions.askAsync(Permissions.LOCATION);
@@ -85,7 +87,7 @@ class Map extends Component {
     }
   }
 
-  // SHows alert for a Place of Intrest selected
+  // Shows alert for a Place of Intrest selected
   showAlert (event) {
     console.log(event)
     var temp = event.name

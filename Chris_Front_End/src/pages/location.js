@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, TouchableHighlight, ScrollView, Modal, ToastAndroid } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, TouchableHighlight, ToastAndroid , Modal } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
 import LottieView from 'lottie-react-native';
 import AwesomeAlert from 'react-native-awesome-alerts';
@@ -15,7 +15,6 @@ export default class Location extends Component {
       locationName: "",
       locationData:{},
       isLoading: true,
-      showAlertFav: false,
       showAlertFail: false,
       imageView: false
     };
@@ -57,6 +56,13 @@ export default class Location extends Component {
       this.state.locationData = await response.json();
 
       console.log(this.state.locationData);
+
+      // Notifies user is a timeline is unavailable for the current location
+      if (this.state.locationData.Info.length < 1 || this.state.locationData.Info == undefined){
+        this.setState({ showAlertFail: true });
+        return;
+      }
+
       this.setState({ locationName: name})
 
       await Font.loadAsync({
@@ -65,6 +71,7 @@ export default class Location extends Component {
 
       this.setState({ isLoading: false })
     } else {
+      // Offline Mode
       await Font.loadAsync({
         'Backpack': require('../components/backpack.ttf'),
       });
@@ -72,14 +79,16 @@ export default class Location extends Component {
       this.state.locationData = require('../testdata/location/locationRequest.json');
       this.setState({ isLoading: false })
     }
+
     if (coordinate != null) {
-      // add location to datavase
+      // add location to database
     }
   }
 
   /* Adds current location to user's favorites */ 
   async addToFavorites () {
-/*
+    // Endpoint not made yet :\
+    /*
     const command = global.url + "api/Location/AddFavoriteLocation?locationId=" + passedIn.locationId + "&userId" + global.userId;
     const response = await fetch(command, {method: 'POST'});
     
@@ -89,13 +98,18 @@ export default class Location extends Component {
     } else {
       alert('Added to Favorites!')
     }
-*/
-    this.setState({ showAlertFav: true });
+    */
+    ToastAndroid.showWithGravity(
+      'Added of Favorites!',
+      ToastAndroid.SHORT,
+      ToastAndroid.CENTER
+    )
   }
 
   /* Submits User's picked rating */
   async submitRating () {
-/*
+  // Endpoint not made yet :\
+  /*
     const command = global.url + "api/Location/submitRating?rating=" + passedIn.rating + "&userId" + global.userId;
     const response = await fetch(command, {method: 'POST'});
     
@@ -105,14 +119,16 @@ export default class Location extends Component {
     } else {
       alert('Thanks!')
     }
-*/
+  */
   }
 
+  // Used with "Unavailable Timeline", closes alert and navigates back to Map
   closeAndReturn () {
     this.setState({ showAlertFail: false })
     this.props.navigation.navigate('Map')
   }
 
+  // Opens the image viewer and notifies user how to close
   openImage () {
     ToastAndroid.show(
       'Swipe Down To Close',
@@ -125,6 +141,7 @@ export default class Location extends Component {
 
     const images = [{url: this.state.locationData.Image}]
 
+    // Loading screen for location
     if (this.state.isLoading) {
       return (
         <View style={{flex: 1, backgroundColor: '#E76F51'}}>
@@ -171,19 +188,6 @@ export default class Location extends Component {
           <Text style={styles.buttonText} >Comment</Text>
         </TouchableOpacity>
         <View style={{marginBottom: 20}}/>
-        <AwesomeAlert
-          show={this.state.showAlertFav}
-          contentContainerStyle={{bottom: 20}}
-          showProgress={false}
-          title= "Added to Favorites!"
-          titleStyle= {{textAlign: 'center'}}
-          closeOnTouchOutside={true}
-          closeOnHardwareBackPress={false}
-          showConfirmButton={true}
-          confirmText="Okay"
-          confirmButtonColor="#E76F51"
-          onConfirmPressed={() => { this.setState({ showAlertFav: false }) }}
-        />
       </View>
       
     )

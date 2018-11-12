@@ -23,31 +23,33 @@ class Profile extends Component {
     this.loadProfile()
   }
 
-  /* Loads all comments of current location 
-  Idea: id argument is passed in, generarate profiel of that id
+  /* 
+  Loads all comments of current location 
+  Idea: id argument is passed in, generarate profile of that id
   otherwise get profile of host user
   */
   async loadProfile() {
-
-    if (global.offline == false) {
-      const command = global.url + "/api/Account/GetUserAccountInfo?userId=" + global.userID;
-      const response = await fetch(command, {method: 'POST'});
-      
-      if (!response.ok) {
-        alert("Server Down");
-        throw Error(response.statusText);
-      }
-      
-      this.state.profileData = await response.json();
-      this.setState({ isLoading: false })
-    } else {
-      this.state.profileData = require('../testdata/account/profileRequest.json');
-      this.setState({ isLoading: false })
+    // Endpoint not finished >:(
+    /*
+    const command = global.url + "/api/Account/GetUserAccountInfo?userId=" + global.userID;
+    const response = await fetch(command, {method: 'POST'});
+    
+    if (!response.ok) {
+      alert("Server Down");
+      throw Error(response.statusText);
     }
+    
+    this.state.profileData = await response.json();
+    this.setState({ isLoading: false })
+    */
+    this.state.profileData = require('../testdata/account/profileRequest.json');
+    this.setState({ isLoading: false })
+
   }
 
   render() {
 
+    // Loading Screen
     if (this.state.isLoading) {
       return (
         <View style={{flex: 1, backgroundColor: '#E76F51'}}>
@@ -61,7 +63,7 @@ class Profile extends Component {
       <View style={styles.container}>
         <LogoTitle/>
         <View style={{flex:1, maxHeight:170, width: "100%"}}>
-          
+          <Image style={styles.pic} source={require('../images/profilePic.jpg')}/>
         </View>
         <View style={{flex: .5}}>
           <Text style={styles.usernameText}>{this.state.profileData.username}</Text>
@@ -108,11 +110,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  buttonText: {
-    color: '#E9C46A',
-    fontSize: 20,
-    fontWeight: '500',
-    textAlign: 'center',
+  pic: {
+    flex: 1,
+    width: null,
+    height: null,
+    resizeMode: 'contain',
+    margin: 10,
+    borderRadius: 170
   },
 
   usernameText: {
@@ -142,6 +146,13 @@ const styles = StyleSheet.create({
     margin: 10
   },
 
+  buttonText: {
+    color: '#E9C46A',
+    fontSize: 20,
+    fontWeight: '500',
+    textAlign: 'center',
+  },
+
   button: {
     width: 310,
     height: 50,
@@ -150,22 +161,5 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingVertical: 11,
     elevation: 5,
-  },
-
-  headerImage: {
-    width: 140, 
-    height: 60,
-    marginBottom: 12,
-    resizeMode: 'contain',
-    alignSelf: 'center',
-
-  },
-
-  avatars: {
-    flex: 1,
-    width: null,
-    height: null,
-    resizeMode: 'contain',
-    margin: 10
   },
 });

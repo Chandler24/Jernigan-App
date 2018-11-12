@@ -6,7 +6,7 @@ import FavElement from '../components/favElement'
 
 export default class Visited extends Component {
 
-  // Aligns the header text with back button
+  /* Aligns the header text with back button */
   static navigationOptions = {
     headerRight: <View/>
   }
@@ -18,7 +18,8 @@ export default class Visited extends Component {
 
   /* Loads all comments of current location */
   async loadVisitedLocations () {
-/*
+    // Endpoint not finished yet >:O
+    /*
     const command = global.url + "api/Location/GetVisitedLocations?userId=" + global.userID;
     const response = await fetch(command, {method: 'POST'});
     
@@ -28,12 +29,11 @@ export default class Visited extends Component {
     }
     
     var locations = await response.json();
-*/
+    */
     var locations = require('../testdata/account/visitedRequest.json');
     visitedArray = []
 
-    for (var i = 0; i < Object.keys(locations.visitedLocations).length; i++)
-    {
+    for (var i = 0; i < Object.keys(locations.visitedLocations).length; i++) {
       visitedArray.push(<FavElement
         key = {i} 
         imageUri={locations.visitedLocations[i].image} 
@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: '#E9C46A'
-    //backgroundColor: '#EFE8D5'
   },
 
   headerText: {

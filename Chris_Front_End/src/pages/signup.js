@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ToastAndroid } from 'react-native';
 import './global'
 
 export default class Signup extends Component {
@@ -18,8 +18,12 @@ export default class Signup extends Component {
 
   async onSignupSubmit () {
 
+    // Check if passwords match
     if (this.state.password != this.state.passwordConfirm) {
-      alert("Passwords do not match")
+      ToastAndroid.show(
+        'Passwords do not match',
+        ToastAndroid.LONG,
+      );
       return
     }
 
@@ -27,17 +31,26 @@ export default class Signup extends Component {
     const response = await fetch(command, {method: 'POST'});
     
     if (!response.ok) {
-      alert("Server Down");
+      ToastAndroid.show(
+        'Server Down',
+        ToastAndroid.LONG,
+      );
       throw Error(response.statusText);
     }
     
     const data = await response.json();
 
     if (data.SignUpSuccessful == true) {
-      alert("Successful")
+      ToastAndroid.show(
+        'Successful',
+        ToastAndroid.LONG,
+      );
       this.props.navigation.navigate('Login')
     } else { 
-      alert("Username already taken");
+      ToastAndroid.show(
+        'Username already taken',
+        ToastAndroid.LONG,
+      );
     }
   }
     
