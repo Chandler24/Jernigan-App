@@ -125,9 +125,9 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
+    fontFamily: 'Backpack',
     color: '#E9C46A',
-    fontSize: 20,
-    fontWeight: '500',
+    fontSize: 40,
     textAlign: 'center'
   },
 
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#E76F51',
     borderRadius: 5,
-    paddingVertical: 11,
+    paddingVertical: 4,
     elevation: 5
   },
 

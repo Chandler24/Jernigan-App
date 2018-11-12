@@ -120,9 +120,9 @@ const styles = StyleSheet.create({
   },
 
   usernameText: {
+    fontFamily: 'Backpack',
     color: '#ffffff',
-    fontSize: 55,
-    fontWeight: '500',
+    fontSize: 80,
     textAlign: 'center',
     textShadowColor: 'rgba(0,0,0,0.5)',
     textShadowOffset: {width: -1, height: 1},
@@ -130,9 +130,9 @@ const styles = StyleSheet.create({
   },
 
   residenceText: {
+    fontFamily: 'Backpack',
     color: '#ffffff',
     fontSize: 35,
-    fontWeight: '500',
     textAlign: 'center',
     textShadowColor: 'rgba(0,0,0,0.5)',
     textShadowOffset: {width: -1, height: 1},
@@ -147,9 +147,9 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
+    fontFamily: 'Backpack',
     color: '#E9C46A',
-    fontSize: 20,
-    fontWeight: '500',
+    fontSize: 40,
     textAlign: 'center',
   },
 
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: '#2A9D8F',
     borderRadius: 5,
-    paddingVertical: 11,
+    paddingVertical: 4,
     elevation: 5,
   },
 });

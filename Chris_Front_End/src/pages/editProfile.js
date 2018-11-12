@@ -109,16 +109,17 @@ const styles = StyleSheet.create({
   },
 
   titleText: {
+    fontFamily: 'Backpack',
     color: '#ffffff',
-    fontSize: 20,
-    fontWeight: '500',
+    fontSize: 50,
+    width: '100%',
     textAlign: 'center',
   },
 
   buttonText: {
+    fontFamily: 'Backpack',
     color: '#E9C46A',
-    fontSize: 20,
-    fontWeight: '500',
+    fontSize: 40,
     textAlign: 'center',
   },
 
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: '#2A9D8F',
     borderRadius: 5,
-    paddingVertical: 11,
+    paddingVertical: 4,
     elevation: 5
   },
 
@@ -148,9 +149,7 @@ const styles = StyleSheet.create({
   inputBox: {
     width: "90%",
     height: 150,
-    borderWidth: 2,
     backgroundColor: '#ffffff',
-    borderColor: "#264653",
     borderRadius: 10,
     elevation: 5,
     paddingHorizontal: 20,
@@ -160,9 +159,7 @@ const styles = StyleSheet.create({
   inputBoxsm: {
     width: "90%",
     height: 40,
-    borderWidth: 2,
     backgroundColor: '#ffffff',
-    borderColor: "#264653",
     borderRadius: 10,
     elevation: 5,
     paddingHorizontal: 20,

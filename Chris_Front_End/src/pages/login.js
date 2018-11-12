@@ -168,9 +168,9 @@ const styles = StyleSheet.create({
   },
 
   button1Text: {
+    fontFamily: 'Backpack',
     color: '#E9C46A',
-    fontSize: 20,
-    fontWeight: '500',
+    fontSize: 40,
     textAlign: 'center',
   },
 
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#E76F51',
     //backgroundColor: 'rgb(248, 147, 48)',
     borderRadius: 5,
-    paddingVertical: 11,
+    paddingVertical: 4,
     elevation: 5
   },
 

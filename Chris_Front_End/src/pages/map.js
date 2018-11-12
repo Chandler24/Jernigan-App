@@ -83,8 +83,8 @@ class Map extends Component {
   search (event) {
     if (global.offline == false) {
       this.props.navigation.navigate('Location',{ name: this.state.query })
-      this.setState({ query: ""})
     }
+    this.setState({ query: ""})
   }
 
   // Shows alert for a Place of Intrest selected
@@ -110,6 +110,7 @@ class Map extends Component {
   
   render() {
     const {showAlert} = this.state;
+    var mapStyle = require('../components/mapStyle.json')
 
     if (this.state.isLoading) {
       return (
@@ -119,12 +120,12 @@ class Map extends Component {
         </View>
       );
     }
-
+    
     return (
       <View style={styles.container}>
-
         <MapView
           style={styles.map}
+          customMapStyle={mapStyle.map}
           showsUserLocation= {true}
           followsUserLocation= {true}
           showsScale= {false}
@@ -150,17 +151,10 @@ class Map extends Component {
             onChangeText={(value) => this.setState({query: value})}
             value={this.state.query}
             underlineColorAndroid='rgba(0,0,0,0)'
-            placeholder="Enter Name of Location"
-            placeholderTextColor='rgba(38, 70, 83, 0.5)'
-            selectionColor='rgba(231, 111, 81, .15)' />
-            <TouchableOpacity onPress={this.search}>
-            <FontAwesome 
-              style={styles.shadow}
-              name="telegram" 
-              size={50} 
-              color='rgba(231, 111, 81, 1)' 
-              margin='5' />
-            </TouchableOpacity>
+            placeholder="Location Search"
+            placeholderTextColor='#DCDCDC'
+            selectionColor='rgba(231, 111, 81, .15)'
+            onSubmitEditing={this.search} />
         </View>
         <AwesomeAlert
           show={showAlert}
@@ -239,15 +233,17 @@ const styles = StyleSheet.create({
   },
 
   inputBox: {
+    fontFamily: 'Backpack',
     flex:1,
     height: 50,
     backgroundColor: '#ffffff',
     borderRadius: 10,
     paddingHorizontal: 20,
     color: '#264653',
-    marginHorizontal: 7,
-    marginVertical: 7,
-    elevation: 5,
-    fontSize: 25
+    marginHorizontal: 5,
+    marginVertical: 5,
+    elevation: 6,
+    fontSize: 40,
+    textAlign: 'center',
   }
 });

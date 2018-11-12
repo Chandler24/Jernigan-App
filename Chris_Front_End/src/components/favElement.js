@@ -34,12 +34,12 @@ const styles = StyleSheet.create({
 
   title: {
     color: '#ffffff',
-    fontSize: 20,
-    fontWeight: '500',
+    fontSize: 30,
+    fontFamily: 'Backpack',
     textAlign: 'center',
     textShadowColor: 'rgba(0,0,0,0.5)',
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 10,
-    paddingBottom: 5
+    paddingBottom: 3
   },
 });

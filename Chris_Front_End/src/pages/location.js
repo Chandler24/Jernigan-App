@@ -64,17 +64,9 @@ export default class Location extends Component {
       }
 
       this.setState({ locationName: name})
-
-      await Font.loadAsync({
-        'Backpack': require('../components/backpack.ttf'),
-      });
-
       this.setState({ isLoading: false })
     } else {
       // Offline Mode
-      await Font.loadAsync({
-        'Backpack': require('../components/backpack.ttf'),
-      });
       this.setState({ locationName: name})
       this.state.locationData = require('../testdata/location/locationRequest.json');
       this.setState({ isLoading: false })
@@ -164,6 +156,7 @@ export default class Location extends Component {
       );
     }
 
+    // Location Screen
     return (
       <View style={styles.container}>
         <Modal visible={this.state.imageView} transparent={true} onRequestClose={() => this.setState({ imageView: false })}>

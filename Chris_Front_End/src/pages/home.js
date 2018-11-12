@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createBottomTabNavigator } from 'react-navigation';
-import { MaterialCommunityIcons, Entypo, MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { SimpleLineIcons, FontAwesome } from '@expo/vector-icons';
 
 import MapScreen from './map'
 import ProfileScreen from './profile'
@@ -21,7 +21,7 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: 'Map',
       tabBarIcon: ({ tintColor }) => (
-        <FontAwesome name="map-o" size={32} color={tintColor} />
+        <FontAwesome name="map-o" size={30} color={tintColor} />
       )
     }
   },
@@ -30,7 +30,7 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: 'Profile',
       tabBarIcon: ({ tintColor }) => (
-        <Entypo name="user" size={32} color={tintColor} />
+        <SimpleLineIcons name="user" size={30} color={tintColor} />
       )
     }
   },
@@ -39,15 +39,16 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarLabel: 'Favorites',
       tabBarIcon: ({ tintColor }) => (
-        <MaterialIcons name="favorite" size={32} color={tintColor} />
+        <FontAwesome name="heart-o" size={30} color={tintColor} />
       )
     }
   },
 },{
-  /* Settings and styles for bottom tab navigator */
+  /* TabNavigator Config */
   initialRouteName: 'Map',
   order: ['Profile', 'Map', 'Favorites'],
   tabBarOptions: {
+    showLabel: false,
     activeTintColor: '#E9C46A',
     inactiveTintColor: 'white',
     showIcon: true,
@@ -55,11 +56,11 @@ const TabNavigator = createBottomTabNavigator({
       fontSize: 15
     },
     tabStyle: {
-      height: 65
+      height: 55
     },
     style: {
       backgroundColor: '#264653',
-      height: 65,
+      height: 55,
       borderTopWidth:1, 
       elevation: 15
     }

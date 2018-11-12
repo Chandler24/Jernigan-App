@@ -1,0 +1,19 @@
+{
+  "map" : [
+    {
+        "featureType": "all",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "lightness": "-15"
+            },
+            {
+                "saturation": "13"
+            }
+        ]
+    }
+]
+}
