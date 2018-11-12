@@ -15,5 +15,8 @@ namespace CaerusSoft.Jernigan.Contracts
 
         [OperationContract]
         SignInResponse SignIn(SignInRequest request);
+
+        [OperationContract]
+        void UpdateProfile(UpdateProfileRequest request);
     }
 }

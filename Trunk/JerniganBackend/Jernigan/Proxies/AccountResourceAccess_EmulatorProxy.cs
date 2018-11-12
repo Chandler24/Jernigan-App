@@ -23,5 +23,10 @@ namespace CaerusSoft.Jernigan.Proxies
         {
             return base.Channel.SignUp(request);
         }
+
+        public void UpdateProfile(UpdateProfileRequest request)
+        {
+            base.Channel.UpdateProfile(request);
+        }
     }
 }

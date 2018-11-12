@@ -70,5 +70,8 @@
     <Build Include="Stored Procedures\AddFavoriteLocation.sql" />
     <Build Include="Stored Procedures\DeleteFavoriteLocation.sql" />
     <Build Include="Stored Procedures\LeaveFeedback.sql" />
+    <Build Include="Stored Procedures\SignIn.sql" />
+    <Build Include="Stored Procedures\SignUp.sql" />
+    <Build Include="Stored Procedures\UpdateProfile.sql" />
   </ItemGroup>
 </Project>

@@ -6,5 +6,5 @@
 	[Password] NVARCHAR(128) NOT NULL,
 	[CityOfResidence] NVARCHAR(256) NOT NULL,
 	[AboutMe] NVARCHAR(1024) NULL,
-	[Picture] INT NULL
+	[Picture] NVARCHAR(MAX) NULL
 )

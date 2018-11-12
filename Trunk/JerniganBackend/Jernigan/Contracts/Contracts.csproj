@@ -54,6 +54,7 @@
     <Compile Include="DataContracts\SignUpRequest.cs" />
     <Compile Include="DataContracts\SignUpResponse.cs" />
     <Compile Include="DataContracts\TimelineCheckResponse.cs" />
+    <Compile Include="DataContracts\UpdateProfileRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RatingEnum.cs" />
     <Compile Include="ServiceContracts\IAccountManager.cs" />

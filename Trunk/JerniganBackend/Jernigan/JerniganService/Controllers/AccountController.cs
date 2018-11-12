@@ -7,6 +7,7 @@ using System.Web.Http;
 using CaerusSoft.Jernigan.Contracts;
 using JerniganService.Models;
 using CaerusSoft.Jernigan.AccountManager;
+using System.Web.Http.Results;
 
 namespace JerniganService.Controllers
 {
@@ -29,6 +30,7 @@ namespace JerniganService.Controllers
             return response;
         }
         
+        // Account creation user story
         [HttpPost]
         [Route("api/Account/SignUp")]
         public SignUpResponse SignUp(string email, string username, string password, string passwordConfirm, string cityOfResidence)
@@ -59,11 +61,29 @@ namespace JerniganService.Controllers
             return response;
         }
 
+        // Save basic information user story
         [HttpPost]
-        [Route("api/Account/AddBio")]
-        public void AddBio(int userId, string bio)
+        [Route("api/Account/UpdateProfile")]
+        public bool UpdateProfile(int userId, string image, string bio, string cityOfResidence)
         {
-
+            bool result = true;
+            try
+            {
+                IAccountManager accountManager = new AccountManager();
+                UpdateProfileRequest request = new UpdateProfileRequest()
+                {
+                    Bio = bio,
+                    Picture = image,
+                    CityOfResidence = cityOfResidence,
+                    UserId = userId
+                };
+                accountManager.UpdateProfile(request);
+            }
+            catch (Exception ex)
+            {
+                result = false;
+            }
+            return result;
         }
 
         [HttpPost]

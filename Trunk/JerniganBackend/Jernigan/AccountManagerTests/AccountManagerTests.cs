@@ -37,16 +37,34 @@ namespace CaerusSoft.Jernigan.AccountManager.Tests
             // Arrange
             SignUpRequest request = new SignUpRequest()
             {
-                ConfirmPassword = "Test",
-                Password = "Test",
-                Username = "test@test.com"
+                CityOfResidence = "Orlando",
+                ConfirmPassword = "Test123$",
+                Email = "link@hyrule.net",
+                Password = "Test123$",
+                Username = "HyruleHero"
             };
 
             // Act
             SignUpResponse response = m_AccountManager.SignUp(request);
 
             // Assert
-            Assert.AreEqual(true, response.SignUpSuccessful);
+            Assert.IsTrue(response.SignUpSuccessful);
+        }
+
+        [TestMethod()]
+        public void UpdateProfile()
+        {
+            // Arrange
+            UpdateProfileRequest request = new UpdateProfileRequest()
+            {
+                Bio = "Testing Bio",
+                CityOfResidence = "Orlando",
+                Picture = "Test",
+                UserId = 0
+            };
+
+            // Assert
+            m_AccountManager.UpdateProfile(request);
         }
     }
 }

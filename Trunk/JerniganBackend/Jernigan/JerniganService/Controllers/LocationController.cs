@@ -13,6 +13,7 @@ namespace JerniganService.Controllers
 {
     public class LocationController : ApiController
     {
+        // View users comments user story
         [HttpPost]
         [Route("api/Location/GetLocationInfo")]
         public LocationInfo GetLocationInfo(Guid locationId)
@@ -74,6 +75,7 @@ namespace JerniganService.Controllers
             };
         }
 
+        // Comment user story
         [HttpPost]
         [Route("api/Location/LeaveFeedback")]
         public void LeaveFeedback(Guid locationId, Guid userId, string comments, int rating)
@@ -81,6 +83,7 @@ namespace JerniganService.Controllers
 
         }
 
+        // All timeline generation user stories
         [HttpPost]
         [Route("api/Location/GenerateTimeline")]
         public JsonResult<TimelineModel> GenerateTimeline (string locationName)

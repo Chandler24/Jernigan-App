@@ -66,5 +66,21 @@ namespace CaerusSoft.Jernigan.AccountResourceAccess.Tests
             // Assert
             Assert.AreEqual(true, response.SignUpSuccessful);
         }
+        
+        [TestMethod()]
+        public void UpdateProfileTest()
+        {
+            // Arrange
+            UpdateProfileRequest request = new UpdateProfileRequest()
+            {
+                Bio = "Testing bio",
+                CityOfResidence = "Orlando",
+                Picture = "Test",
+                UserId = 0
+            };
+
+            // Act 
+            m_AccountResourceAccess.UpdateProfile(request);
+        }
     }
 }
