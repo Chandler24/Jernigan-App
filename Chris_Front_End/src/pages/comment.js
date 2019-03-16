@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, StyleSheet, View, TextInput, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import './global'
 
 import CommentElement from './../components/commentElement'
 
@@ -71,7 +72,7 @@ export default class Comment extends Component {
       this.setState( prevState => {
         let { comments } = prevState;
         return {
-          comments: comments.concat(<CommentElement key={0} username={"User"} comment= {this.state.workingComment}/>),
+          comments: comments.concat(<CommentElement key={0} username={"Knightro"} comment= {this.state.workingComment}/>),
           workingComment: ""
         };
       });  
