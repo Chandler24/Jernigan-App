@@ -1,7 +1,3 @@
-## Current Functionality
-
-![Image](https://i.imgur.com/huHoyo0.gif)
-
 ## Table of Contents
 
 * [Updating to New Releases](#updating-to-new-releases)
